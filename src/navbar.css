@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "Bebas";
+    src: url("./LeagueSpartan-Bold.otf");
+}
+
+.mainHeading{
+    color: white;
+    margin-top: 0;
+    background-color: #080532;
+    display: flex;
+    justify-content: center;
+    font-size: 3.4rem;
+    font-family: "Bebas";
+
+}
+
+.mmm{
+    color: #721ad2;
+}

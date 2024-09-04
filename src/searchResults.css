@@ -1,0 +1,27 @@
+.resultsAndPlaylist{
+    display: grid;
+    grid-template-columns: 50% 30%;
+    grid-template-rows: 100%;
+    width: 95%;
+    column-gap: 20%;
+    margin-top: 10%;
+}
+
+.results{
+    background-color: #080532;
+    height: 100vh;
+    width: 100%;;
+    border-radius: 20px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    
+}
+
+.addToPlaylist{
+    background-color: #080532;
+    height: 100vh;
+    width: 100%;
+    border-radius: 20px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
