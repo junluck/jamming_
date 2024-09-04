@@ -63,9 +63,9 @@ function SearchBar(){
     const clientSecret= "55f4e240e7f74362b502b637ddb94ed1"
     const redirect_uri = "http://localhost:3000/"
     const authString = btoa(`${clientId}:${clientSecret}`);
-    const authorizationLink = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&scope=playlist-modify-public user-read-private`
+    const authorizationLink = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&show_dialog=true&scope=playlist-modify-public user-read-private`
    
-
+    console.log(document.cookie)
     async function getAuth(){
         try{
             const response = await fetch("https://accounts.spotify.com/api/token",{
@@ -91,7 +91,6 @@ function SearchBar(){
     }
 
     async function getAuthForPlaylist(){
-        
         window.location.href=authorizationLink
        
     }
