@@ -4,8 +4,9 @@ import NavBar from "./navbar.js"
 import SearchBar from "./searchBar.js"
 import React,{useState, useEffect} from "react";
 
+
 function App(){
-  
+   
     class Track{
         constructor(songName, artist, album, link, trackId){
           this._songName = songName;
@@ -62,12 +63,13 @@ function App(){
     const [authorization, setAuthorization] = useState("")
     const [redirected, setRedirected] = useState("");
     const [playlistId, setPlaylistId] = useState("")
-    const clientId = "64660deecfca4469b34a4c5e7fa64edc"
-    const clientSecret= "55f4e240e7f74362b502b637ddb94ed1"
+    const clientId = process.env.REACT_APP_D
+    const clientSecret= process.env.REACT_APP_S
     const redirect_uri = "http://localhost:3000/"
     const authString = btoa(`${clientId}:${clientSecret}`);
     const authorizationLink = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&show_dialog=true&scope=playlist-modify-public user-read-private`
    
+    console.log(clientId)
     async function getAuth(){
         try{
             const response = await fetch("https://accounts.spotify.com/api/token",{
@@ -236,11 +238,16 @@ function App(){
         )}
     }
 
+    function resetResults(){
+        setSearchResults([]);
+        
+    }
+
    
   return (
       <>
       <NavBar />
-      <SearchBar convertUrlIntoCode={convertUrlIntoCode} getAuth={getAuth} getAuthForPlaylist={getAuthForPlaylist} getSong={getSong} makePlaylist={makePlaylist} handlerSubmit={handlerSubmit} setSearch={setSearch} setSearchResults={setSearchResults} setPlaylistName={setPlaylistName} setaccessToken={setaccessToken} setauthorizationCode={setauthorizationCode} setaccessTokenTwoo={setaccessTokenTwoo} setAddPlaylist={setAddPlaylist} searchResults={searchResults} addPlaylist={addPlaylist}/>
+      <SearchBar getAuthForPlaylist={getAuthForPlaylist} makePlaylist={makePlaylist} handlerSubmit={handlerSubmit} setSearch={setSearch} setPlaylistName={setPlaylistName} setAddPlaylist={setAddPlaylist} searchResults={searchResults} addPlaylist={addPlaylist} resetResults={resetResults} />
       </>
   );
 }

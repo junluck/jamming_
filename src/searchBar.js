@@ -2,7 +2,7 @@ import React from "react";
 import "./searchBar.css"
 
 
-function SearchBar({getAuthForPlaylist,makePlaylist,handlerSubmit, setSearch,setPlaylistName,setAddPlaylist,searchResults,addPlaylist}){
+function SearchBar({getAuthForPlaylist, makePlaylist, handlerSubmit, setSearch, setPlaylistName, setAddPlaylist, searchResults, addPlaylist, resetResults}){
 
 
     return(
@@ -14,7 +14,10 @@ function SearchBar({getAuthForPlaylist,makePlaylist,handlerSubmit, setSearch,set
             <button id="linkToSpotify" onClick={getAuthForPlaylist}>Link your Spotify</button>
             <div className="resultsAndPlaylist">
                 <div className="results">
-                <h2>Results</h2>
+                <div className="ResultAndClear">
+                    <h2>Results</h2>
+                    <img src="/rewind.svg" class="clearEmblem" onClick={resetResults} />
+                </div>
                 {searchResults.map((element)=>{
                     return (
                         <div className="searchResults">
