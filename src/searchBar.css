@@ -80,7 +80,7 @@ input[type="text"]{
     grid-template-columns: 5% 90% 5%;
     grid-template-rows: 35% 35% 30%;
     flex-direction: column;
- 
+    
    
 }
 .searchResults h3{
@@ -271,11 +271,12 @@ a{
         width: 100%;
         column-gap: 0%;
         margin-top: 10%;
+        margin-left: 70px;
        
     }
 
     .results{
-        width: 80%;
+        width: 95%;
         justify-self: center;
     }
 
@@ -284,12 +285,24 @@ a{
         justify-self: center;
     }
 
+    .clearEmblem{
+        width: 25px;
+    }
+
 }
 
-@media(max-width:1049px){
+@media (min-width:760px) and (max-width:1049px){
     h2{
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
+
+    h3{
+        font-size: 0.8rem;
+    }
+    p{
+        font-size: 0.7rem;
+    }
+    
 
     .resultsAndPlaylist{
         display: grid;
@@ -302,13 +315,244 @@ a{
     }
 
     .results{
-        width: 80%;
+        width: 90%;
         justify-self: center;
     }
 
     .addToPlaylist{
-        width: 60%;
+        width: 70%;
         justify-self: center;
     }
 
+    .clearEmblem{
+        width: 25px;
+    }
+
+    .submit{
+        font-size: 1.1rem;
+        cursor: pointer;
+        min-width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 40px;
+    }
+
+    .ResultAndClear{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #search{
+        margin-top: 50px;
+        border-radius:50px ;
+        background-color: #080532;
+        color: white;
+        border: none;
+        font-size: 0.1rem;
+        cursor: pointer;
+        min-width: 120px;
+        height: 50px;
+    }
+
+    .cross{
+        height: 15px;
+    }
+
+    .minus{
+        width: 4%;
+        max-width: 15px;
+        min-width: 15px;
+        height: 20px;
+    }
+
+    #linkToSpotify{
+        margin-top: 50px;
+        border-radius:50px ;
+        background-color: #080532;
+        color: white;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        min-width: 120px;
+        height: 50px;
+    }
+
+}
+
+@media (min-width:759px) and (max-width:1049px){
+    
+    h3{
+        font-size: 0.7rem;
+    }
+    p{
+        font-size: 0.5rem;
+    }
+    
+
+    .resultsAndPlaylist{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100%;
+        width: 100%;
+        column-gap: 0%;
+        margin-top: 10%;
+        min-width: 700px;
+        margin-left: 30px;
+        margin-right: auto;
+       
+    }
+
+    .results{
+        width: 100%;
+        justify-self: center;
+    }
+
+    .addToPlaylist{
+        width: 70%;
+        justify-self: center;
+    }
+
+    .clearEmblem{
+        width: 25px;
+    }
+
+    .submit{
+        font-size: 1.1rem;
+        cursor: pointer;
+        min-width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 40px;
+    }
+
+    .ResultAndClear{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+       
+    }
+
+    #search{
+        font-size: 0.8rem;
+        width: 10px;
+        margin-top: 30px;
+        border-radius:50px ;
+    }
+
+    .cross{
+        height: 15px;
+    }
+
+    .minus{
+        width: 4%;
+        max-width: 15px;
+        min-width: 15px;
+        height: 20px;
+    }
+
+    #linkToSpotify{
+        font-size: 0.8rem;
+        margin-top: 30px;
+        border-radius:50px ;
+    }
+
+}
+
+@media (min-width:320px) and (max-width:759px){
+    h2{
+        font-size: 0.7rem;
+    }
+
+    h3{
+        font-size: 0.4rem;
+    }
+    p{
+        font-size: 0.3rem;
+    }
+    
+
+    .resultsAndPlaylist{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100%;
+        width: 100%;
+        column-gap: 0%;
+        margin-top: 10%;
+        margin-left: 10px;
+       
+    }
+
+    .results{
+        width: 98%;
+        justify-self: center;
+    }
+
+    .addToPlaylist{
+        width: 90%;
+        justify-self: center;
+    }
+
+    .clearEmblem{
+        width: 25px;
+    }
+
+    .submit{
+        font-size: 1.1rem;
+        cursor: pointer;
+        min-width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 40px;
+    }
+
+    .ResultAndClear{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #search{
+        font-size: 1.1rem;
+    }
+
+    .cross{
+        height: 10px;
+    }
+
+    .minus{
+        width: 4%;
+        max-width: 10px;
+        min-width: 10px;
+        height: 20px;
+    }
+
+    #search{
+        margin-top: 30px;
+        border-radius:50px ;
+        background-color: #080532;
+        color: white;
+        border: none;
+        font-size: 0.8rem;
+        cursor: pointer;
+        min-width: 120px;
+        height: 50px;
+    }
+
+
+    #linkToSpotify{
+        margin-top: 30px;
+        border-radius:50px ;
+        background-color: #080532;
+        color: white;
+        border: none;
+        font-size: 0.8rem;
+        cursor: pointer;
+        min-width: 120px;
+        height: 50px;
+    }
+
+    .clearEmblem{
+        width: 18px;
+    }
 }
