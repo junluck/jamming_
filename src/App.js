@@ -2,11 +2,26 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from "./navbar.js"
 import SearchBar from "./searchBar.js"
+import ExistingPlaylist from "./ExistingPlaylist.js"
 import React,{useState, useEffect} from "react";
 
 
 function App(){
-   
+    class Playlist{
+        constructor(playlistName, playListId){
+            this._playlistName = playlistName;
+            this._playListId = playListId;
+        }
+
+        get playlistName(){
+            return this._playlistName;
+        }
+
+        get playListId(){
+            return this._playListId;
+        }
+    }
+
     class Track{
         constructor(songName, artist, album, link, trackId){
           this._songName = songName;
@@ -55,6 +70,7 @@ function App(){
     const [name,setName] = useState("");
     const [playlistName, setPlaylistName] = useState("")
     const [result, setResult] = useState();
+    const [counter, setCounter] = useState(0) 
     const [accessToken, setaccessToken] = useState("");
     const getAuthCode = window.location.search;
     const code = convertUrlIntoCode(getAuthCode);
@@ -62,7 +78,8 @@ function App(){
     const [accessTokenTwoo , setaccessTokenTwoo] = useState("") 
     const [authorization, setAuthorization] = useState("")
     const [redirected, setRedirected] = useState("");
-    const [playlistId, setPlaylistId] = useState("")
+    const [playlistId, setPlaylistId] = useState("");
+    const [createdPlaylist, setCreatedPlaylist] = useState([])
     const clientId = process.env.REACT_APP_D
     const clientSecret= process.env.REACT_APP_S
     const redirect_uri = "http://localhost:3000/"
@@ -98,8 +115,92 @@ function App(){
         window.location.href=authorizationLink
        
     }
+
+    async function getExistingPlaylist(accessToken){
+       
+        const url= "https://api.spotify.com/v1/me"
+        const endpoint = "/playlists"
+        const arrayOfPlayistNamesAndIds = []
+        try{
+            const response = await fetch(`${url}${endpoint}`,{
+                method:"GET",
+                headers:{
+                    
+                    "Authorization":`Bearer ${accessToken}`,
+                    "Content-Type":`application/json`
+                },
+            })
+
+            if(!response.ok){
+                console.log("Error");
+            }
+
+            const data = await response.json();
+            console.log(data.items[0])
+            data.items.forEach((element)=>{
+                const playlistIdAndName = new Playlist(element.name, element.id);
+                arrayOfPlayistNamesAndIds.push(playlistIdAndName);
+
+            })
+            return arrayOfPlayistNamesAndIds;
+
+        }catch(e){
+            console.log(e)
+        }
+
+    }
+
+  
+    useEffect(()=>{
+        const getData = async()=>{
+            const data = await getExistingPlaylist(accessTokenTwoo)
+            
+            
+        }
+        getData()
+
+  
+    },[accessTokenTwoo])
     
+
+    async function handlerL(){
+
+        setCounter((prev)=> prev + 1)
+        console.log(counter)
+        if (accessTokenTwoo === ""){
+            try{
+                const response = await fetch("https://accounts.spotify.com/api/token",{
+                method:"POST",
+                headers:{
+                    "Authorization": `Basic ${authString}`,
+                    "Content-Type":'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                        "grant_type":"authorization_code",
+                        "code": `${authorizationCode}`,
+                        "redirect_uri": `http://localhost:3000/`
+    
+                    })
+                })
+                if(!response.ok){
+                    console.log("Error");
+                }
+    
+                const data = await response.json();
+                const token = data.access_token;
+                console.log(token)
+                setaccessTokenTwoo(token)
+                
+            }catch(e){
+                console.log(`Error: ${e}`);
+            }
+
+            
+        }
+    }
+
     async function getSong(search){
+        let key;
         if (accessTokenTwoo === ""){
             try{
                 const response = await fetch("https://accounts.spotify.com/api/token",{
@@ -126,8 +227,10 @@ function App(){
             }catch(e){
                 console.log(`Error: ${e}`);
             }
+
+            
         }
-        
+        console.log(accessTokenTwoo)
         let arrayOfObjects = []
         const access_Obj = await getAuth();
         const accessToken = access_Obj.access_token;
@@ -162,7 +265,7 @@ function App(){
       }catch(e){
         console.log(`Error: ${e}`)
       }
-      
+       
     }
    
     
@@ -170,7 +273,7 @@ function App(){
    
 
     async function makePlaylist(){
-       console.log(accessTokenTwoo)
+       
         const userName  = "jun78621";
         const endpoint = "/playlists";
         const url = "https://api.spotify.com/v1/users/jun78621/playlists";
@@ -243,11 +346,13 @@ function App(){
         
     }
 
+    
    
   return (
       <>
       <NavBar />
-      <SearchBar getAuthForPlaylist={getAuthForPlaylist} makePlaylist={makePlaylist} handlerSubmit={handlerSubmit} setSearch={setSearch} setPlaylistName={setPlaylistName} setAddPlaylist={setAddPlaylist} searchResults={searchResults} addPlaylist={addPlaylist} resetResults={resetResults} />
+      <SearchBar getAuthForPlaylist={getAuthForPlaylist} makePlaylist={makePlaylist} handlerSubmit={handlerSubmit} setSearch={setSearch} setPlaylistName={setPlaylistName} setAddPlaylist={setAddPlaylist} searchResults={searchResults} addPlaylist={addPlaylist} resetResults={resetResults}  />
+      <ExistingPlaylist  handlerL={handlerL} />
       </>
   );
 }
