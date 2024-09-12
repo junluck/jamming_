@@ -7,6 +7,10 @@ import React,{useState, useEffect} from "react";
 
 
 function App(){
+    
+    
+    // To remove data
+    //localStorage.removeItem('key');
     class Playlist{
         constructor(playlistName, playListId){
             this._playlistName = playlistName;
@@ -68,6 +72,7 @@ function App(){
     const [addPlaylist,setAddPlaylist] = useState([])
     const [array, setArray] = useState(["bob","sam", "kop"])
     const [name,setName] = useState("");
+    const [arrayOfPlayistNamesAndIds, setArrayOfPlayistNamesAndIds] = useState([])
     const [playlistName, setPlaylistName] = useState("")
     const [result, setResult] = useState();
     const [counter, setCounter] = useState(0) 
@@ -84,9 +89,9 @@ function App(){
     const clientSecret= process.env.REACT_APP_S
     const redirect_uri = "http://localhost:3000/"
     const authString = btoa(`${clientId}:${clientSecret}`);
-    const authorizationLink = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&show_dialog=true&scope=playlist-modify-public user-read-private`
+    const authorizationLink = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&show_dialog=true&scope=user-read-private user-read-email app-remote-control playlist-modify-public playlist-read-private playlist-modify-private playlist-modify-public`
+   const authorizationLinkTwo = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&scope=user-read-private user-read-email app-remote-control playlist-modify-public playlist-read-private playlist-modify-private playlist-modify-public`
    
-    console.log(clientId)
     async function getAuth(){
         try{
             const response = await fetch("https://accounts.spotify.com/api/token",{
@@ -110,11 +115,20 @@ function App(){
             console.log(`Error: ${e}`);
         }
     }
+ 
 
     async function getAuthForPlaylist(){
+       
+        
         window.location.href=authorizationLink
        
     }
+
+    useEffect(()=>{
+        if(code.length>5){
+        
+        }
+    },[])
 
     async function getExistingPlaylist(accessToken){
        
@@ -136,13 +150,12 @@ function App(){
             }
 
             const data = await response.json();
-            console.log(data.items[0])
             data.items.forEach((element)=>{
                 const playlistIdAndName = new Playlist(element.name, element.id);
                 arrayOfPlayistNamesAndIds.push(playlistIdAndName);
 
             })
-            return arrayOfPlayistNamesAndIds;
+            setArrayOfPlayistNamesAndIds(arrayOfPlayistNamesAndIds);
 
         }catch(e){
             console.log(e)
@@ -152,22 +165,27 @@ function App(){
 
   
     useEffect(()=>{
+        console.log(accessTokenTwoo)
         const getData = async()=>{
             const data = await getExistingPlaylist(accessTokenTwoo)
             
             
         }
-        getData()
-
+        
+        if(accessTokenTwoo){
+            localStorage.setItem("t",accessTokenTwoo)
+            getData()  
+            console.log("sideeffect")
+        }
+       
   
     },[accessTokenTwoo])
     
 
     async function handlerL(){
-
+        
         setCounter((prev)=> prev + 1)
-        console.log(counter)
-        if (accessTokenTwoo === ""){
+        if (accessTokenTwoo === "" ){
             try{
                 const response = await fetch("https://accounts.spotify.com/api/token",{
                 method:"POST",
@@ -188,15 +206,27 @@ function App(){
     
                 const data = await response.json();
                 const token = data.access_token;
-                console.log(token)
+                
+                localStorage.setItem("token",token)
+                console.log(data)
+                
+
+
+
                 setaccessTokenTwoo(token)
                 
             }catch(e){
                 console.log(`Error: ${e}`);
             }
 
-            
+           
         }
+
+        const playlist = await getExistingPlaylist(accessTokenTwoo);
+       
+
+
+         
     }
 
     async function getSong(search){
@@ -222,15 +252,17 @@ function App(){
     
                 const data = await response.json();
                 const token = data.access_token;
+                console.log(data)
                 setaccessTokenTwoo(token)
-                
+                localStorage.setItem("token",token)
+
             }catch(e){
                 console.log(`Error: ${e}`);
             }
 
             
         }
-        console.log(accessTokenTwoo)
+        
         let arrayOfObjects = []
         const access_Obj = await getAuth();
         const accessToken = access_Obj.access_token;
@@ -273,13 +305,37 @@ function App(){
    
 
     async function makePlaylist(){
+        console.log(localStorage.getItem("token"))
+        async function getUsername(){
+            console.log(accessTokenTwoo)
+            try{
+                const response = await fetch("https://api.spotify.com/v1/me",{
+                    method:"GET",
+                    headers:{
+                        "Authorization":`Bearer ${accessTokenTwoo}`,
+                        'Content-Type': 'application/json'
+                    }
+
+                })
+
+                if(!response.ok){
+                    console.log("error")
+                }
+
+                const data = await response.json()
+                return data.id
+            }catch(e){
+
+            }
+        } 
        
-        const userName  = "jun78621";
-        const endpoint = "/playlists";
-        const url = "https://api.spotify.com/v1/users/jun78621/playlists";
+        
+        const userName  = await getUsername();
+       
+
         let playid = "";
         try{    
-        const response = await fetch(`https://api.spotify.com/v1/users/jun78621/playlists`,{
+        const response = await fetch(`https://api.spotify.com/v1/users/${userName}/playlists`,{
             method:"POST",
             headers:{
                 "Authorization":`Bearer ${accessTokenTwoo}`,
@@ -327,8 +383,6 @@ function App(){
         
     }
 
-    //window.onload =  makePlaylist
-
     async function handlerSubmit(e){
         e.preventDefault()
         if(search!==""){
@@ -352,7 +406,7 @@ function App(){
       <>
       <NavBar />
       <SearchBar getAuthForPlaylist={getAuthForPlaylist} makePlaylist={makePlaylist} handlerSubmit={handlerSubmit} setSearch={setSearch} setPlaylistName={setPlaylistName} setAddPlaylist={setAddPlaylist} searchResults={searchResults} addPlaylist={addPlaylist} resetResults={resetResults}  />
-      <ExistingPlaylist  handlerL={handlerL} />
+      <ExistingPlaylist  handlerL={handlerL} arrayOfPlayistNamesAndIds={arrayOfPlayistNamesAndIds} />
       </>
   );
 }

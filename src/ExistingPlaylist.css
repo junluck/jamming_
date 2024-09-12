@@ -14,9 +14,9 @@ h2{
     grid-column-end: 2;
     box-shadow: 10px 20px  9px 1px #110d52;
     margin-left:50px;
-    display: flex;
     margin-top: 50px;
-    justify-content: center;
+    display: grid;
+    flex-direction: column;
     
 }
 
@@ -32,4 +32,36 @@ h2{
     margin-left: auto;
     margin-right: 30px;
     height: 50px;
+}
+
+.playlistAndButton{
+    display: flex;
+    flex-direction: row;
+   
+    width: 100%;
+}
+
+h3{
+    color: white;
+    margin-left: 6%;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-size: 1.3rem;
+}
+
+
+.playlistNameAndSongs{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows:50px  20px 20px ;
+}
+
+.divider{
+    background-color: white;
+    width: 90%;
+    height: 3px;
+    border-radius: 20px;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    justify-self: center;
 }
