@@ -12,9 +12,10 @@ function App(){
     // To remove data
     //localStorage.removeItem('key');
     class Playlist{
-        constructor(playlistName, playListId){
+        constructor(playlistName, playListId, tracksInPlaylist){
             this._playlistName = playlistName;
             this._playListId = playListId;
+            this._tracksInPlaylist = tracksInPlaylist;
         }
 
         get playlistName(){
@@ -24,6 +25,18 @@ function App(){
         get playListId(){
             return this._playListId;
         }
+
+        get tracksInPlaylist(){
+            return this._tracksInPlaylist;
+        }
+
+        set tracksInPlaylist(element){
+            this._tracksInPlaylist = element
+        }
+
+    
+
+        
     }
 
     class Track{
@@ -81,6 +94,7 @@ function App(){
     const code = convertUrlIntoCode(getAuthCode);
     const [authorizationCode, setauthorizationCode] = useState(code)
     const [accessTokenTwoo , setaccessTokenTwoo] = useState("") 
+    const [accessTokenThree, setaccessTokenThree] = useState("")
     const [authorization, setAuthorization] = useState("")
     const [redirected, setRedirected] = useState("");
     const [playlistId, setPlaylistId] = useState("");
@@ -123,18 +137,28 @@ function App(){
         window.location.href=authorizationLink
        
     }
-
-    useEffect(()=>{
-        if(code.length>5){
-        
+        async function fecthTracksFromPlay(ele){
+        const getData = async()=>{
+            const data =  await  getsSongsFromPlaylist(ele.id);
+            return data
         }
-    },[])
+
+            const tracks = await getData();
+            console.log(tracks)
+            const tracksSorted = tracks.map((element)=>{
+                const sortedTracks = new Track(element.track.name,  element.track.artists[0].name, element.track.album.name, element.track.external_urls.spotify, element.track.id)
+                return sortedTracks
+        })
+            return tracksSorted
+       
+        
+    }
 
     async function getExistingPlaylist(accessToken){
        
         const url= "https://api.spotify.com/v1/me"
         const endpoint = "/playlists"
-        const arrayOfPlayistNamesAndIds = []
+        const arrayOfPlayistNamesAndId = []
         try{
             const response = await fetch(`${url}${endpoint}`,{
                 method:"GET",
@@ -148,14 +172,54 @@ function App(){
             if(!response.ok){
                 console.log("Error");
             }
+            
+         
 
             const data = await response.json();
-            data.items.forEach((element)=>{
-                const playlistIdAndName = new Playlist(element.name, element.id);
-                arrayOfPlayistNamesAndIds.push(playlistIdAndName);
+            
+            
+            data.items.forEach(async (element)=>{
+                let tracksSort = await fecthTracksFromPlay(element)
+                const playlistIdAndName = new Playlist(element.name, element.id, tracksSort);
+                arrayOfPlayistNamesAndId.push(playlistIdAndName);
 
+            })/*
+            async function fecthTracksFromPlay(array){
+                 array.forEach(async (element, index)=>{
+                const getData = async()=>{
+                    const data =  await  getsSongsFromPlaylist(element.playListId);
+                    return data
+                }
+    
+                    const tracks = await getData();
+                    console.log(tracks)
+                    const tracksSorted = tracks.map((element)=>{
+                        const sortedTracks = new Track(element.track.name,  element.track.artists[0].name, element.track.album.name, element.track.external_urls.spotify, element.track.id)
+                        return sortedTracks
+                })
+                return tracksSorted
+                
             })
-            setArrayOfPlayistNamesAndIds(arrayOfPlayistNamesAndIds);
+
+            }
+            arrayOfPlayistNamesAndId.forEach(async (element, index)=>{
+                const getData = async()=>{
+                    const data =  await  getsSongsFromPlaylist(element.playListId);
+                    return data
+                }
+    
+                    const tracks = await getData();
+                    console.log(tracks)
+                    const tracksSorted = tracks.map((element)=>{
+                        const sortedTracks = new Track(element.track.name,  element.track.artists[0].name, element.track.album.name, element.track.external_urls.spotify, element.track.id)
+                        return sortedTracks
+                })
+                element.tracksInPlaylist = tracksSorted
+                console.log(arrayOfPlayistNamesAndIds)
+                
+            })*/
+            console.log(arrayOfPlayistNamesAndId)
+            setArrayOfPlayistNamesAndIds(arrayOfPlayistNamesAndId);
 
         }catch(e){
             console.log(e)
@@ -163,7 +227,28 @@ function App(){
 
     }
 
-  
+    async function getsSongsFromPlaylist(playlistId){
+        try{
+        const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`,{
+                method:"GET",
+                headers:{
+                    "Authorization":`Bearer ${accessTokenThree}` 
+                }
+
+            })
+            if(!response.ok){
+                console.log("Error")
+                }
+            const data = await response.json();
+            console.log(data.items)
+            return data.items;
+
+        }catch(e){
+            console.log(e)
+        }
+
+    }
+
     useEffect(()=>{
         console.log(accessTokenTwoo)
         const getData = async()=>{
@@ -179,12 +264,11 @@ function App(){
         }
        
   
-    },[accessTokenTwoo])
+    },[accessTokenThree])
     
 
     async function handlerL(){
-        
-        setCounter((prev)=> prev + 1)
+        console.log(arrayOfPlayistNamesAndIds)
         if (accessTokenTwoo === "" ){
             try{
                 const response = await fetch("https://accounts.spotify.com/api/token",{
@@ -212,8 +296,8 @@ function App(){
                 
 
 
-
                 setaccessTokenTwoo(token)
+                setaccessTokenThree(token)
                 
             }catch(e){
                 console.log(`Error: ${e}`);
@@ -230,7 +314,7 @@ function App(){
     }
 
     async function getSong(search){
-        let key;
+        console.log(arrayOfPlayistNamesAndIds)
         if (accessTokenTwoo === ""){
             try{
                 const response = await fetch("https://accounts.spotify.com/api/token",{

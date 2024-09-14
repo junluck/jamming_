@@ -13,6 +13,10 @@ function ExistingPlaylist({handlerL, arrayOfPlayistNamesAndIds}){
                 return(
                     <div className="playlistNameAndSongs">
                         <h3>{element.playlistName}</h3>
+                        <div className="songs">{element.tracksInPlaylist.map((element)=>{
+                            return <p>{element.songName}</p>
+                            
+                        })}</div>
                         <span className="divider"></span>
                     </div>
                 )
