@@ -11,7 +11,7 @@ function SearchBar({getAuthForPlaylist, makePlaylist, handlerSubmit, setSearch, 
                 <input type="text" className="searchBar" onChange={(e)=>{setSearch(e.target.value);}}/>
                 <input type="submit" value="SEARCH" id="search" />
             </form>
-            <button id="linkToSpotify" onClick={getAuthForPlaylist}>Link your Spotify</button>
+            
             <div className="resultsAndPlaylist">
                 <div className="results">
                 <div className="ResultAndClear">

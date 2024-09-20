@@ -219,6 +219,12 @@ a{
     cursor: pointer;
     min-width: 200px;
     height: 70px;
+   
+}
+
+#parentLinkToSpotify{
+    display: flex;
+    justify-content: center;
 }
 
 #linkToSpotify:hover{
