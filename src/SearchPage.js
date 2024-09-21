@@ -6,7 +6,7 @@ import ExistingPlaylist from "./ExistingPlaylist.js"
 import React,{useState, useEffect} from "react";
 
 
-function SearchPage({code}){
+function SearchPage(){
     
     class Playlist{
         constructor(playlistName, playListId, tracksInPlaylist, playlistNumber){
@@ -79,8 +79,10 @@ function SearchPage({code}){
                 appendedString +=url[i]; 
             }
         return appendedString
-    }
+      }
 
+    const getAuthCode = window.location.search;
+    const code = convertUrlIntoCode(getAuthCode);
     const emptyObject = new Track("","","","","")
     const [search, setSearch] = useState("");
     const [searchResults,setSearchResults] = useState([]);
@@ -102,11 +104,14 @@ function SearchPage({code}){
     const [test, setTest] = useState()
     const clientId = process.env.REACT_APP_D
     const clientSecret= process.env.REACT_APP_S
-    const redirect_uri = "http://localhost:3000/"
+    const redirect_uri = "http://localhost:3000/home-page"
     const authString = btoa(`${clientId}:${clientSecret}`);
     const authorizationLink = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&show_dialog=true&scope=user-read-private user-read-email app-remote-control playlist-modify-public playlist-read-private playlist-modify-private playlist-modify-public`
-   const authorizationLinkTwo = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&scope=user-read-private user-read-email app-remote-control playlist-modify-public playlist-read-private playlist-modify-private playlist-modify-public`
-   
+    const authorizationLinkTwo = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&scope=user-read-private user-read-email app-remote-control playlist-modify-public playlist-read-private playlist-modify-private playlist-modify-public`
+    
+
+
+
     async function getAuth(){
         try{
             const response = await fetch("https://accounts.spotify.com/api/token",{
@@ -220,9 +225,7 @@ function SearchPage({code}){
         }
         
         if(accessTokenTwoo){
-            localStorage.setItem("t",accessTokenTwoo)
             getData()  
-            console.log("sideeffect")
         }
        
        
@@ -230,7 +233,7 @@ function SearchPage({code}){
     
 
     async function handlerL(){
-        console.log("g")
+        console.log(code)
         if (accessTokenTwoo === "" ){
             try{
                 const response = await fetch("https://accounts.spotify.com/api/token",{
@@ -241,8 +244,8 @@ function SearchPage({code}){
                 },
                 body: new URLSearchParams({
                         "grant_type":"authorization_code",
-                        "code": `${authorizationCode}`,
-                        "redirect_uri": `http://localhost:3000/`
+                        "code": `${code}`,
+                        "redirect_uri": `http://localhost:3000/home-page`
     
                     })
                 })
@@ -287,7 +290,7 @@ function SearchPage({code}){
                 body: new URLSearchParams({
                         "grant_type":"authorization_code",
                         "code": `${authorizationCode}`,
-                        "redirect_uri": `http://localhost:3000/`
+                        "redirect_uri": `http://localhost:3000/home-page`
     
                     })
                 })
