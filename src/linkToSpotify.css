@@ -1,0 +1,64 @@
+#linkToSpotify{
+    margin-top: 30px;
+    border-radius:50px ;
+    background-color: #ccbecb;
+    color: #a65c60;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    min-width: 200px;
+    height: 70px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+   
+}
+
+#demo{
+    margin-top: 30px;
+    border-radius:50px ;
+    background-color: transparent;
+    color: #d9d9d9;
+    border: solid 3px #d9d9d9 ;
+    font-size: 1.2rem;
+    cursor: pointer;
+    min-width: 200px;
+    height: 70px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#parentLinkToSpotify{
+    
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 20px;
+  
+}
+
+#linkToSpotify:hover{
+    background-color: #b2a8b2
+
+}
+
+.mainheadingAndSpotify{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainheadingAndSpotify h1{
+    color: white;
+    font-size: 64px;
+}
+
+.createYourOwn{
+    height: 160px;
+    margin-bottom: 0px;
+   
+}
+
+.headingHidden{
+    position: absolute;
+    visibility: hidden;
+}

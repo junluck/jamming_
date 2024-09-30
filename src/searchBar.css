@@ -209,28 +209,7 @@ a{
     margin-right: auto;
 }
 
-#linkToSpotify{
-    margin-top: 50px;
-    border-radius:50px ;
-    background-color: #080532;
-    color: white;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    min-width: 200px;
-    height: 70px;
-   
-}
 
-#parentLinkToSpotify{
-    display: flex;
-    justify-content: center;
-}
-
-#linkToSpotify:hover{
-    background-color: blueviolet;
-
-}
 
 .ResultAndClear{
     display: grid;

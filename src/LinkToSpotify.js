@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./linkToSpotify.css"
 
 function LinkToSpotify(){
 
@@ -21,8 +22,14 @@ function LinkToSpotify(){
         window.location.href=authorizationLink 
     }
     return(
-        <div id="parentLinkToSpotify">
-            <button id="linkToSpotify" onClick={getAuthForPlaylist}>Link your Spotify</button>
+        <div class="mainheadingAndSpotify">
+            <h1 class="headingHidden">create your own vibe with curated playlists</h1>
+            <img src="Header text.svg" className="createYourOwn"/>
+            <div id="parentLinkToSpotify">
+               
+                <button id="linkToSpotify" onClick={getAuthForPlaylist}>Link your Spotify</button>
+                <button id="demo">Use demo account</button>
+            </div>
         </div>
     )
 }

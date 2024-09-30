@@ -5,6 +5,7 @@ import React,{useState, useEffect} from "react";
 import SearchPage from './SearchPage.js';
 import LinkToSpotify from './LinkToSpotify.js';
 import { createBrowserRouter, createRoutesFromElements,Route,RouterProvider } from 'react-router-dom';
+import Homepage from './homepage.js';
 const getAuthCode = window.location.search;
 const code = convertUrlIntoCode(getAuthCode);
 function convertUrlIntoCode(url){
@@ -22,14 +23,14 @@ const getAuthCode = window.location.search;
 const codeTwo = convertUrlIntoCode(getAuthCode);
 console.log(code)
   if (codeTwo.length === 0){
-    return <Route index element={<LinkToSpotify />} />
+    return <Route index element={<Homepage />} />
   }
 }
 
 
 const appRouter = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<NavBar />}>
-     <Route index element={<LinkToSpotify />} />
+     <Route index element={<Homepage />} />
      
      <Route path={`home-page`} element={<SearchPage code={code}/>} />
   </Route>

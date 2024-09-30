@@ -1,0 +1,76 @@
+.parentHomeDiv{
+    display: grid;
+    grid-template-columns: 20% 25% 10% 10% 10% 15% 5% 5%;
+    grid-template-rows: 15% 5% 10% 35% 25% 10% ;
+    width: 100%;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.linkToSpotify{
+    grid-row-start:3;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-left: 90%;
+}
+
+.guitarist{
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    height: 400px;
+    margin-left: 20%;
+    justify-self: center;
+    align-self: center;
+}
+
+.pianist{
+    grid-row-start: 5;
+    grid-row-end: 6;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    justify-self: center;
+    align-self: center;
+}
+
+.singer{
+    grid-row-start: 4;
+    grid-row-end: 6;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    justify-self: center;
+    align-self: center;
+}
+
+.women{
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.drummer{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 5;
+    grid-column-end: 7;
+
+}
+
+.punkman{
+    grid-row-start:5;
+    grid-row-end: 8;
+    grid-column-start: 4;
+    grid-column-end: 6;
+}
+
+.curvedLine{
+    grid-row-start:1;
+    grid-row-end: 7;
+    grid-column-start: 1;
+    grid-column-end: 9;
+    z-index: -1;
+    width: 1900px;
+}

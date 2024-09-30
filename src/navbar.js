@@ -6,7 +6,7 @@
  function NavBar(){
     return(
         <div>
-            <Link className="mainHeading" to="/">Ja<span className="mmm">mmm</span>ing</Link>
+            <Link className="mainHeading" to="/"><img src="logo.svg"/></Link>
             <Outlet />
 
         </div>
