@@ -1,8 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import "./linkToSpotify.css"
 
+
 function LinkToSpotify(){
+
+    const navigate = useNavigate();
 
     function convertUrlIntoCode(url){
         let appendedString = "";
@@ -21,14 +24,14 @@ function LinkToSpotify(){
     async function getAuthForPlaylist(){
         window.location.href=authorizationLink 
     }
+
     return(
         <div class="mainheadingAndSpotify">
             <h1 class="headingHidden">create your own vibe with curated playlists</h1>
             <img src="Header text.svg" className="createYourOwn"/>
             <div id="parentLinkToSpotify">
-               
                 <button id="linkToSpotify" onClick={getAuthForPlaylist}>Link your Spotify</button>
-                <button id="demo">Use demo account</button>
+                <Link to="demopopup"><button id="demo">Use demo account</button></Link>
             </div>
         </div>
     )

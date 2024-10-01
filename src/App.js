@@ -4,6 +4,7 @@ import NavBar from "./navbar.js"
 import React,{useState, useEffect} from "react";
 import SearchPage from './SearchPage.js';
 import LinkToSpotify from './LinkToSpotify.js';
+import DemoAccount from './DemoAccount.js';
 import { createBrowserRouter, createRoutesFromElements,Route,RouterProvider } from 'react-router-dom';
 import Homepage from './homepage.js';
 const getAuthCode = window.location.search;
@@ -30,9 +31,12 @@ console.log(code)
 
 const appRouter = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<NavBar />}>
-     <Route index element={<Homepage />} />
+     <Route path=""element={<Homepage />}>
+     <Route path="demopopup" element={<DemoAccount />}/>
+     </Route>
      
      <Route path={`home-page`} element={<SearchPage code={code}/>} />
+     
   </Route>
 ))
 

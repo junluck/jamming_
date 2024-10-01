@@ -317,7 +317,7 @@ function SearchPage(){
         setaccessToken(accessToken);
         const endpoint = "/search?q=";
         const url = "https://api.spotify.com/v1"
-        const id = `${search}&type=track&limit=19`
+        const id = `${search}&type=track&limit=10`
         try{
         
         const response=await fetch(`${url}${endpoint}${id}`,{

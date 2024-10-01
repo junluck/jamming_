@@ -1,0 +1,48 @@
+.demoAccount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    left:45%;
+    top: 30%;
+    background-color: #540162;
+    position: absolute;
+    border-radius:30px ;
+    line-height: 10px;
+    width: 500px;
+    height: 400px;
+    color: white;
+    border: solid 3px #cabfcc;
+    z-index: 7;
+}
+
+h3{
+    line-height: 1px;
+    font-size: 1.8rem;
+}
+
+h4{
+    font-size: 1.3rem;
+    margin: 10px;
+}
+
+.takeMeToSpotify{
+    margin-top: 30px;
+    border-radius:50px ;
+    background-color: #ccbecb;
+    color: #8f5255;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    min-width: 100px;
+    height: 50px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+   
+}
+
+.blurBackground{
+  
+    background-color: #8f5255;
+
+}
