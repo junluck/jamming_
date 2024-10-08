@@ -1,80 +1,89 @@
 import React from "react";
 import "./searchBar.css"
+import { useState } from "react";
 
 
-function SearchBar({getAuthForPlaylist, makePlaylist, handlerSubmit, setSearch, setPlaylistName, setAddPlaylist, searchResults, addPlaylist, resetResults}){
+function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, addPlaylist, resetResults , setSearchResults , searchResultsTwo,isClicked,setIsClicked,resultHeading}){
+    const newArray = [false,false,false,false,false,false,false,false,false,false]    
+    const [translateAmount, setTranslateAmount] = useState(0)
+    function handleClick(index){
+        let arrayOfBool = [...isClicked];
+        arrayOfBool[index] = !arrayOfBool[index] ;
+        setIsClicked(arrayOfBool);
+    }
 
+    function leftButton(){
+        let  arrayOfSongs = [...searchResults];
+        let  arrayOfClickBool = [...isClicked];
+        if(arrayOfSongs.length >4){
+            let firstElement = arrayOfClickBool.shift();
+            let array = isClicked.slice(1);
+            setIsClicked([...array,firstElement])
+            let newArray = arrayOfSongs.slice(1);
+            setSearchResults(newArray);
+           
+        }
+    }
+
+    function rightButton(){
+        let  arrayOfSongs = [...searchResults];
+        if(arrayOfSongs.length < 10){
+            let arrayOfClickBools = [...isClicked];
+            let lastElementBool = arrayOfClickBools.pop();
+            arrayOfSongs.unshift(searchResultsTwo[(searchResultsTwo.length - 1) - arrayOfSongs.length]);
+            arrayOfClickBools.unshift(lastElementBool)
+            setIsClicked(arrayOfClickBools);
+            setSearchResults(arrayOfSongs);
+            console.log(searchResults);
+        
+        
+        }
+
+    }
 
     return(
         <div className="main">
-            <form className="form" onSubmit={handlerSubmit}>
-                <input type="text" className="searchBar" onChange={(e)=>{setSearch(e.target.value);}}/>
-                <input type="submit" value="SEARCH" id="search" />
-            </form>
             
             <div className="resultsAndPlaylist">
                 <div className="results">
-                <div className="ResultAndClear">
-                    <h2>Results</h2>
-                    <img src="/rewind.svg" class="clearEmblem" onClick={resetResults} />
-                </div>
-                {searchResults.map((element)=>{
-                    return (
-                        <div className="searchResults">
-                        <h3><a href={element.link} target="_blank">{element.songName}</a></h3>
-                        <div className="artistAndAlbum">
-                            <p>{element.album}</p>
-                            <p>|</p>
-                            <p>{element.artist}</p>
-                        </div>
-                        <img src="x.svg" className="cross" data-values={element.trackId} onClick={(e)=>{
-                            let count = 0;
-                           
-                            addPlaylist.forEach((elementTwo,index)=>{
-                                console.log(addPlaylist[index].songName)
-                                if(e.target.getAttribute('data-values') === elementTwo.trackId){
-                                    count += 1
-                                    
-                                }
-                            
-                            })
-                           console.log(count)
-                           if(count === 0){
-                            setAddPlaylist((previous)=>[element,...previous])
-                           }
-
-                           count = 0
-                           }}/>
-                        <span className="span"></span>
-                        </div>
-                    )
-                })}
-                  
-                </div>
-                <div className="addToPlaylist">
-                    <h2>Add to playlist</h2>
-                    <input className="inputPlaylist" onChange={(e)=>{
-                        setPlaylistName(e.target.value)
-                    }} />
-                    <span className="spanTwo"></span>
-                    {addPlaylist.map((element)=>{
+                    <div className="ResultAndClear">
+                        <h2>{resultHeading}</h2>
+                        <img src="/x_.svg" class="clearEmblem" onClick={resetResults} />
+                    </div>
+                    <div className="groupOfResults">
+                    {searchResults.map((element,index)=>{
                         return (
-                            <div className="searchResults">
-                            <h3><a href={element.link} target="_blank">{element.songName}</a></h3>
-                            <div className="artistAndAlbum">
-                                <p>{element.album}</p>
-                                <p>|</p>
-                                <p>{element.artist}</p>
-                            </div>
-                            <img src="minus.svg" className="minus" data-values={element.trackId}  onClick={(e)=>{
-                                const array = addPlaylist.filter(element => element.trackId !==  e.target.getAttribute("data-values"))
-                                setAddPlaylist(array) 
-                            }}/>
-                            <span className="span"></span>
+                            <div className="searchResults" style={{transform: `translatex(${translateAmount}%)`}}>
+                                <div className="imageAndPlus" data-value={"s"} > 
+                                    <img src="plus.svg"  className={isClicked[index] ? "plusSignActive" : "plusSignDeactive"} />
+                                    <img src={element.albumPhoto} className={isClicked[index] ? "songPictureActive" : "songPictureDeactive"}  onClick={(e)=>{
+                                    let count = 0;
+                                    handleClick(index);
+                                    console.log(e.target)
+                                    
+                                console.log(count)
+                                if(count === 0){
+                                    setAddPlaylist((previous)=>[element,...previous])
+                                }
+
+                                count = 0
+                                }}/>
+                                </div>
+                                <div className={isClicked[index] ? "artistAndAlbumActive" : "artistAndAlbumDeactive"}>
+                                    <h3><a href={element.link} target="_blank">{element.songName}</a></h3>
+                                    <p>{element.artist}</p>
+                                </div>
+                            
                             </div>
                         )
                     })}
-                    <button className="submit" onClick={makePlaylist}>Submit</button>
+                    
+                    </div>
+                    
+                </div>
+                <div className="arrows">
+                        <img src="Right Arrow.svg" className="rightArrow" onClick={rightButton}/>
+                        <img src="left arrow.svg" className="leftArrow" onClick={leftButton}/>
                 </div>
             </div>
         </div>

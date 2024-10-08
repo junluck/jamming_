@@ -3,11 +3,34 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 0;
   
 }
+.addedSongs{
+    overflow-y: scroll;
+    overflow-x: none;
+    height: 460px;
+    width: 950px;
+}
+
+.addedSongs::-webkit-scrollbar {
+    width: 12px; 
+}
+
+.addedSongs::-webkit-scrollbar-track {
+    background: #442342; 
+    border-radius: 10px;
+}
+
+.addedSongs::-webkit-scrollbar-thumb {
+    background-color: #5b3e59; 
+    border-radius: 10px; 
+    border: 3px solid #5b3e59; 
+}
+
 
 .form{
-    margin-top: 200px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,19 +40,36 @@
 .searchBar{
     display: flex;
     height: 50px;
-    width: 300px;
+    width: 1000px;
     border-radius: 10px;
     border: none;
+    background-color: #6e176d;
 }
 
+.searchBar::placeholder{
+   color: rgb(255, 255, 255);
+   opacity: 1;
+}
 .searchBar:focus{
     outline: none;
     border: none;
 }
 
+.searchBar:focus::placeholder{
+    color: transparent;
+}
+
+.magnify{
+    position: absolute;
+     left: 500px;
+     cursor: pointer;
+}
+
+
 input[type="text"]{
     font-size: 1.2rem;
     text-align: center;
+    color: white;
 }
 
 #search{
@@ -48,28 +88,43 @@ input[type="text"]{
     background-color: blueviolet;
 
 }
+.headingPlaylist{
+    display:grid;
+    background-color: #6b3568;
+    width: 180px;
+    border-radius: 50px;
+    height:40px;
+    grid-template-rows: 100%;
+    align-items: center;
+   
+}
 
-
-.results{
-    background-color: #080532;
-    width: 100%;;
-    border-radius: 20px;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    box-shadow: 10px 8px  7px  1px #110d52;
+.addPlaylistHeading{
+    font-size: 1.3rem;
+   justify-self: center;
+   color: white;
+   
     
 }
 
+
+.results{
+   
+}
+
 .addToPlaylist{
-    background-color: #080532;
+    margin-top: 0;
     min-height: 500px;
-    width: 100%;
+    width: 900px;
     border-radius: 20px;
     grid-column-start: 2;
     grid-column-end: 3;
-    display: flex;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 10% 10% 1fr 20%;
     flex-direction: column;
-    box-shadow: 10px 8px  7px 1px #110d52;
+    margin-left: auto;
+    margin-right: auto;
     
 }
 
@@ -81,38 +136,95 @@ input[type="text"]{
 .searchResults{
     color: white;
     display: grid;
-    grid-template-columns: 5% 90% 5%;
-    grid-template-rows: 35% 35% 30%;
+    grid-template-columns:  100%;
+    grid-template-rows: 50% 20%;
     flex-direction: column;
-    
+    margin-left: 11px;
+   
    
 }
-.searchResults h3{
-    margin-bottom: 0;
+
+.searchResultsTwo{
+    display: grid;
+    grid-template-columns:  20% 20% 20% 20% 20%;
+    color: white;
+    width: 900px;
+    background-color: #3b103b;
+    height: 90px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.album{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: center;
+    align-self: center;
+}
+.artist{
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
+    justify-self: center;
+    align-self: center;
+}
+.albumPhotoAndSongName{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.albumPhotoAndSongName h3{
+    font-size: 1rem;
+}
+
+.searchResults h3{
+    margin-bottom: 0;
+
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-size: 1.1rem;
+    line-height: 20px;
 }
 .artistAndAlbum{
     display: flex;
+    flex-direction: column;
     margin-top: 0;
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 3;
+    justify-self: start;
 
+}
+
+.artistAndAlbumActive{
+    font-size: 1.2rem;
+    transform: scale(0.9);
+    transition: transform ease 300ms;
+}
+
+.artistAndAlbumDeactive{
+    transform: scale(1);
+    transition: transform ease 300ms;
 }
 
 h2{
     font-size: 1.8rem;
     color: white;
-    margin-left: 5%;
+   
 }
 
 p{
     font-size: 0.9rem;
-    margin-left: 5px;
+    margin-left: 3px;
+    margin-top: 5px;
 }
 
 a{
@@ -146,10 +258,10 @@ a{
 }
 
 .minus{
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
     width: 4%;
     justify-self:end ;
     max-width: 30px;
@@ -164,10 +276,12 @@ a{
 .submit{
     margin-top: 50px;
     border-radius:50px ;
-    background-color: blueviolet;
+    background-color: transparent;
+    border: 1px solid #E6E5E7;
     color: white;
-    border: none;
-    font-size: 1.5rem;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    font-size: 1.3rem;
     cursor: pointer;
     min-width: 150px;
     margin-left: auto;
@@ -176,8 +290,8 @@ a{
 }
 
 .inputPlaylist{
-    width: 80%;
-    height: 40px;
+    width: 100%;
+    height: 30px;
     border-radius: 10px;
     background-color: transparent;
     opacity: 1;
@@ -185,30 +299,24 @@ a{
     color: white;
     justify-self: center;
     align-self: center ;
-    font-size: 1.7rem;
+    text-align: center;
+    font-size: 1rem;
+    border: 2px solid #7f647d;
 }
 
 .inputPlaylist:focus{
     outline: none;
-    border: none;
+    border: 2px solid #7f647d;
 }
 
-.spanTwo{
-    height: 3px;
-    width: 90%;
-    background-color: white;
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    border-radius: 10px;
-    margin-top: 0%;
-    justify-items: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+.inputPlaylist::placeholder{
+    color: white;
 }
 
+.inputPlaylist:focus::placeholder{
+    color: transparent;
+   
+}
 
 
 .ResultAndClear{
@@ -220,25 +328,147 @@ a{
 }
 
 .ResultAndClear h2{
-    justify-self: center;
+    justify-self: start;
+    width: 300px;
 }
 
 .clearEmblem{
     grid-column-start: 3;
     grid-column-end: 4;
     width: 30px;
-    justify-self: center;
+    justify-self: end;
     align-self: center;
+    cursor: pointer;
+    margin-right: 5%;
+    display: none;
+}
+
+
+.groupOfResults{
+    display: flex;
+    overflow: hidden;
+    width: 850px;
+    height: 400px;
+    
+
+    
+}
+
+.imageAndPlus{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    justify-self: start;
     cursor: pointer;
 }
 
+
+.songPictureActive{
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: center;
+    transition: transform ease 300ms;
+    transform: scale(0.9);
+    align-self: center;
+}
+
+.songPictureDeactive{
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: center;
+    transition: transform ease 300ms;
+    transform: scale(1);
+    align-self: center;
+}
+
+
+.plusSignActive{
+    justify-self: center;
+    height: 200px;
+    align-self: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    z-index: 1;
+    
+}
+
+.plusSignDeactive{
+    justify-self: center;
+    height: 200px;
+    align-self: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    z-index: 1;
+    display: none;
+}
+
+.arrows{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    justify-self: start;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 65%;
+    
+}
+
+.rightArrow{
+    transition: transform ease 300ms;
+    cursor: pointer;
+}
+
+.leftArrow{
+    transition: transform ease 300ms;
+    cursor: pointer;
+    z-index: 7;
+    
+}
+
+.rightArrow:active{
+    transform: scale(0.9);
+}
+
+.leftArrow:active{
+    transform: scale(0.9);
+}
+
+.songArtist{
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 25% 25% 25% 25%;
+    color: white;
+}
+
+.songArtist h4{
+    justify-self: center;
+}
+
+.albumPhotos{
+    width: 50px;
+    border-radius: 10px;
+}
 @media (min-width:1500px){
     .resultsAndPlaylist{
         display: grid;
-        grid-template-columns: 50% 35%;
+        grid-template-columns: 50% 34%;
         grid-template-rows: 100%;
         width: 90%;
-        column-gap: 10%;
+        
         margin-top: 5%;
         margin-left:100px;
     }

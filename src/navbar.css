@@ -14,6 +14,17 @@
 
 }
 
+.logo{
+   
+}
 .mmm{
     color: #721ad2;
+}
+
+
+@media(min-width:320px) and (max-width:599px){
+    .logo{
+       width:220px;
+    }
+    
 }

@@ -591,7 +591,7 @@
         grid-column-end: 3;
         justify-self: center;
         align-self: end;
-        height: 350px;
+        height: 300px;
     }
     .singer{
         display: none;
@@ -652,7 +652,7 @@
         z-index: 6;
         position: absolute;
         right: 0%;
-        top: 32%;
+        top: 45%;
         opacity: 0.9;
     }
     
@@ -662,7 +662,7 @@
         z-index: 6;
         position: absolute;
         right: 85%;
-        top: 15%;
+        top: 10%;
         opacity: 0.9;
     }
     
@@ -726,10 +726,10 @@
         background-color: #ccbecb;
         color: #a65c60;
         border: none;
-        font-size: 0.9rem;
+        font-size: 0.6rem;
         cursor: pointer;
-        min-width: 130px;
-        height: 50px;
+        min-width: 50px;
+        height: 40px;
         grid-column-start: 1;
         grid-column-end: 2;
        
@@ -741,10 +741,10 @@
         background-color: transparent;
         color: #b6b6b6;
         border: solid 3px #d9d9d9 ;
-        font-size: 0.9rem;
+        font-size: 0.6rem;
         cursor: pointer;
-        min-width: 130px;
-        height: 50px;
+        min-width: 50px;
+        height: 40px;
         grid-column-start: 2;
         grid-column-end: 3;
     }
