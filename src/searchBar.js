@@ -47,15 +47,31 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
             <div className="resultsAndPlaylist">
                 <div className="results">
                     <div className="ResultAndClear">
-                        <h2>{resultHeading}</h2>
+                        <h2 className="resultHeading">{resultHeading}</h2>
                         <img src="/x_.svg" class="clearEmblem" onClick={resetResults} />
                     </div>
                     <div className="groupOfResults">
                     {searchResults.map((element,index)=>{
                         return (
                             <div className="searchResults" style={{transform: `translatex(${translateAmount}%)`}}>
-                                <div className="imageAndPlus" data-value={"s"} > 
-                                    <img src="plus.svg"  className={isClicked[index] ? "plusSignActive" : "plusSignDeactive"} />
+                                <div className="imageAndPlus"> 
+                                    <img src="plus.svg" data-value={index}  className={isClicked[index] ? "plusSignActive" : "plusSignDeactive"} onClick={(e)=>{
+                                        let arrayOfSongsTwo = [...addPlaylist];
+                                        let arrayOfBooleans = [...isClicked];
+                                        let theIndexOfTheElement = Number(e.target.getAttribute("data-value"))
+                                        
+                                        arrayOfBooleans[index] = false;
+                                        setIsClicked(arrayOfBooleans);
+                                        addPlaylist.forEach((element,index) => {
+                                            if(searchResults[theIndexOfTheElement].trackId===element.trackId){
+                                                arrayOfSongsTwo.splice(index,1);
+                                                setAddPlaylist(arrayOfSongsTwo)
+                                            }
+                                            
+                                        });
+                                        
+                                       console.log(arrayOfSongsTwo)
+                                    }}/>
                                     <img src={element.albumPhoto} className={isClicked[index] ? "songPictureActive" : "songPictureDeactive"}  onClick={(e)=>{
                                     let count = 0;
                                     handleClick(index);

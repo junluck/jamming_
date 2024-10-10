@@ -11,11 +11,13 @@ import Search from './search.js';
 function SearchPage(){
     
     class Playlist{
-        constructor(playlistName, playListId, tracksInPlaylist, playlistNumber){
+        constructor(playlistName, playListId, tracksInPlaylist, playlistNumber,playlistPhoto,isClicked){
             this._playlistName = playlistName;
             this._playListId = playListId;
             this._tracksInPlaylist = tracksInPlaylist;
             this._playlistNumber = playlistNumber;
+            this._playlistPhoto = playlistPhoto
+            this._isClicked = isClicked;
         }
 
         get playlistName(){
@@ -38,8 +40,13 @@ function SearchPage(){
             return this._playlistNumber;
         }
 
+        get playlistPhoto(){
+            return this._playlistPhoto
+        }
         
-
+        get isClicked(){
+            return this._isClicked
+        }
     
 
         
@@ -182,6 +189,8 @@ function SearchPage(){
     const [arrayOfPlayistNamesAndIds, setArrayOfPlayistNamesAndIds] = useState([])
     const [playlistName, setPlaylistName] = useState("")
     const [result, setResult] = useState();
+    const [isClickedTwo,setIsClickedTwo] = useState([])
+    const [isClickedThree,setIsClickedThree] = useState([])
     const [resultHeading, setResultHeading] = useState("Recommended songs")
     const [counter, setCounter] = useState(0) 
     const [accessToken, setaccessToken] = useState("");
@@ -272,7 +281,11 @@ function SearchPage(){
             let tracks = await getsSongsFromPlaylist(ele.id);
             console.log(tracks)
             let tracksSorted = tracks.map((element)=>{
-                let sortedTracks = new Track(element.track.name,  element.track.artists[0].name, element.track.album.name, element.track.external_urls.spotify, element.track.id)
+                let images = "./no image.svg"
+                if(element.track.album.images.length > 0 ){
+                    images =  element.track.album.images[0].url
+                }
+                let sortedTracks = new Track(element.track.name,  element.track.artists[0].name, element.track.album.name, element.track.external_urls.spotify, element.track.id,images)
                 return sortedTracks
         })
             return tracksSorted
@@ -301,18 +314,23 @@ function SearchPage(){
          
 
             const data = await response.json();
-            
+            console.log(data)
             
             data.items.forEach(async (element, index)=>{
                 let tracks = await fecthTracksFromPlay(element)
-                const playlistIdAndName = new Playlist(element.name, element.id, tracks, index);
+                const playlistIdAndName = new Playlist(element.name, element.id, tracks, index,element.images[0].url,false);
                 arrayOfPlayistNamesAndId.push(playlistIdAndName);
                 setTest(element.name)
             })
 
-            console.log(arrayOfPlayistNamesAndId)
-            setArrayOfPlayistNamesAndIds(arrayOfPlayistNamesAndId);
+         
 
+            setArrayOfPlayistNamesAndIds(arrayOfPlayistNamesAndId);
+            let arrayOfBooleans = data.items.map((e)=>{
+                return false
+            })
+            setIsClickedTwo(arrayOfBooleans);
+            setIsClickedThree(arrayOfBooleans);
         }catch(e){
             console.log(e)
         }
@@ -380,7 +398,12 @@ function SearchPage(){
     }
 
    
-    
+    function arrowDown(e){
+        let index = Number(e.target.getAttribute('data-values'));
+        let arrayOfBools = [...isClickedThree];
+        arrayOfBools[index] = !arrayOfBools[index];
+        setIsClickedThree(arrayOfBools);
+    }
    
    
     //Function that submits songs to playlist and makes a new playist or updates existing
@@ -458,7 +481,7 @@ function SearchPage(){
             console.log(error)
         }
         setAddPlaylist([]);
-
+        setIsClicked([false,false,false,false,false,false,false,false,false,false]);
         
     }
 
@@ -468,11 +491,8 @@ function SearchPage(){
             const array = await getSong(search)
             setSearchResults(array)
             setSearchResultsTwo(array)
-            console.log(array)
-            console.log(searchResults)
             setName(array[0].artist)
             setIsClicked([false,false,false,false,false,false,false,false,false,false]);
-            console.log(searchResults)
             setResultHeading("Results")
         }
     }
@@ -486,6 +506,10 @@ function SearchPage(){
       
         let index = Number(e.target.getAttribute('data-values'))
         setAddPlaylist((prev)=>[ ...prev, ...arrayOfPlayistNamesAndIds[index].tracksInPlaylist]);
+        let arrayofbool = [...isClickedTwo];
+        arrayofbool[index] =  arrayofbool[index]
+        setIsClickedTwo(arrayofbool)
+        console.log(arrayOfPlayistNamesAndIds)
     }
    
   return (
@@ -497,7 +521,10 @@ function SearchPage(){
             <SearchBar getAuthForPlaylist={getAuthForPlaylist} makePlaylist={makePlaylist} handlerSubmit={handlerSubmit} setSearch={setSearch} setPlaylistName={setPlaylistName} setAddPlaylist={setAddPlaylist} searchResults={searchResults} addPlaylist={addPlaylist} resetResults={resetResults}  setSearchResults={setSearchResults} searchResultsTwo={searchResultsTwo} isClicked={isClicked} setIsClicked={setIsClicked} resultHeading={resultHeading} className/>
         </div>
         <div className='playlists'>
-            <MyPlaylist setAddPlaylist = {setAddPlaylist} setPlaylistName={setPlaylistName} makePlaylist={makePlaylist} addPlaylist={addPlaylist} />
+            <MyPlaylist setAddPlaylist = {setAddPlaylist} setPlaylistName={setPlaylistName} makePlaylist={makePlaylist} addPlaylist={addPlaylist} isClicked={isClicked} setIsClicked={setIsClicked} searchResults={searchResults} />
+        </div>
+        <div className='existingPlay'>
+            <ExistingPlaylist handlerL={handlerL} arrayOfPlayistNamesAndIds={arrayOfPlayistNamesAndIds} handleExistingPlaylist={handleExistingPlaylist} isClickedTwo={isClickedTwo} arrowDown={arrowDown} isClickedThree={isClickedThree}/>
         </div>
       </div>
   );

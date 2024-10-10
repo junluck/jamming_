@@ -2,7 +2,7 @@ import React from "react";
 import "./searchBar.css"
 
 
-function MyPlaylist({addPlaylist,setPlaylistName,setAddPlaylist,makePlaylist}){
+function MyPlaylist({addPlaylist,setPlaylistName,setAddPlaylist,makePlaylist,isClicked,setIsClicked,searchResults}){
     
 return(
     <div className="addToPlaylist">
@@ -11,6 +11,7 @@ return(
         </div>
         <input className="inputPlaylist" placeholder="Name my playlist" onChange={(e)=>{
             setPlaylistName(e.target.value)
+            
         }} />
         <div className="songArtist">
             <h4>Song</h4>
@@ -25,13 +26,27 @@ return(
                     <div className="searchResultsTwo">
                         <div className="albumPhotoAndSongName">
                             <img src={element.albumPhoto} className="albumPhotos"/>
-                            <h3><a href={element.link} target="_blank">{element.songName}</a></h3>
+                            <h3 className="songNameOfAddedSong"><a href={element.link} target="_blank">{element.songName}</a></h3>
                         </div>
                         <h6 className="album">{element.album}</h6>
                         <h6 className="artist">{element.artist}</h6>
                         <img src="minus.svg" className="minus" data-values={element.trackId}  onClick={(e)=>{
-                            const array = addPlaylist.filter(element => element.trackId !==  e.target.getAttribute("data-values"))
-                            setAddPlaylist(array) 
+                            const array = addPlaylist.filter((element,index) => element.trackId !==  e.target.getAttribute("data-values"))
+                            searchResults.forEach((element,index) => {
+                                if(element.trackId === e.target.getAttribute("data-values")){
+                                    let newArrrayThree = [...isClicked];
+                                    newArrrayThree[index] = false;
+                                    console.log(newArrrayThree)
+                                    setIsClicked(newArrrayThree)
+                                    console.log(index)
+                                    
+
+                                }
+                                
+                            });
+                            setAddPlaylist(array)
+                            
+                            
                         }}/>
                     </div>
                 )

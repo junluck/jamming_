@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fcf2e3;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        stroke: #002947;
+        stroke-width: 27px;
+      }
+
+      .cls-3, .cls-4 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        stroke: #fcf2e3;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        fill: #002947;
+      }
+    </style>
+  </defs>
+  <g id="BACKGROUND">
+    <rect class="cls-1" width="500" height="500"/>
+  </g>
+  <g id="OBJECTS">
+    <g>
+      <g>
+        <rect class="cls-2" x="112.23" y="176.65" width="275.53" height="161.57" rx="8.78" ry="8.78"/>
+        <path class="cls-2" d="M137.26,164.41h23.94c3.59,0,6.5,2.91,6.5,6.5v5.75h-36.93v-5.75c0-3.59,2.91-6.5,6.5-6.5Z"/>
+        <path class="cls-2" d="M309.37,185.29h-104.48l8.12-20.99c1.99-5.14,6.93-8.52,12.43-8.52h65.8c6.04,0,11.32,4.06,12.88,9.89l5.25,19.63Z"/>
+        <rect class="cls-1" x="338.71" y="185.29" width="33.12" height="22.43" rx="5.19" ry="5.19"/>
+        <circle class="cls-1" cx="250" cy="257.44" r="59.37" transform="translate(-44.85 461.98) rotate(-80.59)"/>
+        <circle class="cls-2" cx="250" cy="257.44" r="39.2" transform="translate(-76.47 108.46) rotate(-21.31)"/>
+        <circle class="cls-1" cx="270.29" cy="243.97" r="8.44"/>
+        <circle class="cls-1" cx="133.91" cy="194.68" r="8.16"/>
+      </g>
+      <line class="cls-3" x1="112.23" y1="124.1" x2="387.77" y2="366.84"/>
+      <line class="cls-4" x1="102.89" y1="133.44" x2="378.42" y2="376.19"/>
+      <circle class="cls-3" cx="250" cy="250" r="180.64"/>
+    </g>
+  </g>
+</svg>

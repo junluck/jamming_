@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 40%;
     grid-template-rows: 10% 35% 1fr;
+    height: 1400px;
 }
 
 .search{
@@ -9,6 +10,7 @@
     grid-row-end: 3;
     grid-column-start: 1;
     grid-column-end: 2;
+    
 
 }
 
@@ -17,6 +19,7 @@
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 2;
+    
 }
 
 .searching{
@@ -24,4 +27,15 @@
     grid-row-end: 2;
     grid-column-start: 1;
     grid-column-end: 3;
+   
+    
+}
+
+.existingPlaylist{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-top:90px;
+    
 }
