@@ -203,6 +203,7 @@ function SearchPage(){
     const [createdPlaylist, setCreatedPlaylist] = useState([])
     const [defaultSongs, setdefaultSongs] = useState([])
     const [isClicked, setIsClicked] = useState([false,false,false,false,false,false,false,false,false,false]);
+    const [loading,setLoading] = useState(false)
     const [test, setTest] = useState()
     const clientId = process.env.REACT_APP_D
     const clientSecret= process.env.REACT_APP_S
@@ -334,9 +335,12 @@ function SearchPage(){
         }catch(e){
             console.log(e)
         }
-
+       
     }
 
+    useEffect(()=>{
+        setLoading(false)
+    },[arrayOfPlayistNamesAndIds])
 
     useEffect(()=>{
         console.log(accessTokenTwoo)
@@ -356,7 +360,9 @@ function SearchPage(){
 
     async function handlerL(){
         console.log(code)
+        
         if (accessTokenTwoo === "" ){
+            setLoading(true)
             try{
                 const response = await fetch("https://accounts.spotify.com/api/token",{
                 method:"POST",
@@ -389,7 +395,6 @@ function SearchPage(){
 
            
         }
-
         const playlist = await getExistingPlaylist(accessTokenTwoo);
        
 
@@ -524,7 +529,7 @@ function SearchPage(){
             <MyPlaylist setAddPlaylist = {setAddPlaylist} setPlaylistName={setPlaylistName} makePlaylist={makePlaylist} addPlaylist={addPlaylist} isClicked={isClicked} setIsClicked={setIsClicked} searchResults={searchResults} />
         </div>
         <div className='existingPlay'>
-            <ExistingPlaylist handlerL={handlerL} arrayOfPlayistNamesAndIds={arrayOfPlayistNamesAndIds} handleExistingPlaylist={handleExistingPlaylist} isClickedTwo={isClickedTwo} arrowDown={arrowDown} isClickedThree={isClickedThree}/>
+            <ExistingPlaylist handlerL={handlerL} arrayOfPlayistNamesAndIds={arrayOfPlayistNamesAndIds} handleExistingPlaylist={handleExistingPlaylist} isClickedTwo={isClickedTwo} arrowDown={arrowDown} isClickedThree={isClickedThree} loading={loading} setLoading={setLoading}/>
         </div>
       </div>
   );

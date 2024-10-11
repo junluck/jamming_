@@ -154,6 +154,7 @@ input[type="text"]{
     width: 900px;
     background-color: #3b103b;
     height: 90px;
+    max-height: 90px;
     border-radius: 10px;
     margin-top: 20px;
 }
@@ -275,8 +276,7 @@ a{
     width: 4%;
     justify-self:end;
     max-width: 30px;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 35px;
     min-width: 20px;
     height: 20px;
     cursor: pointer;

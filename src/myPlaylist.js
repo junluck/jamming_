@@ -22,6 +22,7 @@ return(
         <div className="addedSongs">
             {   
             addPlaylist.map((element)=>{
+                
                 return (
                     <div className="searchResultsTwo">
                         <div className="albumPhotoAndSongName">
@@ -44,8 +45,7 @@ return(
                                 }
                                 
                             });
-                            setAddPlaylist(array)
-                            
+                            setAddPlaylist(array)                     
                             
                         }}/>
                     </div>
