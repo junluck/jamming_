@@ -2,14 +2,15 @@ import React from "react";
 import "./searchBar.css"
 
 
-function MyPlaylist({addPlaylist,setPlaylistName,setAddPlaylist,makePlaylist,isClicked,setIsClicked,searchResults}){
+function MyPlaylist({addPlaylist,setPlaylistName,setAddPlaylist,makePlaylist,isClicked,setIsClicked,searchResults,isClickedFour,setIsClickedFour,playlistName}){
     
 return(
     <div className="addToPlaylist">
         <div className="headingPlaylist">
             <h3 className="addPlaylistHeading">Add to playlist</h3>
         </div>
-        <input className="inputPlaylist" placeholder="Name my playlist" onChange={(e)=>{
+        <input className="inputPlaylist" value={isClickedFour?"":playlistName} placeholder="Name my playlist" onChange={(e)=>{
+            setIsClickedFour(false)
             setPlaylistName(e.target.value)
             
         }} />

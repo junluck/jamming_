@@ -202,6 +202,7 @@ function SearchPage(){
     const [playlistId, setPlaylistId] = useState("");
     const [createdPlaylist, setCreatedPlaylist] = useState([])
     const [defaultSongs, setdefaultSongs] = useState([])
+    const [isClickedFour,setIsClickedFour] = useState(false)
     const [isClicked, setIsClicked] = useState([false,false,false,false,false,false,false,false,false,false]);
     const [loading,setLoading] = useState(false)
     const [test, setTest] = useState()
@@ -224,7 +225,7 @@ function SearchPage(){
         new Track("Get You (feat. Kali Uchis)", "Daniel Caesar", "Freudian", "https://open.spotify.com/track/7zFXmv6vqI4qOt4yGf3jYZ", "7zFXmv6vqI4qOt4yGf3jYZ", "https://i.scdn.co/image/ab67616d0000b2733138f891f3075c9c5d944037")
       ])
 
-
+      
 
     async function getAuth(){
         try{
@@ -413,6 +414,7 @@ function SearchPage(){
    
     //Function that submits songs to playlist and makes a new playist or updates existing
     async function makePlaylist(){
+        if(addPlaylist.length > 0){
         async function getUsername(){
             console.log(accessTokenTwoo)
             try{
@@ -487,7 +489,9 @@ function SearchPage(){
         }
         setAddPlaylist([]);
         setIsClicked([false,false,false,false,false,false,false,false,false,false]);
-        
+        handlerL()
+        setIsClickedFour(true)
+     }    
     }
 
     async function handlerSubmit(e){
@@ -526,7 +530,7 @@ function SearchPage(){
             <SearchBar getAuthForPlaylist={getAuthForPlaylist} makePlaylist={makePlaylist} handlerSubmit={handlerSubmit} setSearch={setSearch} setPlaylistName={setPlaylistName} setAddPlaylist={setAddPlaylist} searchResults={searchResults} addPlaylist={addPlaylist} resetResults={resetResults}  setSearchResults={setSearchResults} searchResultsTwo={searchResultsTwo} isClicked={isClicked} setIsClicked={setIsClicked} resultHeading={resultHeading} className/>
         </div>
         <div className='playlists'>
-            <MyPlaylist setAddPlaylist = {setAddPlaylist} setPlaylistName={setPlaylistName} makePlaylist={makePlaylist} addPlaylist={addPlaylist} isClicked={isClicked} setIsClicked={setIsClicked} searchResults={searchResults} />
+            <MyPlaylist setAddPlaylist = {setAddPlaylist} setPlaylistName={setPlaylistName} makePlaylist={makePlaylist} addPlaylist={addPlaylist} isClicked={isClicked} setIsClicked={setIsClicked} searchResults={searchResults} isClickedFour={isClickedFour} setIsClickedFour={setIsClickedFour} playlistName={playlistName}/>
         </div>
         <div className='existingPlay'>
             <ExistingPlaylist handlerL={handlerL} arrayOfPlayistNamesAndIds={arrayOfPlayistNamesAndIds} handleExistingPlaylist={handleExistingPlaylist} isClickedTwo={isClickedTwo} arrowDown={arrowDown} isClickedThree={isClickedThree} loading={loading} setLoading={setLoading}/>

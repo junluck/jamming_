@@ -32,7 +32,7 @@ console.log(code)
 const appRouter = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<NavBar />}>
      <Route path=""element={<Homepage />}>
-     <Route path="demopopup" element={<DemoAccount />}/>
+        <Route path="demopopup" element={<DemoAccount />}/>
      </Route>
      
      <Route path={`home-page`} element={<SearchPage code={code}/>} />

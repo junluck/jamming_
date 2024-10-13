@@ -21,7 +21,10 @@ h2{
     
    
 }
-
+.lottie{
+    margin-left: 50px;
+    margin-top: 70px;
+}
 .outerbox{
     background-color: #551f52;
     border-radius: 15px;
