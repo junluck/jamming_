@@ -13,6 +13,8 @@
    
 }
 
+
+
 #demo{
     margin-top: 30px;
     border-radius:50px ;
@@ -27,13 +29,7 @@
     grid-column-end: 3;
 }
 
-#parentLinkToSpotify{
-    
-    display: grid;
-    grid-template-columns: 50% 50%;
-    column-gap: 20px;
-  
-}
+
 
 #linkToSpotify:hover{
     background-color: #b2a8b2
@@ -53,8 +49,9 @@
 }
 
 .createYourOwn{
-    height: 160px;
+    height: 180px;
     margin-bottom: 0px;
+    margin-top: 30px;
    
 }
 
@@ -62,4 +59,117 @@
     position: absolute;
     visibility: hidden;
 }
+@media(min-width:1084px){
+    .createYourOwnTwo{
+        display: none;
+    }
 
+    #parentLinkToSpotify{
+    
+        display: grid;
+        grid-template-columns: 50% 50%;
+        column-gap: 20px;
+      
+    }
+}
+@media(min-width:805px) and (max-width:1083px){
+    .createYourOwnTwo{
+        display: none;
+    }
+    .createYourOwn{
+        height: 170px;
+      
+       
+    }
+
+    #linkToSpotify{
+        font-size: 1rem;
+        min-width: 150px;
+        height: 60px;
+       
+       
+    }
+    
+    #demo{
+        font-size: 1rem;
+        min-width: 150px;
+        height: 60px;
+        
+    }
+
+    #parentLinkToSpotify{
+    
+        display: grid;
+        grid-template-columns: 50% 50%;
+        column-gap: 20px;
+      
+    }
+}
+
+@media(min-width:500px) and (max-width:804px){
+    .createYourOwnTwo{
+        display: none;
+    }
+    .createYourOwn{
+        height: 130px;
+      
+       
+    }
+
+    #linkToSpotify{
+        font-size: 0.9rem;
+        min-width: 150px;
+        height: 50px;
+       
+       
+    }
+    
+    #demo{
+        font-size: 0.9rem;
+        min-width: 150px;
+        height: 50px;
+        
+    }
+
+    #parentLinkToSpotify{
+    
+        display: grid;
+        grid-template-columns: 50% 50%;
+        column-gap: 20px;
+      
+    }
+}
+
+@media(min-width:320px) and (max-width:499px){
+    .createYourOwn{
+        display: none;
+      
+       
+    }
+
+    
+    #linkToSpotify{
+        font-size: 0.8rem;
+        min-width: 100%;
+        height: 40px;
+       
+       
+    }
+    
+    #demo{
+        font-size: 0.8rem;
+        min-width: 100%;
+        height: 40px;
+        
+    }
+
+    #parentLinkToSpotify{
+    
+        display: grid;
+        grid-template-columns: 100%;
+        column-gap: 20px;
+        width: 320px;
+      
+    }
+
+}

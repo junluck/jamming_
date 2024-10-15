@@ -7,14 +7,17 @@ function Homepage(){
     return (
         <div className="parentHomeDiv">
             <Outlet />
-           
-            <img src="guitarist.svg" className="guitarist"/>
-            <img src="pianist.svg" className="pianist"/>
-            <img src="singer.svg" className="singer"/>
-            <img src="drummer.svg" className="drummer"/>
-            <img src="women.svg" className="women"/>
-            <img src="punkman.svg" className="punkman"/>
-            <img src="curvedlineNew.svg" className="curvedLine"/>
+           <div className="stageAndArtist">
+                <img src="guitarist.svg" className="guitarist"/>
+                <img src="pianist.svg" className="pianist"/>
+                <img src="singer.svg" className="singer"/>
+                <img src="drummer.svg" className="drummer"/>
+                <img src="women.svg" className="women"/>
+                <img src="stage.svg" className="stage"/>
+                <img src="stage.svg" className="stageTwo"/>
+                <img src="ShadowCircle.svg" className="shadowCircle"/>
+                <img src="ShadowCircle.svg" className="shadowCircleTwo"/>
+            </div>
             <div className="linkToSpotify">
                 <LinkToSpotify />
             </div>

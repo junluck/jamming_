@@ -1,186 +1,114 @@
 
 .linkToSpotify{
-    grid-row-start:3;
-    grid-row-end: 5;
+    grid-row-start:1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    margin-left: 0%;
+    justify-self: center;
+    align-self: center;
+}
+
+.stageAndArtist{
+    grid-row-start:2;
+    grid-row-end: 3;
     grid-column-start: 1;
-    grid-column-end: 2;
-    margin-left: 90%;
+    grid-column-end: 6;
+    justify-self: center;
+    align-self: center;
+   
+
+}
+.stage{
+    grid-row-start:2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    justify-self: center;
+    align-self: center;
 }
 
 .guitarist{
-    grid-row-start: 5;
-    grid-row-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
     grid-column-start: 1;
     grid-column-end: 2;
-    height: 420px;
-    margin-left: 20%;
+    height: 300px;
+    margin-left: 330px;
+    z-index: 1;
     justify-self: center;
     align-self: center;
+    margin-bottom: 30px;
 }
 
 .pianist{
-    grid-row-start: 5;
-    grid-row-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 4;
     grid-column-start: 2;
     grid-column-end: 3;
-    justify-self: center;
-    align-self: center;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
+    z-index: 1;
+    margin-left: 70px;
+    height: 300px;
 }
 
 .singer{
-    grid-row-start: 4;
-    grid-row-end: 6;
-    grid-column-start: 6;
-    grid-column-end: 7;
-    justify-self: center;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    z-index: 2;
+    justify-self: end;
     align-self: center;
-    margin-top: 150px;
+    height: 300px;
 }
 
 .women{
-    grid-row-start: 3;
-    grid-row-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
     grid-column-start: 3;
-    grid-column-end: 5;
+    grid-column-end: 4;
+    z-index: 1;
+    height: 300px;
+    justify-self: center;
+    align-self: center;
+    margin-top: 50px;
 }
 
 .drummer{
     grid-row-start: 1;
     grid-row-end: 4;
-    grid-column-start: 5;
-    grid-column-end: 7;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    z-index: 1;
+    height: 250px;
+    margin-left: 250px;
 
 }
 
-.punkman{
-    grid-row-start:5;
-    grid-row-end: 8;
-    grid-column-start: 4;
-    grid-column-end: 6;
-}
-
-.curvedLine{
-    grid-row-start:1;
-    grid-row-end: 7;
-    grid-column-start: 1;
-    grid-column-end: 9;
-    z-index: -1;
-    width: 1900px;
-    height: 100vh;
-    margin-top: 20px;
-
-}
-
-.musicNotOne{
-    height: 35px;
-    width: 50px;
-    z-index: 6;
-    position: absolute;
-    right: 13%;
-    top: 10%;
-    opacity: 0.3;
-}
-
-.musicNotTwo{
-    height: 35px;
-    width: 50px;
-    z-index: 6;
-    position: absolute;
-    right: 40%;
-    top: 16%;
-    opacity: 0.9;
-}
-
-.musicNotThree{
-    height: 100px;
-    width: 50px;
-    z-index: 6;
-    position: absolute;
-    right: 30%;
-    top: 40%;
-    opacity: 0.9;
-}
-
-.musicNotFour{
-    height: 35px;
-    width: 50px;
-    z-index: 6;
-    position: absolute;
-    right: 10%;
-    top: 35%;
-    opacity: 0.9;
-}
-
-.musicNotFive{
-    height: 50px;
-    width: 50px;
-    z-index: 6;
-    position: absolute;
-    right: 58%;
-    top: 35%;
-    opacity: 0.9;
-}
-
-.musicNotSix{
-    height: 25px;
-    width: 50px;
-    z-index: 6;
-    position: absolute;
-    right: 28%;
-    top: 70%;
-    opacity: 0.9;
-}
-
-.musicNotEight{
-    height: 40px;
-    width: 50px;
-    z-index: 6;
-    position: absolute;
-    right: 48%;
-    top: 70%;
-    opacity: 0.9;
-}
-
-.musicNotNine{
-    height: 30px;
-    width: 50px;
-    z-index: 6;
-    position: absolute;
-    right: 5%;
-    top: 60%;
-    opacity: 0.9;
-}
-
-.musicNotTen{
-    height: 40px;
-    width: 50px;
-    z-index: 6;
-    position: absolute;
-    right: 50%;
-    top: 100%;
-    opacity: 0.9;
-}
-
-.musicNotEleven{
-    height: 30px;
-    width: 50px;
-    z-index: 6;
-    position: absolute;
-    right: 75%;
-    top: 60%;
-    opacity: 0.9;
-}
 
 @media(min-width:1621px){
     .parentHomeDiv{
         margin-top: 10px;
         display: grid;
-        grid-template-columns: 20% 25% 10% 10% 10% 15% 5% 5%;
-        grid-template-rows: 15% 5% 10% 35% 25% 10% ;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: 40% 60%;
         width: 100%;
         overflow: hidden;
-        height: 100vh;
+        height: 845px;
+    }
+
+    .stageTwo{
+        display: none;
+    }
+    .stageAndArtist{
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: 50% 50%;
+    }
+    
+    .shadowCircle,.shadowCircleTwo{
+        display: none;
     }
     
 }
@@ -196,7 +124,9 @@
         overflow: hidden;
         height: 100vh;
     }
-
+    .stageAndArtist{
+        width: 1084px;
+       }
     
     .linkToSpotify{
         grid-row-start:1;
@@ -209,170 +139,82 @@
     }
 
     .guitarist{
-        grid-row-start: 2;
+        grid-row-start: 1;
         grid-row-end: 3;
         grid-column-start: 1;
         grid-column-end: 2;
-        height: 350px;
-        margin-left: 20%;
-        justify-self: center;
-        align-self: end;
+        margin-left: 60px;
+        height: 270px;
     }
     
     .pianist{
-        grid-row-start: 2;
-        grid-row-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 4;
         grid-column-start: 2;
         grid-column-end: 3;
-        justify-self: center;
-        align-self: end;
-        height: 380px;
-    }
-    .singer{
-        grid-row-start: 1;
-        grid-row-end: 2;
-        grid-column-start: 3;
-        grid-column-end: 4;
-        justify-self: center;
-        align-self: center;
-    }
+        margin-bottom: 100px;
+        z-index: 1;
+        height: 250px;
+        margin-left: 0px;
     
-    .women{
-        grid-row-start: 1;
-        grid-row-end: 2;
-        grid-column-start: 1;
-        grid-column-end: 2;
-        justify-self: center;
-        align-self: center;
+       
     }
 
-    .drummer{
-        grid-row-start: 2;
+    .women{
+        grid-row-start: 1;
         grid-row-end: 3;
         grid-column-start: 3;
         grid-column-end: 4;
+        z-index: 1;
+        height: 280px;
         justify-self: center;
         align-self: center;
+        margin-top: 50px;
     }
 
-    .curvedLine{
-        grid-row-start:1;
-        grid-row-end: 2;
-        grid-column-start: 1;
-        grid-column-end: 4;
-        z-index: -1;
-        width: 2100px;
-        justify-self: center;
-        align-self: start;
-        margin-left: 0;
-        margin-right: 500px;
-        margin-bottom: 200px;
-        margin-top: 0px;
+    .singer{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 4;
+        grid-column-end: 6;
+        z-index: 2;
+        justify-self: end;
+        align-self: center;
+        height: 280px;
+        margin-bottom: 50px;
     }
 
-    .musicNotOne{
-        height: 35px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 13%;
-        top: 10%;
-        opacity: 0.3;
+    
+    .drummer{
+        grid-row-start: 1;
+        grid-row-end: 4;
+        grid-column-start: 3;
+        grid-column-end: 5;
+        z-index: 1;
+        height: 250px;
+    
+        margin-left: 200px;
+
+    }
+
+    .stageTwo{
+        display: none;
+    }
+
+    .stageAndArtist{
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: 50% 50%;
+    }
+
+    .shadowCircle,.shadowCircleTwo{
+        display: none;
     }
     
-    .musicNotTwo{
-        height: 35px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 50%;
-        top: 12%;
-        opacity: 0.9;
-    }
-    
-    .musicNotThree{
-        height: 100px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 25%;
-        top: 40%;
-        opacity: 0.9;
-    }
-    
-    .musicNotFour{
-        height: 35px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 0%;
-        top: 35%;
-        opacity: 0.9;
-    }
-    
-    .musicNotFive{
-        height: 50px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 70%;
-        top: 35%;
-        opacity: 0.9;
-    }
-    
-    .musicNotSix{
-        height: 25px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 28%;
-        top: 70%;
-        opacity: 0.9;
-    }
-    
-    .musicNotEight{
-        height: 40px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 68%;
-        top: 80%;
-        opacity: 0.9;
-    }
-    
-    .musicNotNine{
-        height: 30px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 5%;
-        top: 60%;
-        opacity: 0.9;
-    }
-    
-    .musicNotTen{
-        height: 40px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 40%;
-        top: 100%;
-        opacity: 0.9;
-    }
-    
-    .musicNotEleven{
-        height: 30px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 75%;
-        top: 60%;
-        opacity: 0.9;
-    }
 }
 
 
-@media(min-width:500px) and (max-width:1083px){
+@media(min-width:805px) and (max-width:1083px){
     .parentHomeDiv{
         margin-top: 10px;
         display: grid;
@@ -382,7 +224,9 @@
         overflow: hidden;
         height: 100vh;
     }
-
+    .stageAndArtist{
+        width: 804px;
+       }
     
     .linkToSpotify{
         grid-row-start:1;
@@ -395,179 +239,194 @@
     }
 
     .guitarist{
-        display: none;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        margin-left: 60px;
+        height: 220px;
     }
     
     .pianist{
-        grid-row-start: 2;
-        grid-row-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 4;
         grid-column-start: 2;
         grid-column-end: 3;
-        justify-self: center;
-        align-self: end;
-        height: 380px;
-    }
-    .singer{
-        display: none;
-    }
+        margin-bottom: 100px;
+        z-index: 1;
+        height: 220px;
+        margin-left: 0px;
     
+       
+    }
+
     .women{
-        display: none;
-    }
-
-    .drummer{
-        display: none;
-    }
-
-    .curvedLine{
-        grid-row-start:1;
-        grid-row-end: 2;
-        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 3;
         grid-column-end: 4;
-        z-index: -1;
-        width: 1900px;
+        z-index: 1;
+        height: 220px;
         justify-self: center;
-        align-self: start;
-        margin-right: 500px;
-        margin-bottom: 200px;
-        margin-top: 0px;
+        align-self: center;
+        margin-top: 50px;
     }
 
-    .musicNotOne{
-        height: 35px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 13%;
-        top: 10%;
-        opacity: 0.3;
+    .singer{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 4;
+        grid-column-end: 6;
+        z-index: 2;
+        justify-self: end;
+        align-self: center;
+        height: 230px;
+        margin-bottom: 50px;
+    }
+
+    
+    .drummer{
+        grid-row-start: 1;
+        grid-row-end: 4;
+        grid-column-start: 3;
+        grid-column-end: 5;
+        z-index: 1;
+        height: 220px;
+    
+        margin-left: 140px;
+
+    }
+
+    .stage{
+       width:850px
+    }
+
+    .stageTwo{
+        display: none;
     }
     
-    .musicNotTwo{
-        height: 35px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 50%;
-        top: 12%;
-        opacity: 0.9;
+    .stageAndArtist{
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: 50% 50%;
     }
-    
-    .musicNotThree{
-        height: 100px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 90%;
-        top: 40%;
-        opacity: 0.9;
-    }
-    
-    .musicNotFour{
-        height: 35px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 0%;
-        top: 35%;
-        opacity: 0.9;
-    }
-    
-    .musicNotFive{
-        height: 50px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 85%;
-        top: 10%;
-        opacity: 0.9;
-    }
-    
-    .musicNotSix{
-        height: 25px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 8%;
-        top: 60%;
-        opacity: 0.9;
-    }
-    
-    .musicNotEight{
-        height: 40px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 90%;
-        top: 90%;
-        opacity: 0.9;
-    }
-    
-    .musicNotNine{
-        height: 30px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 0%;
-        top: 90%;
-        opacity: 0.9;
-    }
-    
-    .musicNotTen{
-        height: 40px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 40%;
-        top: 100%;
-        opacity: 0.9;
-    }
-    
-    .musicNotEleven{
-        height: 30px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 85%;
-        top: 60%;
-        opacity: 0.9;
+
+    .shadowCircle,.shadowCircleTwo{
+        display: none;
     }
 }
 
 
-@media(min-width:500px) and (max-width:630px){
-    .createYourOwn{
-        height: 120px;
-     }
-
-     #linkToSpotify{
-        margin-top: 30px;
-        border-radius:50px ;
-        background-color: #ccbecb;
-        color: #a65c60;
-        border: none;
-        font-size: 0.9rem;
-        cursor: pointer;
-        min-width: 150px;
-        height: 50px;
-        grid-column-start: 1;
-        grid-column-end: 2;
-       
+@media(min-width:500px) and (max-width:804px){
+    .parentHomeDiv{
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 20% 60% 20% ;
+        grid-template-rows: 50% 50% ;
+        width: 100%;
+        overflow: hidden;
+        height: 100vh;
     }
+    .stageAndArtist{
+        width: 804px;
+       }
     
-    #demo{
-        margin-top: 30px;
-        border-radius:50px ;
-        background-color: transparent;
-        color: #b6b6b6;
-        border: solid 3px #d9d9d9 ;
-        font-size: 0.9rem;
-        cursor: pointer;
-        min-width: 150px;
-        height: 50px;
+    .linkToSpotify{
+        grid-row-start:1;
+        grid-row-end: 2;
         grid-column-start: 2;
         grid-column-end: 3;
+        margin: 0;
+        justify-self: center;
+        align-self: center;
     }
+
+    .guitarist{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-top: 100px;
+        margin-left:0px;
+        height: 150px;
+        z-index: 2;
+        justify-self: start;
+        align-self: center;
+        
+    }
+    
+    .pianist{
+        grid-row-start: 1;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-top: 100px;
+        z-index: 1;
+        height: 150px;
+        margin-left: 100px;
+        justify-self: center;
+        align-self: center;
+       
+    }
+
+    .women{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 3;
+        grid-column-end: 4;
+        z-index: 1;
+        height: 150px;
+        justify-self: center;
+        align-self: center;
+        margin-top: 80px;
+    }
+
+    .singer{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 4;
+        grid-column-end: 6;
+        z-index: 2;
+        justify-self: end;
+        align-self: center;
+        height: 150px;
+        margin-bottom: 0px;
+        margin-top: 40px;
+    }
+
+    
+    .drummer{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 3;
+        grid-column-end: 5;
+        z-index: 1;
+        height: 140px;
+        margin-top: 100px;
+        margin-bottom: 0px;
+        margin-left: 90px;
+
+    }
+
+    .stage{
+       width:500px
+    }
+
+    .stageTwo{
+        display: none;
+    }
+    
+    .stageAndArtist{
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: 50% 50%;
+        width: 500px;
+    }
+
+    .shadowCircle,.shadowCircleTwo{
+        display: none;
+    }
+    
 }
 
 @media(min-width:320px) and (max-width:499px){
@@ -580,7 +439,9 @@
         overflow: hidden;
         height: 100vh;
     }
-
+    .stageAndArtist{
+        width: 804px;
+       }
     
     .linkToSpotify{
         grid-row-start:1;
@@ -593,176 +454,107 @@
     }
 
     .guitarist{
-        display: none;
+        grid-row-start:3;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-top: 0px;
+        margin-left:30px;
+        height: 120px;
+        z-index: 2;
+        justify-self: start;
+        align-self: start;
+        
     }
     
     .pianist{
-        grid-row-start: 2;
-        grid-row-end: 3;
-        grid-column-start: 2;
+        grid-row-start: 1;
+        grid-row-end: 4;
+        grid-column-start: 1;
         grid-column-end: 3;
+        margin-top: 0px;
+        z-index: 1;
+        height: 110px;
+        margin-left: 80px;
         justify-self: center;
-        align-self: end;
-        height: 300px;
-    }
-    .singer{
-        display: none;
-    }
-    
-    .women{
-        display: none;
-    }
-
-    .drummer{
-        display: none;
-    }
-
-    .curvedLine{
-        grid-row-start:1;
-        grid-row-end: 2;
-        grid-column-start: 1;
-        grid-column-end: 4;
-        z-index: -1;
-        width: 800px;
-        justify-self: center;
-        align-self: start;
-        margin-left: 0;
-        margin-right: 300px;
-        margin-bottom: 200px;
-        margin-top: 150px;
-    }
-
-    .musicNotOne{
-        height: 35px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 13%;
-        top: 10%;
-        opacity: 0.3;
-    }
-    
-    .musicNotTwo{
-        height: 35px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 50%;
-        top: 12%;
-        opacity: 0.9;
-    }
-    
-    .musicNotThree{
-        height: 100px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 50%;
-        top: 45%;
-        opacity: 0.9;
-    }
-    
-    .musicNotFour{
-        height: 35px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 0%;
-        top: 45%;
-        opacity: 0.9;
-    }
-    
-    .musicNotFive{
-        height: 50px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 85%;
-        top: 10%;
-        opacity: 0.9;
-    }
-    
-    .musicNotSix{
-        height: 25px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 1%;
-        top: 60%;
-        opacity: 0.9;
-    }
-    
-    .musicNotEight{
-        height: 40px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 90%;
-        top: 90%;
-        opacity: 0.9;
-    }
-    
-    .musicNotNine{
-        height: 30px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 1%;
-        top: 100%;
-        opacity: 0.9;
-    }
-    
-    .musicNotTen{
-        height: 40px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 30%;
-        top: 100%;
-        opacity: 0.9;
-    }
-    
-    .musicNotEleven{
-        height: 30px;
-        width: 50px;
-        z-index: 6;
-        position: absolute;
-        right: 85%;
-        top: 60%;
-        opacity: 0.9;
-    }
-
-    .createYourOwn{
-       height: 83px;
-    }
-
-    #linkToSpotify{
-        margin-top: 30px;
-        border-radius:50px ;
-        background-color: #ccbecb;
-        color: #a65c60;
-        border: none;
-        font-size: 0.6rem;
-        cursor: pointer;
-        min-width: 50px;
-        height: 40px;
-        grid-column-start: 1;
-        grid-column-end: 2;
+        align-self: center;
        
     }
-    
-    #demo{
-        margin-top: 30px;
-        border-radius:50px ;
-        background-color: transparent;
-        color: #b6b6b6;
-        border: solid 3px #d9d9d9 ;
-        font-size: 0.6rem;
-        cursor: pointer;
-        min-width: 50px;
-        height: 40px;
-        grid-column-start: 2;
-        grid-column-end: 3;
+
+    .women{
+        grid-row-start: 3;
+        grid-row-end: 4;
+        grid-column-start: 3;
+        grid-column-end: 4;
+        z-index: 1;
+        height: 120px;
+        justify-self: center;
+        align-self: center;
+        margin-top: 10px;
     }
+
+    .singer{
+        grid-row-start: 3;
+        grid-row-end: 4;
+        grid-column-start: 4;
+        grid-column-end: 6;
+        z-index: 2;
+        justify-self: center;
+        align-self: center;
+        height: 120px;
+        margin-bottom: 0px;
+        margin-top: 30px;
+        margin-left: 0px;
+    }
+
+    
+    .drummer{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 3;
+        grid-column-end: 5;
+        z-index: 1;
+        height: 110px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        margin-left: 40px;
+
+    }
+
+    .stage{
+       display: none;
+    }
+
+    .stageTwo{
+        display: none;
+    }
+    
+    .stageAndArtist{
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: 25% 25% 25% 25%;
+        width: 320px;
+    }
+
+   .shadowCircleTwo{
+        grid-row-start: 3;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        grid-column-end: 6;
+        justify-self: center;
+        align-self: center;
+        margin-top: 100px;
+    }
+
+    .shadowCircle{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 6;
+        justify-self: center;
+        align-self: end;
+        margin-bottom: 10px;
+    }
+   
     
 }

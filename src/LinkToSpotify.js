@@ -29,6 +29,7 @@ function LinkToSpotify(){
         <div class="mainheadingAndSpotify">
             <h1 class="headingHidden">create your own vibe with curated playlists</h1>
             <img src="Header text.svg" className="createYourOwn"/>
+            <img src="CreateMobile.svg" className="createYourOwnTwo"/>
             <div id="parentLinkToSpotify">
                 <button id="linkToSpotify" onClick={getAuthForPlaylist}>Link your Spotify</button>
                 <Link to="demopopup"><button id="demo">Use demo account</button></Link>

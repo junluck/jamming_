@@ -1,8 +1,9 @@
 .components{
     display: grid;
-    grid-template-columns: 1fr 40%;
+    grid-template-columns: 60% 40%;
     grid-template-rows: 10% 35% 1fr;
     height: 1400px;
+    width: 100%;
 }
 
 .search{
@@ -37,5 +38,41 @@
     grid-column-start: 2;
     grid-column-end: 3;
     margin-top:82px;
+    
+}
+
+
+@media(min-width:1621px){
+   
+    
+}
+
+
+@media(min-width:1084px) and (max-width:1620px){
+    .components{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .existingPlaylist{
+      margin-left: 100px;
+        
+    }
+}
+
+
+@media(min-width:805px) and (max-width:1083px){
+
+}
+
+
+@media(min-width:500px) and (max-width:804px){
+  
+    
+}
+
+@media(min-width:320px) and (max-width:499px){
+
     
 }

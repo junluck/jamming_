@@ -225,3 +225,37 @@ h2{
     transition: transform 200ms ease;
     transform: rotate(180deg);
 }
+
+
+@media(min-width:1621px){
+   
+}
+
+
+@media(min-width:1084px) and (max-width:1620px){
+    .groupOfPlaylists{
+        width: 450px;
+    }
+    .outerbox{
+      
+        width: 407px;
+       
+    }
+    
+}
+
+
+@media(min-width:805px) and (max-width:1083px){
+    
+}
+
+
+@media(min-width:500px) and (max-width:804px){
+
+    
+}
+
+@media(min-width:320px) and (max-width:499px){
+
+    
+}

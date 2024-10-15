@@ -95,12 +95,12 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                     })}
                     
                     </div>
-                    
-                </div>
-                <div className="arrows">
+                    <div className="arrows">
                         <img src="Right Arrow.svg" className="rightArrow" onClick={rightButton}/>
                         <img src="left arrow.svg" className="leftArrow" onClick={leftButton}/>
+                    </div>
                 </div>
+                
             </div>
         </div>
     )
