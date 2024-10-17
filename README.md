@@ -39,7 +39,7 @@ Jammming is a React web application that allows users to search for songs, creat
 ### Start the Development Server:
 
         npm start
-        The app will run at http://localhost:3000/ by default.
+The app will run at http://localhost:3000/ by default.
 
 ## Usage
 * Search: Type the name of a song or artist into the search bar to find songs.
