@@ -49,10 +49,14 @@ Jammming is a React web application that allows users to search for songs, creat
 
 
 ## Contributing
-1.Contributions are welcome! If you want to contribute to the project:
+Contributions are welcome! If you want to contribute to the project:
 <br/>
-2.Fork the repository.
-3.Create a new branch for your feature or bugfix.
-4.Commit your changes.
-5.Push the branch to your forked repository.
-
+1.Fork the repository.
+<br/>
+2.Create a new branch for your feature or bugfix.
+<br/>
+3.Commit your changes.
+<br/>
+4.Push the branch to your forked repository.
+<br/>
+5.Create a pull request describing your changes.
