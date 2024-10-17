@@ -34,26 +34,24 @@ Jammming is a React web application that allows users to search for songs, creat
 
 * Create a .env file in the root of your project and add:
 
-bash
-Copy code
-REACT_APP_SPOTIFY_CLIENT_ID=your-client-id
-Start the Development Server:
+        REACT_APP_SPOTIFY_CLIENT_ID=your-client-id
+        
+### Start the Development Server:
 
-bash
-Copy code
-npm start
-The app will run at http://localhost:3000/ by default.
+        npm start
+        The app will run at http://localhost:3000/ by default.
 
-Usage
-Search: Type the name of a song or artist into the search bar to find songs.
-Add to Playlist: Click the + button to add a song to your playlist.
-Create Playlist: Enter a name for your playlist.
-Save to Spotify: Click Save to Spotify to save your playlist directly to your Spotify account.
-Contributing
-Contributions are welcome! If you want to contribute to the project:
+## Usage
+* Search: Type the name of a song or artist into the search bar to find songs.
+* Add to Playlist: Click the + button to add a song to your playlist.
+* Create Playlist: Enter a name for your playlist.
+* Save to Spotify: Click Save to Spotify to save your playlist directly to your Spotify account.
 
-Fork the repository.
-Create a new branch for your feature or bugfix.
-Commit your changes.
-Push the branch to your forked repository.
+
+## Contributing
+1.Contributions are welcome! If you want to contribute to the project:
+2.Fork the repository.
+3.Create a new branch for your feature or bugfix.
+4.Commit your changes.
+5.Push the branch to your forked repository.
 
