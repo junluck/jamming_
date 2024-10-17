@@ -19,20 +19,20 @@ Jammming is a React web application that allows users to search for songs, creat
 
         git clone https://github.com/your-username/jammming.git
         cd jammming
-        Install Dependencies:
 
-bash
-Copy code
-npm install
-Set Up Spotify API:
+### Install Dependencies:
 
-Go to Spotify Developer Dashboard.
+        npm install
 
-Create a new app and note down your Client ID.
+### Set Up Spotify API:
 
-Set the Redirect URI to http://localhost:3000/ in the Spotify Dashboard.
+* Go to Spotify Developer Dashboard.
 
-Create a .env file in the root of your project and add:
+* Create a new app and note down your Client ID.
+
+* Set the Redirect URI to http://localhost:3000/ in the Spotify Dashboard.
+
+* Create a .env file in the root of your project and add:
 
 bash
 Copy code
