@@ -7,6 +7,8 @@
     
   
 }
+
+
 .addedSongs{
     overflow-y: scroll;
     overflow-x: none;
@@ -38,12 +40,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+   
+    position: relative;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .searchBar{
     display: flex;
     height: 50px;
-    width: 55%;
+    width: 100%;
+    min-width: 400px;
     border-radius: 10px;
     border: none;
     background-color: #6e176d;
@@ -64,7 +72,7 @@
 
 .magnify{
     position: absolute;
-     left: 500px;
+     left: 5%;
      cursor: pointer;
 }
 
@@ -149,17 +157,7 @@ input[type="text"]{
    
 }
 
-.searchResultsTwo{
-    display: grid;
-    grid-template-columns:  25% 25% 25% 25%;
-    color: white;
-    width: 900px;
-    background-color: #3b103b;
-    height: 90px;
-    max-height: 90px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
+
 
 .songNameOfAddedSong{
     line-height: 20px;
@@ -375,7 +373,6 @@ a{
     cursor: pointer;
 }
 
-
 .songPictureActive{
     height: 200px;
     width: 200px;
@@ -477,6 +474,12 @@ a{
     width: 50px;
     border-radius: 10px;
 }
+
+.searchResultsTwo{
+    
+}
+
+
 @media (min-width:1500px){
     .resultsAndPlaylist{
         display: grid;
@@ -486,6 +489,26 @@ a{
         
         margin-top: 5%;
         margin-left:100px;
+    }
+
+    .searchResultsTwo{
+        display: grid;
+        grid-template-columns:  25% 25% 25% 25%;
+        color: white;
+        width: 900px;
+        background-color: #3b103b;
+        height: 90px;
+        max-height: 90px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .albumTwo{
+        display: none;
+    }
+    
+    .artistTwo{
+        display: none;
     }
 }
 
@@ -537,8 +560,53 @@ a{
         
       
     }
+
+
+
+    .songArtist{
+        display: none;
+    }
+
+    .songNameOfAddedSong{
+        font-size: 0.5rem;
+    }
+
+    
+    .albumPhotoAndSongName h3{
+        font-size: 0.7rem;
+    }
+
+    .album{
+      
+        font-size: 0.7rem;
+    }
+    .artist{
+        font-size: 0.7rem;
+    }
+
+    .searchResultsTwo{
+        display: grid;
+        grid-template-columns:  25% 25% 25% 25%;
+        color: white;
+        width: 680px;
+        background-color: #3b103b;
+        height: 90px;
+        max-height: 90px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    
+    .albumTwo{
+        display: none;
+    }
+    
+    .artistTwo{
+        display: none;
+    }
+  
 }
-@media (min-width:1050px) and (max-width:1499px){
+@media (min-width:1355px) and (max-width:1499px){
+    
     h2{
         font-size: 1.5rem;
     }
@@ -548,12 +616,12 @@ a{
     }
     .resultsAndPlaylist{
         display: grid;
-        grid-template-columns: 50% 200px;
+        grid-template-columns: 50% 0px;
         grid-template-rows: 100%;
         width: 90%;
         
         margin-top: 5%;
-        margin-left:100px;
+        margin-left:140px;
     }
 
     .results{
@@ -561,7 +629,7 @@ a{
       
      }
     .addToPlaylist{
-        width: 60%;
+        width: 650px;
         justify-self: center;
     }
 
@@ -570,7 +638,7 @@ a{
     }
     .addedSongs{
         
-        width: 600px;
+        width: 700px;
     }
 
     .groupOfResults{
@@ -580,271 +648,164 @@ a{
         
     }
 
-
-}
-
-@media (min-width:760px) and (max-width:1049px){
-    h2{
-        font-size: 1rem;
+    .songArtist{
+        display: none;
     }
 
-    h3{
-        font-size: 0.8rem;
-    }
-    p{
+    
+    .albumPhotoAndSongName h3{
         font-size: 0.7rem;
     }
-    
 
-    .resultsAndPlaylist{
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 100%;
-        width: 100%;
-        column-gap: 0%;
-        margin-top: 10%;
-       
+    .album{
+      
+        font-size: 0.7rem;
+    }
+    .artist{
+        font-size: 0.7rem;
     }
 
-    .results{
-        width: 90%;
-        justify-self: center;
+    .searchResultsTwo{
+        display: grid;
+        grid-template-columns:  25% 25% 25% 25%;
+        color: white;
+        width: 680px;
+        background-color: #3b103b;
+        height: 90px;
+        max-height: 90px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    .albumTwo{
+        display: none;
+    }
+    
+    .artistTwo{
+        display: none;
+    }
+}
+
+@media (min-width:901px) and (max-width:1354px){
+    .resultsAndPlaylist{
+        display: grid;
+        grid-template-columns: 50% 0px;
+        grid-template-rows: 100%;
+        width: 40%;
+        
+        margin-top: 12%;
+        margin-left:0px;
+    }
+
+    .addedSongs{
+        
+        width: 700px;
+    }
+
+    
+    .groupOfResults{
+        width: 433px;
+      
+    
+        
     }
 
     .addToPlaylist{
-        width: 70%;
+        width: 450px;
         justify-self: center;
+        margin-left: 0;
+        margin-right: 100px;
     }
 
-    .clearEmblem{
-        width: 25px;
-    }
-
-    .submit{
-        font-size: 1.1rem;
-        cursor: pointer;
-        min-width: 100px;
-        margin-left: auto;
-        margin-right: auto;
-        height: 40px;
-    }
-
-    .ResultAndClear{
-        width: 70%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #search{
-        margin-top: 50px;
-        border-radius:50px ;
-        background-color: #080532;
-        color: white;
-        border: none;
-        font-size: 0.1rem;
-        cursor: pointer;
-        min-width: 120px;
-        height: 50px;
-    }
-
-    .cross{
-        height: 15px;
-    }
-
-    .minus{
-        width: 4%;
-        max-width: 15px;
-        min-width: 15px;
-        height: 20px;
-    }
-
-    #linkToSpotify{
-        margin-top: 50px;
-        border-radius:50px ;
-        background-color: #080532;
-        color: white;
-        border: none;
-        font-size: 1.2rem;
-        cursor: pointer;
-        min-width: 120px;
-        height: 50px;
-    }
-
-}
-
-@media (min-width:759px) and (max-width:1049px){
-    
-    h3{
-        font-size: 0.7rem;
-    }
-    p{
-        font-size: 0.5rem;
-    }
-    
-
-    .resultsAndPlaylist{
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 100%;
-        width: 100%;
-        column-gap: 0%;
-        margin-top: 10%;
-        min-width: 700px;
-        margin-left: 30px;
-        margin-right: auto;
-       
-    }
 
     .results{
-        width: 100%;
-        justify-self: center;
+        width: 480px;
+      
+     }
+
+     
+     .addedSongs{
+        
+        width: 500px;
     }
 
-    .addToPlaylist{
-        width: 70%;
-        justify-self: center;
-    }
+    .form{
 
-    .clearEmblem{
-        width: 25px;
-    }
-
-    .submit{
-        font-size: 1.1rem;
-        cursor: pointer;
-        min-width: 100px;
-        margin-left: auto;
-        margin-right: auto;
-        height: 40px;
-    }
-
-    .ResultAndClear{
         width: 80%;
-        margin-left: auto;
-        margin-right: auto;
        
     }
 
-    #search{
-        font-size: 0.8rem;
-        width: 10px;
-        margin-top: 30px;
-        border-radius:50px ;
+
+    .songArtist{
+        display: none;
     }
 
-    .cross{
-        height: 15px;
-    }
-
-    .minus{
-        width: 4%;
-        max-width: 15px;
-        min-width: 15px;
-        height: 20px;
-    }
-
-    #linkToSpotify{
-        font-size: 0.8rem;
-        margin-top: 30px;
-        border-radius:50px ;
-    }
-
-}
-
-@media (min-width:320px) and (max-width:759px){
-    h2{
+    .albumPhotoAndSongName h3{
         font-size: 0.7rem;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        align-self: center;
+        margin-top: 0px;
     }
 
-    h3{
-        font-size: 0.4rem;
+    .album{
+      
+        font-size: 0.7rem;
+        display: none;
     }
-    p{
-        font-size: 0.3rem;
+    .artist{
+        font-size: 0.7rem;
+        display: none;
+    }
+
+    .searchResultsTwo{
+        display: grid;
+        grid-template-columns:  60% 30%;
+        color: white;
+        width: 480px;
+        background-color: #3b103b;
+        height: 120px;
+        max-height: 120px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .songNameArtistAndAlbum{
+        grid-column-start: 1;
+        grid-column-start: 2;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 33% 33% 33%;
+        justify-content: center;
+        align-items: start;
+        height:80px;
+        margin-left:10px;
+        margin-top: 0px;
+        width: 100%;
+    }
+
+    .artistTwo{
+        margin-top: 0;
+        margin-bottom: 0;
+       align-self: center;
+    }
+
+    .albumTwo{
+        margin-top: 0;
+        margin-bottom: 0;
+        align-self: center;
     }
     
-
-    .resultsAndPlaylist{
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 100%;
-        width: 100%;
-        column-gap: 0%;
-        margin-top: 10%;
-        margin-left: 10px;
-       
-    }
-
-    .results{
-        width: 98%;
-        justify-self: center;
-    }
-
-    .addToPlaylist{
-        width: 90%;
-        justify-self: center;
-    }
-
-    .clearEmblem{
-        width: 25px;
-    }
-
-    .submit{
-        font-size: 1.1rem;
-        cursor: pointer;
-        min-width: 100px;
-        margin-left: auto;
-        margin-right: auto;
-        height: 40px;
-    }
-
-    .ResultAndClear{
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #search{
-        font-size: 1.1rem;
-    }
-
-    .cross{
-        height: 10px;
-    }
-
     .minus{
-        width: 4%;
-        max-width: 10px;
-        min-width: 10px;
-        height: 20px;
-    }
+      
+        margin-top: 50px;
+        
+    } 
+  
 
-    #search{
-        margin-top: 30px;
-        border-radius:50px ;
-        background-color: #080532;
-        color: white;
-        border: none;
-        font-size: 0.8rem;
-        cursor: pointer;
-        min-width: 120px;
-        height: 50px;
-    }
-
-
-    #linkToSpotify{
-        margin-top: 30px;
-        border-radius:50px ;
-        background-color: #080532;
-        color: white;
-        border: none;
-        font-size: 0.8rem;
-        cursor: pointer;
-        min-width: 120px;
-        height: 50px;
-    }
-
-    .clearEmblem{
-        width: 18px;
-    }
+    
 }
+
+
+
+
+   

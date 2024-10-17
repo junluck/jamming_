@@ -246,7 +246,14 @@ h2{
 
 
 @media(min-width:805px) and (max-width:1083px){
-    
+    .groupOfPlaylists{
+        width: 350px;
+    }
+    .outerbox{
+      
+        width: 307px;
+       
+    }
 }
 
 

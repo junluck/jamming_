@@ -11,8 +11,8 @@
     grid-row-end: 3;
     grid-column-start: 1;
     grid-column-end: 2;
-    
-
+    justify-self: end;
+    margin-right: 100px;
 }
 
 .playlists{
@@ -20,6 +20,7 @@
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 2;
+    
     
 }
 
@@ -48,9 +49,9 @@
 }
 
 
-@media(min-width:1084px) and (max-width:1620px){
+@media(min-width:1355px) and (max-width:1620px){
     .components{
-        width: 90%;
+        width: 1300px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -59,11 +60,33 @@
       margin-left: 100px;
         
     }
+
+    .search{
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        justify-self: end;
+        margin-right: 0px;
+    }
 }
 
 
-@media(min-width:805px) and (max-width:1083px){
+@media(min-width:805px) and (max-width:1354px){
+    .components{
+        width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
+    .search{
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        justify-self: end;
+        margin-right: 200px;
+    }
 }
 
 

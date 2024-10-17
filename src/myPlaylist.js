@@ -28,7 +28,11 @@ return(
                     <div className="searchResultsTwo">
                         <div className="albumPhotoAndSongName">
                             <img src={element.albumPhoto} className="albumPhotos"/>
-                            <h3 className="songNameOfAddedSong"><a href={element.link} target="_blank">{element.songName}</a></h3>
+                            <div className="songNameArtistAndAlbum">
+                                <h3 className="songNameOfAddedSong"><a href={element.link} target="_blank">{element.songName}</a></h3>
+                                <h6 className="albumTwo">{element.album}</h6>
+                                <h6 className="artistTwo">{element.artist}</h6>
+                            </div>
                         </div>
                         <h6 className="album">{element.album}</h6>
                         <h6 className="artist">{element.artist}</h6>
