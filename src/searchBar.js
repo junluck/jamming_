@@ -86,7 +86,65 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                 }}/>
                                 </div>
                                 <div className={isClicked[index] ? "artistAndAlbumActive" : "artistAndAlbumDeactive"}>
-                                    <h3><a href={element.link} target="_blank">{element.songName}</a></h3>
+                                    <h3 className="songNameFor"><a href={element.link} target="_blank">{element.songName}</a></h3>
+                                    <p>{element.artist}</p>
+                                </div>
+                            
+                            </div>
+                        )
+                    })}
+                    
+                    </div>
+                    <div className="arrows">
+                        <img src="Right Arrow.svg" className="rightArrow" onClick={rightButton}/>
+                        <img src="left arrow.svg" className="leftArrow" onClick={leftButton}/>
+                    </div>
+                </div>
+                
+            </div>
+            <div className="resultsAndPlaylistTwo">
+                <div className="results">
+                    <div className="ResultAndClear">
+                        <h2 className="resultHeading">{resultHeading}</h2>
+                        <img src="/x_.svg" class="clearEmblem" onClick={resetResults} />
+                    </div>
+                    <div className="groupOfResults">
+                    {searchResults.map((element,index)=>{
+                        return (
+                            <div className="searchResults" style={{transform: `translatex(${translateAmount}%)`}}>
+                                <div className="imageAndPlus"> 
+                                    <img src="plus.svg" data-value={index}  className={isClicked[index] ? "plusSignActive" : "plusSignDeactive"} onClick={(e)=>{
+                                        let arrayOfSongsTwo = [...addPlaylist];
+                                        let arrayOfBooleans = [...isClicked];
+                                        let theIndexOfTheElement = Number(e.target.getAttribute("data-value"))
+                                        
+                                        arrayOfBooleans[index] = false;
+                                        setIsClicked(arrayOfBooleans);
+                                        addPlaylist.forEach((element,index) => {
+                                            if(searchResults[theIndexOfTheElement].trackId===element.trackId){
+                                                arrayOfSongsTwo.splice(index,1);
+                                                setAddPlaylist(arrayOfSongsTwo)
+                                            }
+                                            
+                                        });
+                                        
+                                       console.log(arrayOfSongsTwo)
+                                    }}/>
+                                    <img src={element.albumPhoto} className={isClicked[index] ? "songPictureActive" : "songPictureDeactive"}  onClick={(e)=>{
+                                    let count = 0;
+                                    handleClick(index);
+                                    console.log(e.target)
+                                    
+                                console.log(count)
+                                if(count === 0){
+                                    setAddPlaylist((previous)=>[element,...previous])
+                                }
+
+                                count = 0
+                                }}/>
+                                </div>
+                                <div className={isClicked[index] ? "artistAndAlbumActive" : "artistAndAlbumDeactive"}>
+                                    <h3 className="songNameFor"><a href={element.link} target="_blank">{element.songName}</a></h3>
                                     <p>{element.artist}</p>
                                 </div>
                             

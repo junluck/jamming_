@@ -1,0 +1,72 @@
+.mobileButtons{
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 33% 33% 33%;
+    width: 100%;
+    position: fixed;
+    bottom: 0%;
+    margin-left: 0px;
+    background-color: rgb(51, 20, 59);
+    left: 0%;
+    height: 70px;
+}
+
+.hoouseHome{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 5px;
+    align-items: center;
+    color: #E6E5E7;
+}
+
+.house{
+    width: 30px;
+    margin-bottom: 0;
+}
+
+.hoouseHome h5{
+    margin-top: 5px
+}
+
+.magnifyAndSearch{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 5px;
+    align-items: center;
+    color: #E6E5E7;
+}
+
+.maginifySearch{
+    width: 30px;
+    margin-bottom: 0;
+}
+
+.magnifyAndSearch h5{
+    margin-top: 5px
+}
+
+.bookAnsPlaylist{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 5px;
+    align-items: center;
+    color: #E6E5E7;
+}
+
+.book{
+    width: 30px;
+    margin-bottom: 0;
+}
+
+.bookAnsPlaylist h5{
+    margin-top: 5px
+}
+
+@media(min-width:701px){
+    .mobileButtons{
+        display: none;
+    }
+}

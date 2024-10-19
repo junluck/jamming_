@@ -7,6 +7,7 @@ import ExistingPlaylist from "./ExistingPlaylist.js"
 import React,{useState, useEffect} from "react";
 import "./SearchPage.css"
 import Search from './search.js';
+import MobileBar from './mobileBar.js';
 
 function SearchPage(){
     
@@ -535,6 +536,7 @@ function SearchPage(){
         <div className='existingPlay'>
             <ExistingPlaylist handlerL={handlerL} arrayOfPlayistNamesAndIds={arrayOfPlayistNamesAndIds} handleExistingPlaylist={handleExistingPlaylist} isClickedTwo={isClickedTwo} arrowDown={arrowDown} isClickedThree={isClickedThree} loading={loading} setLoading={setLoading}/>
         </div>
+        <MobileBar/>
       </div>
   );
 }

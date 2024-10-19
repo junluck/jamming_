@@ -1,7 +1,7 @@
 .main{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
     margin-top: 0;
     
@@ -125,37 +125,14 @@ input[type="text"]{
    position: relative;
 }
 
-.addToPlaylist{
-    margin-top: 0;
-    min-height: 500px;
-    width: 900px;
-    border-radius: 20px;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 10% 10% 10% 1fr 20%;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    
-}
+
 
 .subHeading{
     font-size: 1rem;
     color: antiquewhite;
 }
 
-.searchResults{
-    color: white;
-    display: grid;
-    grid-template-columns:  100%;
-    grid-template-rows: 50% 20%;
-    flex-direction: column;
-    margin-left: 11px;
-   
-   
-}
+
 
 
 
@@ -481,6 +458,9 @@ a{
 
 
 @media (min-width:1500px){
+    .resultsAndPlaylistTwo{
+        display: none;
+    }
     .resultsAndPlaylist{
         display: grid;
         grid-template-columns: 50% 34%;
@@ -509,6 +489,33 @@ a{
     
     .artistTwo{
         display: none;
+    }
+
+    .searchResults{
+        color: white;
+        display: grid;
+        grid-template-columns:  100%;
+        grid-template-rows: 50% 20%;
+        flex-direction: column;
+        margin-left: 11px;
+       
+       
+    }
+
+    .addToPlaylist{
+        margin-top: 0;
+        min-height: 500px;
+        width: 900px;
+        border-radius: 20px;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 10% 10% 1fr 20%;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        
     }
 }
 
@@ -606,6 +613,22 @@ a{
   
 }
 @media (min-width:1355px) and (max-width:1499px){
+
+    .addToPlaylist{
+        margin-top: 0;
+        min-height: 500px;
+        width: 900px;
+        border-radius: 20px;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 10% 10% 1fr 20%;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
     
     h2{
         font-size: 1.5rem;
@@ -683,9 +706,40 @@ a{
     .artistTwo{
         display: none;
     }
+
+    .searchResults{
+        color: white;
+        display: grid;
+        grid-template-columns:  100%;
+        grid-template-rows: 50% 20%;
+        flex-direction: column;
+        margin-left: 11px;
+       
+       
+    }
+
+    .resultsAndPlaylistTwo{
+        display: none;
+    }
 }
 
-@media (min-width:901px) and (max-width:1354px){
+@media (min-width:931px) and (max-width:1354px){
+    .addToPlaylist{
+        margin-top: 0;
+        min-height: 500px;
+        border-radius: 20px;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 10% 10% 1fr 20%;
+        flex-direction: column;
+        width: 450px;
+        justify-self: center;
+        margin-left: 0;
+        margin-right: 100px;
+        
+    }
     .resultsAndPlaylist{
         display: grid;
         grid-template-columns: 50% 0px;
@@ -710,10 +764,7 @@ a{
     }
 
     .addToPlaylist{
-        width: 450px;
-        justify-self: center;
-        margin-left: 0;
-        margin-right: 100px;
+       
     }
 
 
@@ -800,12 +851,651 @@ a{
         margin-top: 50px;
         
     } 
-  
 
+    .searchResults{
+        color: white;
+        display: grid;
+        grid-template-columns:  100%;
+        grid-template-rows: 50% 20%;
+        flex-direction: column;
+        margin-left: 11px;
+       
+       
+    }
+  
+    .resultsAndPlaylistTwo{
+        display: none;
+    }
+    
+}
+
+@media (min-width:701px) and (max-width:930px){
+    .resultsAndPlaylist{
+        display: grid;
+        grid-template-columns: 50% 0px;
+        grid-template-rows: 100%;
+        width: 40%;
+        
+        margin-top: 60px;
+        margin-left:0px;
+        margin-bottom: 0px;
+    }
+
+    
+
+    
+    .groupOfResults{
+        width: 333px;
+      
+    
+        
+    }
+
+    .addToPlaylist{
+        width: 270px;
+        justify-self: end;
+        align-self: end;
+       
+    }
+
+
+    .results{
+        width: 280px;
+      
+     }
+
+     
+     .addedSongs{
+        
+        width: 300px;
+    }
+
+    .form{
+
+        width: 80%;
+       
+    }
+
+
+    .songArtist{
+        display: none;
+    }
+
+    .albumPhotoAndSongName h3{
+        font-size: 0.7rem;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        align-self: center;
+        margin-top: 0px;
+    }
+
+    .album{
+      
+        font-size: 0.7rem;
+        display: none;
+    }
+    .artist{
+        font-size: 0.7rem;
+        display: none;
+    }
+
+    .searchResultsTwo{
+        display: grid;
+        grid-template-columns:  60% 30%;
+        color: white;
+        width: 480px;
+        background-color: #3b103b;
+        height: 120px;
+        max-height: 120px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .songNameArtistAndAlbum{
+        grid-column-start: 1;
+        grid-column-start: 2;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 33% 33% 33%;
+        justify-content: center;
+        align-items: start;
+        height:80px;
+        margin-left:10px;
+        margin-top: 0px;
+        width: 100%;
+    }
+
+    .artistTwo{
+        margin-top: 0;
+        margin-bottom: 0;
+       align-self: center;
+    }
+
+    .albumTwo{
+        margin-top: 0;
+        margin-bottom: 0;
+        align-self: center;
+    }
+    
+    .minus{
+      
+        margin-top: 50px;
+        
+    } 
+    
+    .groupOfResults{
+        width: 213px;
+      
+    
+        
+    }
+    .searchResults{
+        color: white;
+        display: grid;
+        grid-template-columns:  100%;
+        grid-template-rows: 50% 20%;
+        flex-direction: column;
+        margin-left: 11px;
+       
+       
+    }
+    .resultsAndPlaylistTwo{
+        display: none;
+    }
+
+    .addToPlaylist{
+        margin-top: 0;
+        min-height: 500px;
+        
+        border-radius: 20px;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 10% 10% 1fr 20%;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        width: 270px;
+        justify-self: end;
+        align-self: end;
+        
+    }
     
 }
 
 
+@media(min-width:471px) and (max-width:700px){
+
+    .searchResultsTwo{
+        display: grid;
+        grid-template-columns:  60% 30%;
+        color: white;
+        width: 98%;
+        background-color: #3b103b;
+        height: 120px;
+        max-height: 120px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+
+    .songNameArtistAndAlbum{
+        grid-column-start: 1;
+        grid-column-start: 2;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 33% 33% 33%;
+        justify-content: center;
+        align-items: start;
+        height:80px;
+        margin-left:10px;
+        margin-top: 0px;
+        width: 100%;
+    }
+    .albumPhotoAndSongName h3{
+        font-size: 0.7rem;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        align-self: center;
+        margin-top: 0px;
+    }
+    .artistTwo{
+        margin-top: 0;
+        margin-bottom: 0;
+       align-self: center;
+    }
+
+    .albumTwo{
+        margin-top: 0;
+        margin-bottom: 0;
+        align-self: center;
+    }
+    
+    .minus{
+      
+        margin-top: 50px;
+        
+    } 
+
+    .album{
+      
+        font-size: 0.7rem;
+        display: none;
+    }
+    .artist{
+        font-size: 0.7rem;
+        display: none;
+    }
+    
+    .resultsAndPlaylistTwo{
+        
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 100%;
+        width: 100%;
+        
+        margin-top: 0px;
+        margin-left:auto;
+        margin-right: auto;
+        margin-bottom: 0px;
+    }
+    .resultsAndPlaylist{
+        display: none;
+    }
+
+    .songArtist{
+        display: none;
+    }
+    .main{
+      
+        margin-bottom: 0px;
+        margin-top: 0px;
+       
+    }
+    .songPictureActive{
+        height: 120px;
+        width: 120px;
+    }
+
+    .songPictureDeactive{
+        height: 120px;
+        width: 120px;
+    }
+
+    
+
+    .ResultAndClear{
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+
+    .resultHeading{
+        margin-top: 7px;
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+    }
+
+    .plusSignActive{
+        height: 110px;
+        
+    }
+    
+    .plusSignDeactive{
+        height: 90px;
+    }
+
+    .groupOfResults{
+        display: flex;
+        overflow: scroll;
+        width: 100%;
+        height: 400px;
+        position: relative;
+    
+        
+    }
+
+    
+    .groupOfResults::-webkit-scrollbar{
+        display: none;
+    }
+
+
+
+    .artistAndAlbumActive{
+        margin-top:0px;
+    }
+  
+    .artistAndAlbumDeactive{
+        margin-top:0px;
+    }
+
+    .songNameFor{
+        margin-top: 0pc;
+    }
+
+    .artistAndAlbumActive h3{
+        font-size: 0.8rem;
+        margin-top: 0px;
+    }
+
+    .artistAndAlbumDeactive h3{
+        font-size: 0.8rem;
+        margin-top: 0px;
+    }
+
+    .artistAndAlbumDeactive p{
+        font-size: 0.6rem;
+        margin-top: 0px;
+    }
+
+    .artistAndAlbumActive h3{
+        font-size: 0.8rem;
+        margin-top: 0px;
+    }
+
+    .artistAndAlbumActive p{
+        font-size: 0.6rem;
+        margin-top: 0px;
+    }
+    .searchResults{
+        color: white;
+        display: grid;
+        grid-template-columns:  100%;
+        grid-template-rows: 35% 20%;
+        flex-direction: column;
+        margin-left: 11px;
+       
+       
+    }
+
+    .arrows{
+        display: none;
+    }
+
+    .addToPlaylist{
+        margin-top: 0;
+        min-height: 450px;        
+        border-radius: 20px;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 10% 10% 1fr 20%;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        justify-self: end;
+        align-self: end;
+        
+    }
+  
+
+    .results{
+        width: 100%;
+      
+     }
+
+     
+     .addedSongs{
+        
+        width: 103%;
+        height: 250px;
+    }
+
+    .submit{
+        margin-top: 0px;
+        border-radius:50px ;
+        background-color: transparent;
+        border: 1px solid #E6E5E7;
+        color: white;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        font-size: 1rem;
+        cursor: pointer;
+        min-width: 150px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 30px;
+    }
+     
+}
+
+
+@media(min-width:320px) and (max-width:470px){
+
+    .searchResultsTwo{
+        display: grid;
+        grid-template-columns:  60% 30%;
+        color: white;
+        width: 98%;
+        background-color: #3b103b;
+        height: 120px;
+        max-height: 120px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+
+    .songNameArtistAndAlbum{
+        grid-column-start: 1;
+        grid-column-start: 2;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 33% 33% 33%;
+        justify-content: center;
+        align-items: start;
+        height:80px;
+        margin-left:10px;
+        margin-top: 0px;
+        width: 100%;
+    }
+    .albumPhotoAndSongName h3{
+        font-size: 0.7rem;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        align-self: center;
+        margin-top: 0px;
+    }
+    .artistTwo{
+        margin-top: 0;
+        margin-bottom: 0;
+       align-self: center;
+    }
+
+    .albumTwo{
+        margin-top: 0;
+        margin-bottom: 0;
+        align-self: center;
+    }
+    
+    .minus{
+      
+        margin-top: 50px;
+        
+    } 
+
+    .album{
+      
+        font-size: 0.7rem;
+        display: none;
+    }
+    .artist{
+        font-size: 0.7rem;
+        display: none;
+    }
+    
+    .resultsAndPlaylistTwo{
+        
+        display: grid;
+        grid-template-columns: 50% 0px;
+        grid-template-rows: 100%;
+        width: 40%;
+        
+        margin-top: 0px;
+        margin-left:0px;
+        margin-bottom: 0px;
+    }
+    .resultsAndPlaylist{
+        display: none;
+    }
+
+    .songArtist{
+        display: none;
+    }
+    .main{
+        
+    }
+    .songPictureActive{
+        height: 100px;
+        width: 100px;
+    }
+
+    .songPictureDeactive{
+        height: 100px;
+        width: 100px;
+    }
+
+
+    .ResultAndClear{
+        margin-bottom: 0px;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+
+    .resultHeading{
+        margin-top: 7px;
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+    }
+
+    .plusSignActive{
+        height: 100px;
+        
+    }
+    
+    .plusSignDeactive{
+        height: 100px;
+    }
+
+    .groupOfResults{
+        display: flex;
+        overflow: scroll;
+        width: 321px;
+        height: 400px;
+        position: relative;
+    
+        
+    }
+
+    .groupOfResults::-webkit-scrollbar{
+        display: none;
+    }
+
+
+
+    .artistAndAlbumActive{
+        margin-top:0px;
+    }
+  
+    .artistAndAlbumDeactive{
+        margin-top:0px;
+    }
+
+    .songNameFor{
+        margin-top: 0pc;
+    }
+
+    .artistAndAlbumActive h3{
+        font-size: 0.8rem;
+        margin-top: 0px;
+    }
+
+    .artistAndAlbumDeactive h3{
+        font-size: 0.8rem;
+        margin-top: 0px;
+    }
+
+    .artistAndAlbumDeactive p{
+        font-size: 0.6rem;
+        margin-top: 0px;
+    }
+
+    .artistAndAlbumActive h3{
+        font-size: 0.8rem;
+        margin-top: 0px;
+    }
+
+    .artistAndAlbumActive p{
+        font-size: 0.6rem;
+        margin-top: 0px;
+    }
+    .searchResults{
+        color: white;
+        display: grid;
+        grid-template-columns:  100%;
+        grid-template-rows: 28% 20%;
+        flex-direction: column;
+        margin-left: 11px;
+       
+       
+    }
+
+    .arrows{
+        display: none;
+    }
+
+    .addToPlaylist{
+        margin-top: 0;
+        min-height: 450px;        
+        border-radius: 20px;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 10% 10% 1fr 20%;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        justify-self: end;
+        align-self: end;
+        
+    }
+  
+
+    .results{
+        width: 280px;
+        margin-left: 0px;
+        margin-right: 100px;
+      
+     }
+
+     
+     .addedSongs{
+        
+        width: 103%;
+        height: 250px;
+    }
+
+    .submit{
+        margin-top: 0px;
+        border-radius:50px ;
+        background-color: transparent;
+        border: 1px solid #E6E5E7;
+        color: white;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        font-size: 1rem;
+        cursor: pointer;
+        min-width: 150px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 30px;
+    }
+     
+}
 
 
    
