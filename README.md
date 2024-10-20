@@ -47,7 +47,7 @@ The app will run at http://localhost:3000/ by default.
 * Search: Type the name of a song or artist into the search bar to find songs.
 * Add to Playlist: Click the + button to add a song to your playlist.
 * Create Playlist: Enter a name for your playlist.
-* Save to Spotify: Click Save to Spotify to save your playlist directly to your Spotify account.
+* Submit to Spotify: Click submit to Spotify to save your playlist directly to your Spotify account.
 
 
 ## Contributing
