@@ -18,7 +18,6 @@ return(
             <h4>Song</h4>
             <h4>Artist</h4>
             <h4>Album</h4>
-            <h4>Time</h4>
         </div>
         <div className="addedSongs">
             {   
