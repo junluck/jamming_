@@ -171,6 +171,7 @@ function SearchPage(){
     }
     const getAuthCode = window.location.search;
     const code = convertUrlIntoCode(getAuthCode);
+    console.log(code)
     const emptyObject = new Track("","","","","")
     const [search, setSearch] = useState("");
     const [searchResults,setSearchResults] = useState([
