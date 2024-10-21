@@ -366,7 +366,7 @@ function SearchPage(){
 
     async function handlerL(){
         console.log(code)
-        
+        console.log(accessTokenTwoo)
         if (accessTokenTwoo === "" ){
             setLoading(true)
             try{
