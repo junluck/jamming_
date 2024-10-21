@@ -16,7 +16,7 @@ function LinkToSpotify(){
     }
 
     const clientId = process.env.REACT_APP_D
-    const redirect_uri = "https://jamming-lyart.vercel.app/home-page"
+    const redirect_uri = `${window.location.origin}/home-page`
     const authorizationLink = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&show_dialog=true&scope=user-read-private user-read-email app-remote-control playlist-modify-public playlist-read-private playlist-modify-private playlist-modify-public`
     const getAuthCode = window.location.search;
     const code = convertUrlIntoCode(getAuthCode);
@@ -32,7 +32,7 @@ function LinkToSpotify(){
             <img src="CreateMobile.svg" className="createYourOwnTwo"/>
             <div id="parentLinkToSpotify">
                 <button id="linkToSpotify" onClick={getAuthForPlaylist}>Link your Spotify</button>
-                <Link to="demopopup"><button id="demo">Use demo account</button></Link>
+                <Link to="demopopup"><button id="demo" onClick={console.log(window.location.origin)}>Use demo account</button></Link>
             </div>
         </div>
     )
