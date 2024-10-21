@@ -212,8 +212,7 @@ function SearchPage(){
     const [test, setTest] = useState()
     const clientId = process.env.REACT_APP_D
     const clientSecret= process.env.REACT_APP_S
-    console.log(clientId)
-    const redirect_uri = "/home-page"
+    const redirect_uri = "http://localhost:3000/home-page"
     const authString = btoa(`${clientId}:${clientSecret}`);
     const authorizationLink = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&show_dialog=true&scope=user-read-private user-read-email app-remote-control playlist-modify-public playlist-read-private playlist-modify-private playlist-modify-public`
     const authorizationLinkTwo = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&scope=user-read-private user-read-email app-remote-control playlist-modify-public playlist-read-private playlist-modify-private playlist-modify-public`
@@ -379,7 +378,7 @@ function SearchPage(){
                 body: new URLSearchParams({
                         "grant_type":"authorization_code",
                         "code": `${code}`,
-                        "redirect_uri": `/home-page`
+                        "redirect_uri": `http://localhost:3000/home-page`
     
                     })
                 })
@@ -567,6 +566,7 @@ function SearchPage(){
         <div className='SearchBarMobile'>
             <SearchBarMobile handlerSubmit={handlerSubmit} setSearch={setSearch} searchMobileClicked={searchMobileClicked} />\
         </div>
+        
         <MobileBar makeSearchMobileActive={makeSearchMobileActive} setPlaylistBool={setPlaylistBool}/>
       </div>
   );

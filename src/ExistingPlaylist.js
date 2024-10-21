@@ -6,7 +6,7 @@ function ExistingPlaylist({handlerL, arrayOfPlayistNamesAndIds, handleExistingPl
     function loader(load){
         if(loading){
             return (
-                <div className="lottie"><Lottie  animationData={animationData} loop={true} style={{ width: 500, height: 500 }} /></div>
+                <div className="lottie"><Lottie  animationData={animationData} loop={true} style={{ width: "100%", height: "100%" }} /></div>
             )
         }
     }
