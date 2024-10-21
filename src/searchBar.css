@@ -258,6 +258,7 @@ a{
     height: 20px;
     cursor: pointer;
     margin-right: 5%;
+    z-index: 1;
    
 }
 
@@ -529,12 +530,12 @@ a{
 
     .resultsAndPlaylist{
         display: grid;
-        grid-template-columns: 50% 200px;
+        grid-template-columns: 50% 0px;
         grid-template-rows: 100%;
         width: 900px;
         
         margin-top: 5%;
-        margin-left:250px;
+        margin-left:120px;
     }
 
     .arrows{
@@ -941,7 +942,7 @@ a{
 
     .searchResultsTwo{
         display: grid;
-        grid-template-columns:  60% 30%;
+        grid-template-columns:  80% 10%;
         color: white;
         width: 280px;
         background-color: #3b103b;
