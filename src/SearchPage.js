@@ -210,8 +210,8 @@ function SearchPage(){
     const [isClicked, setIsClicked] = useState([false,false,false,false,false,false,false,false,false,false]);
     const [loading,setLoading] = useState(false)
     const [test, setTest] = useState()
-    const clientId = process.env.REACT_APP_D
-    const clientSecret= process.env.REACT_APP_S
+    const clientId = "64660deecfca4469b34a4c5e7fa64edc"
+    const clientSecret= "55f4e240e7f74362b502b637ddb94ed1"
     const redirect_uri = "/home-page"
     const authString = btoa(`${clientId}:${clientSecret}`);
     const authorizationLink = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&show_dialog=true&scope=user-read-private user-read-email app-remote-control playlist-modify-public playlist-read-private playlist-modify-private playlist-modify-public`
