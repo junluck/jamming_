@@ -34,7 +34,10 @@
     margin-top:82px;
     
 }
-
+.backArrow{
+    height: 30px;
+    width: 30px;
+}
 
 @media(min-width:1621px){
     .components{
@@ -45,7 +48,29 @@
         width: 100%;
     }
     
-    
+    .SearchBarMobile{
+        display: none;
+    }
+
+    .existingPlayTwo{
+        display: none;
+    }
+    .searchTwo,.searchTwoDeactive{
+        display: none;
+    }
+
+     
+    .playlistsTwo,.playlistsTwoDeactive{
+       display: none;
+    }
+
+     .existingPlayTwo{
+        display: none;
+     }
+
+     .existingPlayTwoDeactive{
+        display: none;
+     }
 }
 
 
@@ -73,11 +98,38 @@
         justify-self: end;
         margin-right: 0px;
     }
+    .searchTwo,.searchTwoDeactive{
+        display: none;
+    }
+
+     
+    .playlistsTwo,.playlistsTwoDeactive{
+       display: none;
+    }
+
+    .SearchBarMobile{
+        display: none;
+    }
+
+    .existingPlayTwo{
+        display: none;
+    }
+
+     .existingPlayTwo{
+        display: none;
+     }
+
+     .existingPlayTwoDeactive{
+        display: none;
+     }
 }
 
 
 @media(min-width:805px) and (max-width:1354px){
 
+    .existingPlayTwo{
+        display: none;
+    }
     .components{
         display: grid;
         grid-template-columns: 60% 40%;
@@ -96,11 +148,35 @@
         justify-self: en;
         margin-right: 20px;
     }
+
+    .SearchBarMobile{
+        display: none;
+    }
+
+    .searchTwo,.searchTwoDeactive{
+        display: none;
+    }
+
+     
+    .playlistsTwo,.playlistsTwoDeactive{
+       display: none;
+    }
+
+
+     .existingPlayTwo{
+        display: none;
+     }
+
+     .existingPlayTwoDeactive{
+        display: none;
+     }
 }
 
 
 @media (min-width:701px) and (max-width:930px){
-
+    .existingPlayTwo{
+        display: none;
+    }
     .components{
         display: grid;
         grid-template-columns: 60% 40%;
@@ -123,6 +199,27 @@
         margin-top: 0px;
         margin-bottom: 0px;
     }
+
+    .SearchBarMobile{
+        display: none;
+    }
+
+    .searchTwo,.searchTwoDeactive{
+        display: none;
+    }
+
+     
+    .playlistsTwo,.playlistsTwoDeactive{
+       display: none;
+    }
+
+    .existingPlayTwo{
+        display: none;
+     }
+
+     .existingPlayTwoDeactive{
+        display: none;
+     }
 }
 
 @media(min-width:471px) and (max-width:700px){
@@ -134,15 +231,54 @@
         width: 100%;
         margin-left: auto;
         margin-right: auto;
+        height: 830px;
     }
-
-    .existingPlaylist{
-       display: none;
+    .backArrow{
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+      
+    }
+    
+    .existingPlayTwo{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2; 
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        justify-self: start;
+        align-self: start;
+        flex-direction: column;
+        
         
     }
 
-    
-    .search{
+    .exsitsingPlayer{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    .existingPlaylist{
+        margin-top: 0px;
+    }
+    .playlistsDeactive{
+        display: none;
+    }
+
+    .searchDeactive{
+        display: none;
+    }
+    .existingPlayTwoDeactive{
+        display: none;
+    }
+    .existingPlay{
+        display: none;
+    }
+    .searchTwo{
         grid-row-start: 1;
         grid-row-end: 2;
         grid-column-start: 1;
@@ -158,23 +294,38 @@
         
     }
 
+    .search{
+        display: none;
+    }
+
     .searching{
         display: none;
     }
     
-    .existingPlaylist{
-      display: none;
-        
-    }
-    .playlists{
+    .playlistsTwo{
         grid-row-start: 2;
         grid-row-end: 3;
         grid-column-start: 1;
         grid-column-end: 2;
-        align-self: center;
+        align-self: start;
+        margin-top: 90px;
         
         
     }
+
+    .playlists{
+        display: none;
+    }
+
+    .searchTwoDeactive{
+        display: none;
+    }
+
+     
+    .playlistsTwoDeactive{
+       display: none;
+    }
+
 
 
 }
@@ -183,50 +334,107 @@
     .components{
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 20% 70%;
+        grid-template-rows: 20% 80%;
         height:100%;
         width: 100%;
         margin-left: auto;
         margin-right: auto;
+        height: 830px;
     }
-
-    .existingPlaylist{
-       display: none;
+    .backArrow{
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+      
+    }
+    
+    .existingPlayTwo{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2; 
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        justify-self: start;
+        align-self: start;
+        flex-direction: column;
+        
         
     }
 
-    .search{
+    .exsitsingPlayer{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    .existingPlaylist{
+        margin-top: 0px;
+    }
+    .playlistsDeactive{
+        display: none;
+    }
+
+    .searchDeactive{
+        display: none;
+    }
+    .existingPlayTwoDeactive{
+        display: none;
+    }
+    .existingPlay{
+        display: none;
+    }
+    .searchTwo{
         grid-row-start: 1;
         grid-row-end: 2;
         grid-column-start: 1;
         grid-column-end: 2;
-        justify-self: center;
         align-self: start;
-        width: 100%;
+        width:100%;
         margin-left: 0px;
         margin-top: 0px;
         margin-right: 0px;
         overflow: hidden;
+       
         
+        
+    }
+
+    .search{
+        display: none;
     }
 
     .searching{
         display: none;
     }
     
-    .existingPlaylist{
-      display: none;
-        
-    }
-    .playlists{
+  
+    
+    .playlistsTwo{
         grid-row-start: 2;
         grid-row-end: 3;
         grid-column-start: 1;
         grid-column-end: 2;
-        align-self: center;
+        align-self: start;
+        margin-top: 90px;
         
         
     }
 
+
+    .playlists{
+        display: none;
+    }
+
+    .searchTwoDeactive{
+        display: none;
+    }
+
+     
+    .playlistsTwoDeactive{
+       display: none;
+    }
 
 }

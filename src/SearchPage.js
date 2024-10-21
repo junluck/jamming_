@@ -8,6 +8,7 @@ import React,{useState, useEffect} from "react";
 import "./SearchPage.css"
 import Search from './search.js';
 import MobileBar from './mobileBar.js';
+import SearchBarMobile from './searchBarMobile.js';
 
 function SearchPage(){
     
@@ -185,11 +186,13 @@ function SearchPage(){
         new Track("Get You (feat. Kali Uchis)", "Daniel Caesar", "Freudian", "https://open.spotify.com/track/7zFXmv6vqI4qOt4yGf3jYZ", "7zFXmv6vqI4qOt4yGf3jYZ", "https://i.scdn.co/image/ab67616d0000b2733138f891f3075c9c5d944037")
       ]);
     const [addPlaylist,setAddPlaylist] = useState([])
+    const [searchMobileClicked,setSearchMobileClicked] = useState(false)
     const [array, setArray] = useState(["bob","sam", "kop"])
     const [name,setName] = useState("");
     const [arrayOfPlayistNamesAndIds, setArrayOfPlayistNamesAndIds] = useState([])
     const [playlistName, setPlaylistName] = useState("")
     const [result, setResult] = useState();
+    const [playlistClicked,setPlaylistclicked] = useState(false)
     const [isClickedTwo,setIsClickedTwo] = useState([])
     const [isClickedThree,setIsClickedThree] = useState([])
     const [resultHeading, setResultHeading] = useState("Recommended songs")
@@ -507,9 +510,21 @@ function SearchPage(){
         }
     }
 
+    function makeSearchMobileActive(){
+        setSearchMobileClicked(!searchMobileClicked);
+    }
+
     function resetResults(){
         setSearchResults([]);
         
+    }
+
+    function setPlaylistBool(){
+        setPlaylistclicked(true)
+    }
+
+    function setPlaylistFalse(){
+        setPlaylistclicked(false)
     }
 
     function handleExistingPlaylist(e){
@@ -533,10 +548,25 @@ function SearchPage(){
         <div className='playlists'>
             <MyPlaylist setAddPlaylist = {setAddPlaylist} setPlaylistName={setPlaylistName} makePlaylist={makePlaylist} addPlaylist={addPlaylist} isClicked={isClicked} setIsClicked={setIsClicked} searchResults={searchResults} isClickedFour={isClickedFour} setIsClickedFour={setIsClickedFour} playlistName={playlistName}/>
         </div>
+        <div className={playlistClicked?"searchTwoDeactive":"searchTwo"}>
+            <SearchBar getAuthForPlaylist={getAuthForPlaylist} makePlaylist={makePlaylist} handlerSubmit={handlerSubmit} setSearch={setSearch} setPlaylistName={setPlaylistName} setAddPlaylist={setAddPlaylist} searchResults={searchResults} addPlaylist={addPlaylist} resetResults={resetResults}  setSearchResults={setSearchResults} searchResultsTwo={searchResultsTwo} isClicked={isClicked} setIsClicked={setIsClicked} resultHeading={resultHeading} className/>
+        </div>
+        <div className={playlistClicked?"playlistsTwoDeactive":"playlistsTwo"}>
+            <MyPlaylist setAddPlaylist = {setAddPlaylist} setPlaylistName={setPlaylistName} makePlaylist={makePlaylist} addPlaylist={addPlaylist} isClicked={isClicked} setIsClicked={setIsClicked} searchResults={searchResults} isClickedFour={isClickedFour} setIsClickedFour={setIsClickedFour} playlistName={playlistName}/>
+        </div>
         <div className='existingPlay'>
             <ExistingPlaylist handlerL={handlerL} arrayOfPlayistNamesAndIds={arrayOfPlayistNamesAndIds} handleExistingPlaylist={handleExistingPlaylist} isClickedTwo={isClickedTwo} arrowDown={arrowDown} isClickedThree={isClickedThree} loading={loading} setLoading={setLoading}/>
         </div>
-        <MobileBar/>
+        <div className={playlistClicked?"existingPlayTwo":"existingPlayTwoDeactive"}>
+            <div className='exsitsingPlayer'>
+                <img src='back arrow.svg' className='backArrow' onClick={setPlaylistFalse}/>
+                <ExistingPlaylist handlerL={handlerL} arrayOfPlayistNamesAndIds={arrayOfPlayistNamesAndIds} handleExistingPlaylist={handleExistingPlaylist} isClickedTwo={isClickedTwo} arrowDown={arrowDown} isClickedThree={isClickedThree} loading={loading} setLoading={setLoading}/>
+            </div>
+        </div>
+        <div className='SearchBarMobile'>
+            <SearchBarMobile handlerSubmit={handlerSubmit} setSearch={setSearch} searchMobileClicked={searchMobileClicked} />\
+        </div>
+        <MobileBar makeSearchMobileActive={makeSearchMobileActive} setPlaylistBool={setPlaylistBool}/>
       </div>
   );
 }

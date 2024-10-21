@@ -20,6 +20,10 @@
     color: #E6E5E7;
 }
 
+.hoouseHome:active{
+    opacity: 0.8;
+}
+
 .house{
     width: 30px;
     margin-bottom: 0;
@@ -37,6 +41,8 @@
     align-items: center;
     color: #E6E5E7;
 }
+
+
 
 .maginifySearch{
     width: 30px;

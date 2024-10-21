@@ -3,19 +3,19 @@ import "./mobileBar.css"
 import { Link } from "react-router-dom";
 
 
-function MobileBar(){
+function MobileBar({makeSearchMobileActive,setPlaylistBool}){
     return(
         <div className="mobileButtons">
            <div className="hoouseHome"> 
            <Link to={"/"}><img src="house.svg" className="house" /></Link>
                 <h5>Home</h5>
             </div>
-            <div className="magnifyAndSearch">
+            <div className="magnifyAndSearch" onClick={makeSearchMobileActive}>
                 <img src="magnify_mobile.svg" className="maginifySearch"/>
                 <h5>Search</h5>
             </div>
             <div className="bookAnsPlaylist">
-                <img src="books.svg" className="book"/>
+                <img src="books.svg" className="book" onClick={setPlaylistBool}/>
                 <h5>My Playlists</h5>
             </div>
         </div>
