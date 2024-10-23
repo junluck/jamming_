@@ -62,7 +62,7 @@ h4{
     grid-row-end: 6;
     grid-column-start: 2;
     grid-column-end: 3;
-    width: 70%;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
    
@@ -98,7 +98,7 @@ h4{
     grid-template-columns: 10% 80% 10%;
     border: #D4C6D6 solid 1px;
     border-radius: 10px;
-    width: 70%;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -112,7 +112,7 @@ h4{
     grid-template-columns: 10% 80% 10%;
     border: #D4C6D6 solid 1px;
     border-radius: 10px;
-    width: 70%;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -224,17 +224,17 @@ h4{
     }
 
     .manUserName{
-        width: 90%;
+        width: 95%;
        
     }
     
     .manPassword{
-        width: 90%;
+        width: 95%;
        
     }
 
     .takeMeToSpotify{
-        width: 90%;
+        width: 95%;
      
     }
     
@@ -279,18 +279,18 @@ h4{
     }
     
     .demoAccountt{
-        font-size: 1rem;
+        font-size: 0.85rem;
         font-weight: 100;
     }
     
     .accounts{
-        font-size: 0,9rem;
+        font-size: 0.9rem;
         font-weight: 100;
         opacity: 0.5;
     }
     
     .iAmDemo{
-        font-size: 1rem;
+        font-size: 0.85rem;
         font-weight: 200;
     }
     

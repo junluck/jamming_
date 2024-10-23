@@ -22,7 +22,7 @@ function DemoAccount(){
                         <img src="man.svg" className="man"/>
                         <div className="usernameAndDemoAccount">
                             <h4 className="accounts">Account Username</h4>
-                            <h4 className="demoAccountt">DemoAccount234455</h4>
+                            <h4 className="demoAccountt">javyon.field@duckdocks.org</h4>
                         </div>
                         <img src="tick.svg" className="tick"/>
                     </div>

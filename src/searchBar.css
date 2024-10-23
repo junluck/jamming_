@@ -557,11 +557,11 @@ a{
      .addToPlaylist{
         margin-top: 0;
         min-height: 500px;
-        width: 560px;
+        width: 650px;
     }
     .addedSongs{
         
-        width: 660px;
+        width: 700px;
     }
     .main{
         width: 800px;
@@ -649,7 +649,7 @@ a{
     }
 
     .results{
-        width: 680px;
+        width: 700px;
       
      }
     .addToPlaylist{

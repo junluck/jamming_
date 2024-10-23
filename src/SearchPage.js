@@ -564,7 +564,7 @@ function SearchPage(){
             </div>
         </div>
         <div className='SearchBarMobile'>
-            <SearchBarMobile handlerSubmit={handlerSubmit} setSearch={setSearch} searchMobileClicked={searchMobileClicked} />\
+            <SearchBarMobile handlerSubmit={handlerSubmit} setSearch={setSearch} searchMobileClicked={searchMobileClicked} />
         </div>
         
         <MobileBar makeSearchMobileActive={makeSearchMobileActive} setPlaylistBool={setPlaylistBool}/>
