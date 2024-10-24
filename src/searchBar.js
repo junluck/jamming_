@@ -1,11 +1,37 @@
 import React from "react";
 import "./searchBar.css"
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 
 
 function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, addPlaylist, resetResults , setSearchResults , searchResultsTwo,isClicked,setIsClicked,resultHeading}){
-    const newArray = [false,false,false,false,false,false,false,false,false,false]    
-    const [translateAmount, setTranslateAmount] = useState(0)
+       
+    const [translateAmount, setTranslateAmount] = useState(0);
+    const newArray = [false,false,false,false,false,false,false,false,false,false]
+
+    const resetOnWindowSize = () => {
+        let array = [...searchResults]
+        setSearchResults(array)
+        searchResults.forEach((element,index)=>{
+           addPlaylist.forEach((ele)=>{
+            if(element.songName===ele.songName){
+                newArray[index] = true
+            }
+           })
+        })
+        console.log(newArray)
+        console.log( addPlaylist)
+    }
+    
+    useEffect(()=>{
+        window.addEventListener("resize",resetOnWindowSize)
+
+        return ()=>{
+            window.removeEventListener("resize",resetOnWindowSize )
+        }
+    },[])
+
+
+
     function handleClick(index){
         let arrayOfBool = [...isClicked];
         arrayOfBool[index] = !arrayOfBool[index] ;
@@ -15,12 +41,15 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
     function leftButton(){
         let  arrayOfSongs = [...searchResults];
         let  arrayOfClickBool = [...isClicked];
-        if(arrayOfSongs.length >4){
+        console.log(window.innerWidth);
+        if((arrayOfSongs.length > 4 && window.innerWidth > 1870)||(arrayOfSongs.length > 3 && window.innerWidth > 1354 && window.innerWidth <= 1870 )||((arrayOfSongs.length > 2 && window.innerWidth > 930 && window.innerWidth <= 1354))){
             let firstElement = arrayOfClickBool.shift();
             let array = isClicked.slice(1);
             setIsClicked([...array,firstElement])
             let newArray = arrayOfSongs.slice(1);
             setSearchResults(newArray);
+            console.log(isClicked)
+            
            
         }
     }

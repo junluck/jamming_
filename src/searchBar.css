@@ -13,7 +13,7 @@
     overflow-y: scroll;
     overflow-x: none;
     height: 400px;
-    width: 950px;
+    width: 880px;
 }
 .resultHeading{
     margin-left: 10px;
@@ -476,7 +476,7 @@ a{
         display: grid;
         grid-template-columns:  25% 25% 25% 25%;
         color: white;
-        width: 900px;
+        width: 850px;
         background-color: #3b103b;
         height: 90px;
         max-height: 90px;
@@ -506,7 +506,7 @@ a{
     .addToPlaylist{
         margin-top: 0;
         min-height: 500px;
-        width: 900px;
+        width: 850px;
         border-radius: 20px;
         grid-column-start: 2;
         grid-column-end: 3;
@@ -751,11 +751,6 @@ a{
         margin-left:0px;
     }
 
-    .addedSongs{
-        
-        width: 700px;
-    }
-
     
     .groupOfResults{
         width: 433px;
@@ -765,7 +760,7 @@ a{
     }
 
     .addToPlaylist{
-       
+        width: 400px;
     }
 
 
@@ -777,7 +772,7 @@ a{
      
      .addedSongs{
         
-        width: 500px;
+        width: 450px;
     }
 
     .form{
@@ -813,7 +808,7 @@ a{
         display: grid;
         grid-template-columns:  60% 30%;
         color: white;
-        width: 480px;
+        width: 430px;
         background-color: #3b103b;
         height: 120px;
         max-height: 120px;
