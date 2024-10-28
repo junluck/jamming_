@@ -1,6 +1,6 @@
 import React from "react";
 import "./searchBar.css"
-import { useState ,useEffect} from "react";
+import { useState ,useEffect,useRef} from "react";
 
 
 function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, addPlaylist, resetResults , setSearchResults , searchResultsTwo,isClicked,setIsClicked,resultHeading,searchResultsThree,isClickedFive,setSearchResultsThree}){
@@ -8,75 +8,56 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
     const [translateAmount, setTranslateAmount] = useState(0);
     const newArray = [false,false,false,false,false,false,false,false,false,false];
     const [switcher, setSwitcher] = useState(false)
-
+    const inputRef = useRef()
+    const [scrollAmount, setScrollAmount] = useState(200)
+    
     function leftButton(){
-        console.log(isClicked)
-
-        console.log(addPlaylist)
-        let  arrayOfSongs = [...searchResults];
-        let  arrayOfClickBool = [...isClicked];
-        console.log(window.innerWidth);
-        if((arrayOfSongs.length > 4 && window.innerWidth > 1870)||(arrayOfSongs.length > 3 && window.innerWidth > 1354 && window.innerWidth <= 1870 )||((arrayOfSongs.length > 2 && window.innerWidth > 930 && window.innerWidth <= 1354)||(arrayOfSongs.length > 1 && window.innerWidth <=930))){
-            let firstElement = arrayOfClickBool.shift();
-            let array = isClicked.slice(1);
-            setIsClicked([...array,firstElement])
-            let newArray = arrayOfSongs.slice(1);
-            setSearchResults(newArray);
-            
-            
+       
+        if(window.innerWidth>1354){
+           let amount =  scrollAmount + 180
+           inputRef.current.scrollLeft = amount
+           if(amount > 1467){
+            amount = 1400
+           }
+           setScrollAmount(amount)
+          
            
+        }
+
+        else if(window.innerWidth<=1354 && window.innerWidth>930){
+            let amount =  scrollAmount + 180
+            inputRef.current.scrollLeft = amount
+            if(amount > 1467){
+             amount = 1500
+            }
+            setScrollAmount(amount)       
+        }
+
+        else{
+            let amount =  scrollAmount + 150
+            inputRef.current.scrollLeft = amount
+            if(amount > 1467){
+             amount = 1800
+            }
+            setScrollAmount(amount)     
         }
     }
 
     function rightButton(){
-        let  arrayOfSongs = [...searchResults];
-        if(arrayOfSongs.length < 10){
-            let arrayOfClickBools = [...isClicked];
-            let lastElementBool = arrayOfClickBools.pop();
-            arrayOfSongs.unshift(searchResultsTwo[(searchResultsTwo.length - 1) - arrayOfSongs.length]);
-            arrayOfClickBools.unshift(lastElementBool)
-            setIsClicked(arrayOfClickBools);
-            setSearchResults(arrayOfSongs);
-        }
-
-    }
-
-
-    
-    const resetOnWindowSize = () => {
-      
-        
-        setSwitcher(true)
-        
-
-
-    }
-    
-    useEffect(()=>{
-        window.addEventListener("resize",resetOnWindowSize)
-
-        return()=>{
-            window.removeEventListener("resize",resetOnWindowSize)
-        }
+        console.log(inputRef)
        
-    },[])
-
-    useEffect(()=>{
-       
-        if(window.innerWidth<701){
-            setSearchResults(searchResultsThree)
-            setIsClicked(newArray)
             
-
+        let amount =  scrollAmount - 180
+        inputRef.current.scrollLeft = amount
+        if(amount <=0){
+         amount = 0
         }
-      
-        if(switcher === true){
+        setScrollAmount(amount)
            
-            
-            
-            setSwitcher(false)
-        }
-    },[switcher])
+        
+    }
+
+
 
 
 
@@ -96,7 +77,7 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                         <h2 className="resultHeading">{resultHeading}</h2>
                         <img src="/x_.svg" class="clearEmblem" onClick={resetResults} />
                     </div>
-                    <div className="groupOfResults">
+                    <div className="groupOfResults" ref={inputRef}>
                     {searchResults.map((element,index)=>{
                         return (
                             <div className="searchResults" style={{transform: `translatex(${translateAmount}%)`}}>
