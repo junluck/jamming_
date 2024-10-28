@@ -3,52 +3,26 @@ import "./searchBar.css"
 import { useState ,useEffect} from "react";
 
 
-function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, addPlaylist, resetResults , setSearchResults , searchResultsTwo,isClicked,setIsClicked,resultHeading}){
+function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, addPlaylist, resetResults , setSearchResults , searchResultsTwo,isClicked,setIsClicked,resultHeading,searchResultsThree,isClickedFive,setSearchResultsThree}){
        
     const [translateAmount, setTranslateAmount] = useState(0);
-    const newArray = [false,false,false,false,false,false,false,false,false,false]
-
-    const resetOnWindowSize = () => {
-        let array = [...searchResults]
-        setSearchResults(array)
-        searchResults.forEach((element,index)=>{
-           addPlaylist.forEach((ele)=>{
-            if(element.songName===ele.songName){
-                newArray[index] = true
-            }
-           })
-        })
-        console.log(newArray)
-        console.log( addPlaylist)
-    }
-    
-    useEffect(()=>{
-        window.addEventListener("resize",resetOnWindowSize)
-
-        return ()=>{
-            window.removeEventListener("resize",resetOnWindowSize )
-        }
-    },[])
-
-
-
-    function handleClick(index){
-        let arrayOfBool = [...isClicked];
-        arrayOfBool[index] = !arrayOfBool[index] ;
-        setIsClicked(arrayOfBool);
-    }
+    const newArray = [false,false,false,false,false,false,false,false,false,false];
+    const [switcher, setSwitcher] = useState(false)
 
     function leftButton(){
+        console.log(isClicked)
+
+        console.log(addPlaylist)
         let  arrayOfSongs = [...searchResults];
         let  arrayOfClickBool = [...isClicked];
         console.log(window.innerWidth);
-        if((arrayOfSongs.length > 4 && window.innerWidth > 1870)||(arrayOfSongs.length > 3 && window.innerWidth > 1354 && window.innerWidth <= 1870 )||((arrayOfSongs.length > 2 && window.innerWidth > 930 && window.innerWidth <= 1354))){
+        if((arrayOfSongs.length > 4 && window.innerWidth > 1870)||(arrayOfSongs.length > 3 && window.innerWidth > 1354 && window.innerWidth <= 1870 )||((arrayOfSongs.length > 2 && window.innerWidth > 930 && window.innerWidth <= 1354)||(arrayOfSongs.length > 1 && window.innerWidth <=930))){
             let firstElement = arrayOfClickBool.shift();
             let array = isClicked.slice(1);
             setIsClicked([...array,firstElement])
             let newArray = arrayOfSongs.slice(1);
             setSearchResults(newArray);
-            console.log(isClicked)
+            
             
            
         }
@@ -63,13 +37,56 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
             arrayOfClickBools.unshift(lastElementBool)
             setIsClicked(arrayOfClickBools);
             setSearchResults(arrayOfSongs);
-            console.log(searchResults);
-        
-        
         }
 
     }
 
+
+    
+    const resetOnWindowSize = () => {
+      
+        
+        setSwitcher(true)
+        
+
+
+    }
+    
+    useEffect(()=>{
+        window.addEventListener("resize",resetOnWindowSize)
+
+        return()=>{
+            window.removeEventListener("resize",resetOnWindowSize)
+        }
+       
+    },[])
+
+    useEffect(()=>{
+       
+        if(window.innerWidth<701){
+            setSearchResults(searchResultsThree)
+            setIsClicked(newArray)
+            
+
+        }
+      
+        if(switcher === true){
+           
+            
+            
+            setSwitcher(false)
+        }
+    },[switcher])
+
+
+
+    function handleClick(index){
+        let arrayOfBool = [...isClicked];
+        arrayOfBool[index] = !arrayOfBool[index] ;
+        setIsClicked(arrayOfBool);
+    }
+
+    
     return(
         <div className="main">
             
@@ -84,11 +101,12 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                         return (
                             <div className="searchResults" style={{transform: `translatex(${translateAmount}%)`}}>
                                 <div className="imageAndPlus"> 
-                                    <img src="plus.svg" data-value={index}  className={isClicked[index] ? "plusSignActive" : "plusSignDeactive"} onClick={(e)=>{
+                                    <img src="plus.svg" data-value={index}  className={ isClicked[index] ? "plusSignActive" : "plusSignDeactive"} onClick={(e)=>{
                                         let arrayOfSongsTwo = [...addPlaylist];
                                         let arrayOfBooleans = [...isClicked];
                                         let theIndexOfTheElement = Number(e.target.getAttribute("data-value"))
-                                        
+                                        element.isClick = false
+                                        searchResultsThree[index].isClick = false
                                         arrayOfBooleans[index] = false;
                                         setIsClicked(arrayOfBooleans);
                                         addPlaylist.forEach((element,index) => {
@@ -101,11 +119,12 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                         
                                        console.log(arrayOfSongsTwo)
                                     }}/>
-                                    <img src={element.albumPhoto} className={isClicked[index] ? "songPictureActive" : "songPictureDeactive"}  onClick={(e)=>{
+                                    <img src={element.albumPhoto} className={ isClicked[index] ? "songPictureActive" : "songPictureDeactive"}  onClick={(e)=>{
                                     let count = 0;
                                     handleClick(index);
                                     console.log(e.target)
-                                    
+                                    element.isClick = true
+                                    searchResultsThree[index].isClick = true
                                 console.log(count)
                                 if(count === 0){
                                     setAddPlaylist((previous)=>[element,...previous])
