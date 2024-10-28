@@ -17,14 +17,14 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
            let amount =  scrollAmount + 180
            inputRef.current.scrollLeft = amount
            if(amount > 1467){
-            amount = 1400
+            amount = 1300
            }
            setScrollAmount(amount)
           
            
         }
 
-        else if(window.innerWidth<=1354 && window.innerWidth>930){
+        else if(window.innerWidth <= 1354 && window.innerWidth > 930){
             let amount =  scrollAmount + 180
             inputRef.current.scrollLeft = amount
             if(amount > 1467){
@@ -34,9 +34,9 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
         }
 
         else{
-            let amount =  scrollAmount + 150
+            let amount =  scrollAmount + 130
             inputRef.current.scrollLeft = amount
-            if(amount > 1467){
+            if(amount > 1767){
              amount = 1800
             }
             setScrollAmount(amount)     
@@ -46,14 +46,32 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
     function rightButton(){
         console.log(inputRef)
        
-            
-        let amount =  scrollAmount - 180
-        inputRef.current.scrollLeft = amount
-        if(amount <=0){
-         amount = 0
+        if(window.innerWidth > 1354){    
+            let amount =  scrollAmount - 180
+            inputRef.current.scrollLeft = amount
+            if(amount < 1){
+                amount = 0
+            }
+            setScrollAmount(amount)
         }
-        setScrollAmount(amount)
-           
+
+        else if(window.innerWidth <= 1354 && window.innerWidth > 930){    
+            let amount =  scrollAmount - 100
+            inputRef.current.scrollLeft = amount
+            if(amount < 1){
+                amount = 0
+            }
+            setScrollAmount(amount)
+        }
+
+        else{
+            let amount =  scrollAmount - 100
+            inputRef.current.scrollLeft = amount
+            if(amount < 1){
+                amount = 0
+            }
+            setScrollAmount(amount)
+        }
         
     }
 

@@ -870,17 +870,21 @@ a{
 @media (min-width:701px) and (max-width:930px){
     .resultsAndPlaylist{
         display: grid;
-        grid-template-columns: 50% 0px;
+        grid-template-columns: 100% ;
         grid-template-rows: 100%;
         width: 40%;
         
         margin-top: 60px;
         margin-left:0px;
         margin-bottom: 0px;
+        margin-right: -50px;
     }
 
+    .songPictureDeactive{
+   
+    }
     
-
+   
     
     .groupOfResults{
         width: 333px;
@@ -898,7 +902,7 @@ a{
 
 
     .results{
-        width: 280px;
+        width: 380px;
       
      }
 
@@ -981,12 +985,7 @@ a{
         
     } 
     
-    .groupOfResults{
-        width: 213px;
-      
     
-        
-    }
     .searchResults{
         color: white;
         display: grid;
