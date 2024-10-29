@@ -1,10 +1,14 @@
 import React from "react";
 import "./ExistingPlaylist.css";
 import Lottie from "lottie-react";
-import  animationData from "./loading.json"
+import  animationData from "../../loading.json"
+
+//function component that has some props being passed to be used
 function ExistingPlaylist({handlerL, arrayOfPlayistNamesAndIds, handleExistingPlaylist,isClickedTwo,arrowDown,isClickedThree,loading}){
+    
+    //function that checks if loading is finished or not so the lottie will play
     function loader(load){
-        if(loading){
+        if(load){
             return (
                 <div className="lottie"><Lottie  animationData={animationData} loop={true} style={{ width: "100%", height: "100%" }} /></div>
             )

@@ -1,17 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-import NavBar from "./navbar.js"
-import MyPlaylist from './myPlaylist.js';
-import SearchBar from "./searchBar.js"
-import ExistingPlaylist from "./ExistingPlaylist.js"
+import logo from '../../logo.svg';
+import '../../App.css';
+import NavBar from "../NavBar/navbar.js"
+import MyPlaylist from '../MyPlaylist/myPlaylist.js';
+import SearchBar from "../SearchBar/searchBar.js"
+import ExistingPlaylist from "../ExistiingPlaylist/ExistingPlaylist.js"
 import React,{useState, useEffect} from "react";
 import "./SearchPage.css"
-import Search from './search.js';
-import MobileBar from './mobileBar.js';
-import SearchBarMobile from './searchBarMobile.js';
+import Search from '../Search/search.js';
+import MobileBar from '../MobileBar/mobileBar.js';
+import SearchBarMobile from '../SearchBarMobile/searchBarMobile.js';
 
+//function component for search page componnent
 function SearchPage(){
     
+    //class for playlist to store playlist details and content
     class Playlist{
         constructor(playlistName, playListId, tracksInPlaylist, playlistNumber,playlistPhoto,isClicked){
             this._playlistName = playlistName;
@@ -54,6 +56,7 @@ function SearchPage(){
         
     }
 
+    //class for track details
     class Track{
         constructor(songName, artist, album, link, trackId, albumPhoto,isClick){
           this._songName = songName;
@@ -97,7 +100,8 @@ function SearchPage(){
             this._IsClick = bool
         }
       }
-
+    
+      //function that takes away code and equal away from key
     function convertUrlIntoCode(url){
         let appendedString = "";
             for(let i = 6;i < url.length;i++){
@@ -106,10 +110,9 @@ function SearchPage(){
         return appendedString
       }
 
-
+      //async function that gets access token and updates token state and then searches for songs
         async function getSong(search){
         
-            console.log(authorizationCode)
             if (accessTokenTwoo === ""){
                 try{
                     const response = await fetch("https://accounts.spotify.com/api/token",{
@@ -132,7 +135,7 @@ function SearchPage(){
                     const data = await response.json();
                     const token = data.access_token;
                     console.log(data)
-                    setaccessTokenTwoo(token)
+                    setaccessTokenTwoo(token)//set access token 
 
                 }catch(e){
                     console.log(`Error: ${e}`);
@@ -144,10 +147,12 @@ function SearchPage(){
             let arrayOfObjects = []
             const access_Obj = await getAuth();
             const accessToken = access_Obj.access_token;
-            setaccessToken(accessToken);
+            setaccessToken(accessToken);//set access token 
             const endpoint = "/search?q=";
             const url = "https://api.spotify.com/v1"
             const id = `${search}&type=track&limit=10`
+
+            // getting the tracks via search
             try{
             
             const response=await fetch(`${url}${endpoint}${id}`,{
@@ -162,14 +167,14 @@ function SearchPage(){
             }
             
             const artist = await response.json()
-            console.log(artist.tracks.items[0])
+            //storing each song in array
             artist.tracks.items.forEach(element => {
 
                 const songInformation = new Track(element.name, element.artists[0].name, element.album.name, element.external_urls.spotify,element.id,element.album.images[0].url,false)
                 arrayOfObjects.push(songInformation)
 
           });
-          
+          //return sorted array
           return arrayOfObjects
         
       }catch(e){
@@ -177,11 +182,13 @@ function SearchPage(){
       }
        
     }
+
+    //get code returned from sptofy and storing it in variable
     const getAuthCode = window.location.search;
     const code = convertUrlIntoCode(getAuthCode);
-    console.log(code)
-    const emptyObject = new Track("","","","","")
+    //search state variables
     const [search, setSearch] = useState("");
+    //search results in state variable that gets updated every search
     const [searchResults,setSearchResults] = useState([
         new Track("Guess featuring Billie Eilish", "Charli XCX", "Guess featuring Billie Eilish", "https://open.spotify.com/track/3WOhcATHxK2SLNeP5W3v1v", "3WOhcATHxK2SLNeP5W3v1v", "https://i.scdn.co/image/ab67616d0000b2731ac297d16bee7cf072601a21"),
         new Track("Good Luck, Babe!", "Chappell Roan", "Good Luck, Babe!", "https://open.spotify.com/track/0WbMK4wrZ1wFSty9F7FCgu", "0WbMK4wrZ1wFSty9F7FCgu", "https://i.scdn.co/image/ab67616d0000b27391b4bc7c88d91a42e0f3a8b7"),
@@ -194,38 +201,51 @@ function SearchPage(){
         new Track("Girl, so confusing featuring lorde", "Charli XCX", "Girl, so confusing featuring lorde", "https://open.spotify.com/track/2YFhqZvhTpyK13gKXMKV7R", "2YFhqZvhTpyK13gKXMKV7R", "https://i.scdn.co/image/ab67616d0000b2738de3b7558f97bcb9b06fdf9b"), 
         new Track("Get You (feat. Kali Uchis)", "Daniel Caesar", "Freudian", "https://open.spotify.com/track/7zFXmv6vqI4qOt4yGf3jYZ", "7zFXmv6vqI4qOt4yGf3jYZ", "https://i.scdn.co/image/ab67616d0000b2733138f891f3075c9c5d944037")
       ]);
+    //added songs to playlist state
     const [addPlaylist,setAddPlaylist] = useState([])
+    //store boolean in state
     const [searchMobileClicked,setSearchMobileClicked] = useState(false)
-    const [array, setArray] = useState(["bob","sam", "kop"])
     const [name,setName] = useState("");
+    //state to store playlist name and id's
     const [arrayOfPlayistNamesAndIds, setArrayOfPlayistNamesAndIds] = useState([])
+    //store name of playlist in state
     const [playlistName, setPlaylistName] = useState("")
-    const [result, setResult] = useState();
+    //store boolean in state
     const [playlistClicked,setPlaylistclicked] = useState(false)
+    //state array for clicked elements
     const [isClickedTwo,setIsClickedTwo] = useState([])
+    //state array for clicked elements
     const [isClickedThree,setIsClickedThree] = useState([])
+    //heading for result component stored in state variable
     const [resultHeading, setResultHeading] = useState("Recommended songs")
-    const [counter, setCounter] = useState(0) 
     const [accessToken, setaccessToken] = useState("");
+    //authorization code for api request stored in state variable
     const [authorizationCode, setauthorizationCode] = useState(code)
+    // access token that you get from spotify 
     const [accessTokenTwoo , setaccessTokenTwoo] = useState("") 
+    // access token that you get from spotify 
     const [accessTokenThree, setaccessTokenThree] = useState("")
-    const [authorization, setAuthorization] = useState("")
-    const [redirected, setRedirected] = useState("");
-    const [playlistId, setPlaylistId] = useState("");
-    const [createdPlaylist, setCreatedPlaylist] = useState([])
-    const [defaultSongs, setdefaultSongs] = useState([])
+    //store boolean in  state variable
     const [isClickedFour,setIsClickedFour] = useState(false)
+    //store boolean in  state variable
     const [isClicked, setIsClicked] = useState([false,false,false,false,false,false,false,false,false,false]);
+    //store boolean in  state variable
     const [isClickedFive,setIsClickedFive] = useState(isClicked)
+    //store boolean in  state variable for loading
     const [loading,setLoading] = useState(false)
     const [test, setTest] = useState()
+    //client id from env file and store in variable
     const clientId = process.env.REACT_APP_D
+    //client secret from env file and store in variable
     const clientSecret= process.env.REACT_APP_S
+    //redirect link store in variable
     const redirect_uri = `${window.location.origin}/home-page`
+    //converts with btoa function that converts into base 64
     const authString = btoa(`${clientId}:${clientSecret}`);
+    //auth link for spotify
     const authorizationLink = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&show_dialog=true&scope=user-read-private user-read-email app-remote-control playlist-modify-public playlist-read-private playlist-modify-private playlist-modify-public`
     const authorizationLinkTwo = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&scope=user-read-private user-read-email app-remote-control playlist-modify-public playlist-read-private playlist-modify-private playlist-modify-public`
+    //search results for songs stored in array
     const [searchResultsTwo, setSearchResultsTwo] = useState([ 
         new Track("Guess featuring Billie Eilish", "Charli XCX", "Guess featuring Billie Eilish", "https://open.spotify.com/track/3WOhcATHxK2SLNeP5W3v1v", "3WOhcATHxK2SLNeP5W3v1v", "https://i.scdn.co/image/ab67616d0000b2731ac297d16bee7cf072601a21",false),
         new Track("Good Luck, Babe!", "Chappell Roan", "Good Luck, Babe!", "https://open.spotify.com/track/0WbMK4wrZ1wFSty9F7FCgu", "0WbMK4wrZ1wFSty9F7FCgu", "https://i.scdn.co/image/ab67616d0000b27391b4bc7c88d91a42e0f3a8b7",false),
@@ -238,7 +258,7 @@ function SearchPage(){
         new Track("Girl, so confusing featuring lorde", "Charli XCX", "Girl, so confusing featuring lorde", "https://open.spotify.com/track/2YFhqZvhTpyK13gKXMKV7R", "2YFhqZvhTpyK13gKXMKV7R", "https://i.scdn.co/image/ab67616d0000b2738de3b7558f97bcb9b06fdf9b",false), 
         new Track("Get You (feat. Kali Uchis)", "Daniel Caesar", "Freudian", "https://open.spotify.com/track/7zFXmv6vqI4qOt4yGf3jYZ", "7zFXmv6vqI4qOt4yGf3jYZ", "https://i.scdn.co/image/ab67616d0000b2733138f891f3075c9c5d944037",false),
       ])
-
+    //search results for songs stored in array
     const [searchResultsThree,setSearchResultsThree] = useState([ 
         new Track("Guess featuring Billie Eilish", "Charli XCX", "Guess featuring Billie Eilish", "https://open.spotify.com/track/3WOhcATHxK2SLNeP5W3v1v", "3WOhcATHxK2SLNeP5W3v1v", "https://i.scdn.co/image/ab67616d0000b2731ac297d16bee7cf072601a21",false),
         new Track("Good Luck, Babe!", "Chappell Roan", "Good Luck, Babe!", "https://open.spotify.com/track/0WbMK4wrZ1wFSty9F7FCgu", "0WbMK4wrZ1wFSty9F7FCgu", "https://i.scdn.co/image/ab67616d0000b27391b4bc7c88d91a42e0f3a8b7",false),
@@ -252,6 +272,7 @@ function SearchPage(){
         new Track("Get You (feat. Kali Uchis)", "Daniel Caesar", "Freudian", "https://open.spotify.com/track/7zFXmv6vqI4qOt4yGf3jYZ", "7zFXmv6vqI4qOt4yGf3jYZ", "https://i.scdn.co/image/ab67616d0000b2733138f891f3075c9c5d944037",false)
       ])
 
+    //function to get access token
     async function getAuth(){
         try{
             const response = await fetch("https://accounts.spotify.com/api/token",{
@@ -276,12 +297,12 @@ function SearchPage(){
         }
     }
  
-
+    //function that redirects link to auth link
     async function getAuthForPlaylist(){
         window.location.href=authorizationLink 
     }
 
-    
+    //function that gets songs using playlist id
     async function getsSongsFromPlaylist(playlistId){
         try{
         const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`,{
@@ -303,6 +324,7 @@ function SearchPage(){
         }
 
     }
+        //function to sor songs recieved from playlist
         async function fecthTracksFromPlay(ele){
         
             let tracks = await getsSongsFromPlaylist(ele.id);
@@ -320,6 +342,7 @@ function SearchPage(){
         
     }
 
+    // function to get existing playlist from spotify
     async function getExistingPlaylist(accessToken){
         const url= "https://api.spotify.com/v1/me"
         const endpoint = "/playlists"
@@ -342,7 +365,7 @@ function SearchPage(){
 
             const data = await response.json();
             console.log(data)
-            
+            //going thru  data array and sorting each playlist
             data.items.forEach(async (element, index)=>{
                 let tracks = await fecthTracksFromPlay(element)
                 const playlistIdAndName = new Playlist(element.name, element.id, tracks, index,element.images[0].url,false);
@@ -351,11 +374,13 @@ function SearchPage(){
             })
 
          
-
+            //updating playlist state array
             setArrayOfPlayistNamesAndIds(arrayOfPlayistNamesAndId);
+            //setting array of bools to false
             let arrayOfBooleans = data.items.map((e)=>{
                 return false
             })
+            //update isclicked state arrays to array of  booleans
             setIsClickedTwo(arrayOfBooleans);
             setIsClickedThree(arrayOfBooleans);
         }catch(e){
@@ -364,10 +389,12 @@ function SearchPage(){
        
     }
 
+    //stop loading animation when state of playlist names updated
     useEffect(()=>{
         setLoading(false)
     },[arrayOfPlayistNamesAndIds])
 
+    //get existing playlist if accesstokenthree updatea
     useEffect(()=>{
         console.log(accessTokenTwoo)
         const getData = async()=>{
@@ -383,7 +410,7 @@ function SearchPage(){
        
     },[accessTokenThree])
     
-
+    //function that gets access token 
     async function handlerL(){
         console.log(code)
         console.log(accessTokenTwoo)
@@ -428,7 +455,7 @@ function SearchPage(){
          
     }
 
-   
+    //function for arrow being clicked to show songs
     function arrowDown(e){
         let index = Number(e.target.getAttribute('data-values'));
         let arrayOfBools = [...isClickedThree];
@@ -519,6 +546,7 @@ function SearchPage(){
      }    
     }
 
+    //handler function that will search songs and show results
     async function handlerSubmit(e){
         e.preventDefault()
         if(search!==""){
@@ -532,23 +560,24 @@ function SearchPage(){
         }
     }
 
+    //switch boolean fucntion
     function makeSearchMobileActive(){
         setSearchMobileClicked(!searchMobileClicked);
     }
-
+    //make search results blank
     function resetResults(){
         setSearchResults([]);
         
     }
-
+    //set playlist bool to true
     function setPlaylistBool(){
         setPlaylistclicked(true)
     }
-
+    //set playlist bool to false
     function setPlaylistFalse(){
         setPlaylistclicked(false)
     }
-
+    //function that adds songs from existing playlist
     function handleExistingPlaylist(e){
       
         let index = Number(e.target.getAttribute('data-values'))

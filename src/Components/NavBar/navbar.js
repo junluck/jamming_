@@ -3,6 +3,7 @@
  import { Outlet } from "react-router-dom";
  import { useNavigate, Navigate , Link} from "react-router-dom";
 
+ //function component for navgational bar
  function NavBar(){
     return(
         <div>

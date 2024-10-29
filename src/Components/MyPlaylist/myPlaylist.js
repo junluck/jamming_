@@ -1,7 +1,7 @@
 import React from "react";
-import "./searchBar.css"
+import "../SearchBar/searchBar.css"
 
-
+//Function component that consist of all the songs being added to the playlist you want to submit to sptify 
 function MyPlaylist({addPlaylist,setPlaylistName,setAddPlaylist,makePlaylist,isClicked,setIsClicked,searchResults,isClickedFour,setIsClickedFour,playlistName}){
     
 return(
@@ -10,8 +10,8 @@ return(
             <h3 className="addPlaylistHeading">Add to playlist</h3>
         </div>
         <input className="inputPlaylist" value={isClickedFour?"":playlistName} placeholder="Name my playlist" onChange={(e)=>{
-            setIsClickedFour(false)
-            setPlaylistName(e.target.value)
+            setIsClickedFour(false) //setting state false
+            setPlaylistName(e.target.value) //playlist name will be ste to the target valu being typed in
             
         }} />
         <div className="songArtist">
@@ -20,7 +20,8 @@ return(
             <h4>Album</h4>
         </div>
         <div className="addedSongs">
-            {   
+            { 
+            //mapping over entire array a returning each element as jsx 
             addPlaylist.map((element)=>{
                 
                 return (

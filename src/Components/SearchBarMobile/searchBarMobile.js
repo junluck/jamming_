@@ -1,6 +1,7 @@
 import React from "react";
 import "./searchBarMobile.css"
 
+//function component for SearchBarMobile 
 function SearchBarMobile({handlerSubmit,setSearch,searchMobileClicked}){
     return(
         <div className={searchMobileClicked?"searchBoxOuterActive":"searchBoxOuterDeactive"}>

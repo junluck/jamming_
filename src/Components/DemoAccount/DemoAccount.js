@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 import "./DemoAccount.css";
 
 
+//creating a DemoAccount function Component
 function DemoAccount(){
-    const clientId = process.env.REACT_APP_D
+
+    //storing clientId,redirect link and authorization link in variables
+    const clientId = process.env.REACT_APP_D //getting client Id from env file
     const redirect_uri = `${window.location.origin}/home-page`
     const authorizationLink = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirect_uri}&show_dialog=true&scope=user-read-private user-read-email app-remote-control playlist-modify-public playlist-read-private playlist-modify-private playlist-modify-public`
+    
+    //an async functions that redirects app to authorization link
     async function getAuthForPlaylist(){
         window.location.href=authorizationLink 
     }

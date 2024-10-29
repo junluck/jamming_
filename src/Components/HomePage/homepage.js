@@ -1,8 +1,9 @@
 import React from "react";
-import LinkToSpotify from "./LinkToSpotify";
+import LinkToSpotify from "../LinkToSpotify/LinkToSpotify";
 import "./homepage.css"
 import { Outlet } from "react-router-dom";
 
+//function component that is the homepage that consists of the buttons title and different vector artwork 
 function Homepage(){
     return (
         <div className="parentHomeDiv">

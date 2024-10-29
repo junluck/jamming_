@@ -2,7 +2,7 @@ import React from "react";
 import "./mobileBar.css"
 import { Link } from "react-router-dom";
 
-
+//function component that has renders out mobile search bar when on mobile screen size
 function MobileBar({makeSearchMobileActive,setPlaylistBool}){
     return(
         <div className="mobileButtons">
