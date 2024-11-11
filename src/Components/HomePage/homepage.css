@@ -1,3 +1,7 @@
+.parentDiv{
+    height: 100vh;
+}
+
 
 .linkToSpotify{
     grid-row-start:1;
@@ -95,7 +99,6 @@
         grid-template-rows: 40% 60%;
         width: 100%;
         overflow: hidden;
-        height: 92vh;
     }
 
     .stageTwo{
@@ -121,8 +124,6 @@
         grid-template-columns: 20% 60% 20% ;
         grid-template-rows: 50% 50% ;
         width: 100%;
-        overflow: hidden;
-        height: 100vh;
     }
     .stageAndArtist{
         width: 1084px;
@@ -221,8 +222,7 @@
         grid-template-columns: 20% 60% 20% ;
         grid-template-rows: 50% 50% ;
         width: 100%;
-        overflow: hidden;
-        height: 100vh;
+       
     }
     .stageAndArtist{
         width: 804px;
@@ -298,7 +298,7 @@
     }
 
     .stage{
-       width:850px
+       width:800px
     }
 
     .stageTwo{
@@ -318,6 +318,7 @@
 
 
 @media(min-width:500px) and (max-width:804px){
+    
     .parentHomeDiv{
         margin-top: 10px;
         display: grid;
@@ -325,7 +326,8 @@
         grid-template-rows: 50% 50% ;
         width: 100%;
         overflow: hidden;
-        height: 100vh;
+       
+        
     }
     .stageAndArtist{
         width: 804px;
@@ -431,15 +433,17 @@
 
 @media(min-width:320px) and (max-width:499px){
     .parentHomeDiv{
-        margin-top: 10px;
+        margin-top: 60px;
         display: grid;
         grid-template-columns: 20% 60% 20% ;
         grid-template-rows: 50% 50% ;
         width: 100%;
-        overflow: hidden;
-        height: 100vh;
+      
+    
+
     }
     .stageAndArtist{
+        margin-top: 50px;
         width: 804px;
        }
     
