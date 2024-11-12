@@ -110,6 +110,16 @@ input[type="text"]{
    
 }
 
+.headingPlaylistActive{
+    display:grid;
+    background-color: #b43fae;
+    width: 180px;
+    border-radius: 50px;
+    height:40px;
+    grid-template-rows: 100%;
+    align-items: center;
+}
+
 .addPlaylistHeading{
     font-size: 1.3rem;
    justify-self: center;

@@ -2,11 +2,11 @@ import React from "react";
 import "../SearchBar/searchBar.css"
 
 //Function component that consist of all the songs being added to the playlist you want to submit to sptify 
-function MyPlaylist({addPlaylist,setPlaylistName,setAddPlaylist,makePlaylist,isClicked,setIsClicked,searchResults,isClickedFour,setIsClickedFour,playlistName}){
+function MyPlaylist({addPlaylist,setPlaylistName,setAddPlaylist,makePlaylist,isClicked,setIsClicked,searchResults,isClickedFour,setIsClickedFour,playlistName,addToPlaylist,setAddToPlaylist}){
     
 return(
     <div className="addToPlaylist">
-        <div className="headingPlaylist">
+        <div className={addToPlaylist?"headingPlaylistActive":"headingPlaylist"}>
             <h3 className="addPlaylistHeading">Add to playlist</h3>
         </div>
         <input className="inputPlaylist" value={isClickedFour?"":playlistName} placeholder="Name my playlist" onChange={(e)=>{
@@ -50,7 +50,10 @@ return(
                                 }
                                 
                             });
-                            setAddPlaylist(array)                     
+                            setAddPlaylist(array)      
+                            if(addPlaylist.length === 1){
+                                setAddToPlaylist(false)
+                            }               
                             
                         }}/>
                     </div>

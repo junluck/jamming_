@@ -3,7 +3,7 @@ import "./searchBar.css"
 import { useState ,useEffect,useRef} from "react";
 
 //Function component that exports song search results
-function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, addPlaylist, resetResults , setSearchResults , searchResultsTwo,isClicked,setIsClicked,resultHeading,searchResultsThree,isClickedFive,setSearchResultsThree}){
+function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, addPlaylist, resetResults , isClicked,setIsClicked,resultHeading,searchResultsThree, setAddToPlaylist,addtoPlaylist}){
        
     const [translateAmount, setTranslateAmount] = useState(0);
     //useRef for div 
@@ -118,6 +118,9 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                             }
                                             
                                         });
+                                        if(addPlaylist.length === 1){
+                                            setAddToPlaylist(false)
+                                        }
                                         
                                     }}/>
                                     <img src={element.albumPhoto} className={ isClicked[index] ? "songPictureActive" : "songPictureDeactive"}  onClick={(e)=>{
@@ -125,11 +128,17 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                     handleClick(index);//update the state of isclicked array when clicked
                                     element.isClick = true //make clicked true
                                     searchResultsThree[index].isClick = true //make clicked true
+                                    if(addPlaylist.length === 0){
+                                            
+                                    }
 
                                 if(count === 0){
                                     setAddPlaylist((previous)=>[element,...previous])
                                 }
-
+                                if(addPlaylist.length === 0){
+                                    setAddToPlaylist(true)                               
+                                }
+                                
                                 count = 0
                                 }}/>
                                 </div>
@@ -177,7 +186,11 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                             }
                                             
                                         });
-                                        
+                                      
+                                        if(addPlaylist.length === 1){
+                                            setAddToPlaylist(false)
+                                        }
+                                     
                                     }}/>
                                     <img src={element.albumPhoto} className={isClicked[index] ? "songPictureActive" : "songPictureDeactive"}  onClick={(e)=>{
                                     let count = 0;
@@ -186,7 +199,11 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                 if(count === 0){
                                     setAddPlaylist((previous)=>[element,...previous])
                                 }
-
+                             
+                                if(addPlaylist.length === 0){
+                                    setAddToPlaylist(true)                               
+                                }
+                               
                                 count = 0
                                 }}/>
                                 </div>

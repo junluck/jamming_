@@ -201,6 +201,9 @@ function SearchPage(){
         new Track("Girl, so confusing featuring lorde", "Charli XCX", "Girl, so confusing featuring lorde", "https://open.spotify.com/track/2YFhqZvhTpyK13gKXMKV7R", "2YFhqZvhTpyK13gKXMKV7R", "https://i.scdn.co/image/ab67616d0000b2738de3b7558f97bcb9b06fdf9b"), 
         new Track("Get You (feat. Kali Uchis)", "Daniel Caesar", "Freudian", "https://open.spotify.com/track/7zFXmv6vqI4qOt4yGf3jYZ", "7zFXmv6vqI4qOt4yGf3jYZ", "https://i.scdn.co/image/ab67616d0000b2733138f891f3075c9c5d944037")
       ]);
+
+    //boolean switch for add to playlist 
+    const [addToPlaylist,setAddToPlaylist] = useState(false)
     //added songs to playlist state
     const [addPlaylist,setAddPlaylist] = useState([])
     //store boolean in state
@@ -594,16 +597,16 @@ function SearchPage(){
             <Search  handlerSubmit={handlerSubmit} setSearch={setSearch}/>
         </div>
         <div className='search'>
-            <SearchBar getAuthForPlaylist={getAuthForPlaylist} makePlaylist={makePlaylist} handlerSubmit={handlerSubmit} setSearch={setSearch} setPlaylistName={setPlaylistName} setAddPlaylist={setAddPlaylist} searchResults={searchResults} addPlaylist={addPlaylist} resetResults={resetResults}  setSearchResults={setSearchResults} searchResultsTwo={searchResultsTwo} isClicked={isClicked} setIsClicked={setIsClicked} resultHeading={resultHeading} searchResultsThree={searchResultsThree} isClickedFive={isClickedFive} setSearchResultsThree={setSearchResultsThree} />
+            <SearchBar getAuthForPlaylist={getAuthForPlaylist} makePlaylist={makePlaylist} handlerSubmit={handlerSubmit} setSearch={setSearch} setPlaylistName={setPlaylistName} setAddPlaylist={setAddPlaylist} searchResults={searchResults} addPlaylist={addPlaylist} resetResults={resetResults}  setSearchResults={setSearchResults} searchResultsTwo={searchResultsTwo} isClicked={isClicked} setIsClicked={setIsClicked} resultHeading={resultHeading} searchResultsThree={searchResultsThree} isClickedFive={isClickedFive} setSearchResultsThree={setSearchResultsThree} setAddToPlaylist={setAddToPlaylist} addToPlaylist={addToPlaylist}/>
         </div>
         <div className='playlists'>
-            <MyPlaylist setAddPlaylist = {setAddPlaylist} setPlaylistName={setPlaylistName} makePlaylist={makePlaylist} addPlaylist={addPlaylist} isClicked={isClicked} setIsClicked={setIsClicked} searchResults={searchResults} isClickedFour={isClickedFour} setIsClickedFour={setIsClickedFour} playlistName={playlistName}/>
+            <MyPlaylist setAddPlaylist = {setAddPlaylist} setPlaylistName={setPlaylistName} makePlaylist={makePlaylist} addPlaylist={addPlaylist} isClicked={isClicked} setIsClicked={setIsClicked} searchResults={searchResults} isClickedFour={isClickedFour} setIsClickedFour={setIsClickedFour} playlistName={playlistName} addToPlaylist={addToPlaylist} setAddToPlaylist={setAddToPlaylist} />
         </div>
         <div className={playlistClicked?"searchTwoDeactive":"searchTwo"}>
-            <SearchBar getAuthForPlaylist={getAuthForPlaylist} makePlaylist={makePlaylist} handlerSubmit={handlerSubmit} setSearch={setSearch} setPlaylistName={setPlaylistName} setAddPlaylist={setAddPlaylist} searchResults={searchResults} addPlaylist={addPlaylist} resetResults={resetResults}  setSearchResults={setSearchResults} searchResultsTwo={searchResultsTwo} isClicked={isClicked} setIsClicked={setIsClicked} resultHeading={resultHeading} searchResultsThree={searchResultsThree} isClickedFive={isClickedFive} setSearchResultsThree={setSearchResultsThree} />
+            <SearchBar getAuthForPlaylist={getAuthForPlaylist} makePlaylist={makePlaylist} handlerSubmit={handlerSubmit} setSearch={setSearch} setPlaylistName={setPlaylistName} setAddPlaylist={setAddPlaylist} searchResults={searchResults} addPlaylist={addPlaylist} resetResults={resetResults}  setSearchResults={setSearchResults} searchResultsTwo={searchResultsTwo} isClicked={isClicked} setIsClicked={setIsClicked} resultHeading={resultHeading} searchResultsThree={searchResultsThree} isClickedFive={isClickedFive} setSearchResultsThree={setSearchResultsThree} setAddToPlaylist={setAddToPlaylist} addToPlaylist={addToPlaylist}/>
         </div>
         <div className={playlistClicked?"playlistsTwoDeactive":"playlistsTwo"}>
-            <MyPlaylist setAddPlaylist = {setAddPlaylist} setPlaylistName={setPlaylistName} makePlaylist={makePlaylist} addPlaylist={addPlaylist} isClicked={isClicked} setIsClicked={setIsClicked} searchResults={searchResults} isClickedFour={isClickedFour} setIsClickedFour={setIsClickedFour} playlistName={playlistName}/>
+            <MyPlaylist setAddPlaylist = {setAddPlaylist} setPlaylistName={setPlaylistName} makePlaylist={makePlaylist} addPlaylist={addPlaylist} isClicked={isClicked} setIsClicked={setIsClicked} searchResults={searchResults} isClickedFour={isClickedFour} setIsClickedFour={setIsClickedFour} playlistName={playlistName} addToPlaylist={addToPlaylist} setAddToPlaylist={setAddToPlaylist} />
         </div>
         <div className='existingPlay'>
             <ExistingPlaylist handlerL={handlerL} arrayOfPlayistNamesAndIds={arrayOfPlayistNamesAndIds} handleExistingPlaylist={handleExistingPlaylist} isClickedTwo={isClickedTwo} arrowDown={arrowDown} isClickedThree={isClickedThree} loading={loading} setLoading={setLoading}/>

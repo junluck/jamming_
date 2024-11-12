@@ -140,6 +140,11 @@ h2{
     margin-left: auto;
     margin-right: 30px;
     height: 40px;
+    transition: scale 100ms ease;
+
+}
+.loadMyPlaylist:active{ 
+    scale: 0.95;
 }
 
 .playlistAndButton{

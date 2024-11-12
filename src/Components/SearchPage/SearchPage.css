@@ -227,11 +227,11 @@
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: 20% 80%;
-        height:100%;
+    
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        height: 100vh;
+       
     }
     
     .backArrow{
@@ -336,11 +336,11 @@
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: 20% 80%;
-        height:100%;
+        
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        height: 100vh;
+       
     }
     .backArrow{
         margin-bottom: 0;
