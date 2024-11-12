@@ -245,7 +245,12 @@ h2{
     }
     
 }
-
+@media(max-width:1354px){
+    .myPlaylist{
+        margin-left: 0;
+        margin-bottom: 21px;
+    }
+}
 
 @media(min-width:701px) and (max-width:1083px){
     .groupOfPlaylists{
