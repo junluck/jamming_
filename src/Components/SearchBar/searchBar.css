@@ -909,7 +909,7 @@ a{
      
      .addedSongs{
         
-        width: 300px;
+        width: 350px;
     }
 
     .form{
@@ -1013,7 +1013,7 @@ a{
         flex-direction: column;
         margin-left: auto;
         margin-right: auto;
-        width: 270px;
+        width: 330px;
         justify-self: end;
         align-self: end;
         
