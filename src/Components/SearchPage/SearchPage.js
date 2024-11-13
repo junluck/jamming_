@@ -582,7 +582,9 @@ function SearchPage(){
     }
     //function that adds songs from existing playlist
     function handleExistingPlaylist(e){
-      
+        if(addPlaylist.length === 0){
+            setAddToPlaylist(true)
+        }
         let index = Number(e.target.getAttribute('data-values'))
         setAddPlaylist((prev)=>[ ...prev, ...arrayOfPlayistNamesAndIds[index].tracksInPlaylist]);
         let arrayofbool = [...isClickedTwo];
