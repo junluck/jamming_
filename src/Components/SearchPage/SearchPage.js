@@ -585,8 +585,20 @@ function SearchPage(){
         if(addPlaylist.length === 0){
             setAddToPlaylist(true)
         }
-        let index = Number(e.target.getAttribute('data-values'))
-        setAddPlaylist((prev)=>[ ...prev, ...arrayOfPlayistNamesAndIds[index].tracksInPlaylist]);
+
+       
+        let index = Number(e.target.getAttribute('data-values'));
+        let arrayCopy = [...arrayOfPlayistNamesAndIds[index].tracksInPlaylist];
+
+        arrayCopy.forEach((element,index)=>{
+            addPlaylist.forEach((ele)=>{
+                if(element.songName === ele.songName){
+                    arrayCopy.splice(index,1)
+                }
+            })
+
+        })
+        setAddPlaylist((prev)=>[ ...prev, ...arrayCopy]);
         let arrayofbool = [...isClickedTwo];
         arrayofbool[index] =  arrayofbool[index]
         setIsClickedTwo(arrayofbool)
