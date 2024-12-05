@@ -115,15 +115,23 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                             if(searchResults[theIndexOfTheElement].trackId===element.trackId){
                                                 arrayOfSongsTwo.splice(index,1);
                                                 setAddPlaylist(arrayOfSongsTwo)
+                                                
                                             }
                                             
                                         });
                                         if(addPlaylist.length === 1){
                                             setAddToPlaylist(false)
                                         }
+
+                                        const newArray = [...arrayOfSongsTwo]
+                                        const newArrayString = JSON.stringify(newArray)
+                                        console.log(newArrayString)
+                                        sessionStorage.setItem('addPlaylist', newArrayString)
+                                       
                                         
                                     }}/>
                                     <img src={element.albumPhoto} className={ isClicked[index] ? "songPictureActive" : "songPictureDeactive"}  onClick={(e)=>{
+                                        
                                     let count = 0;
                                     handleClick(index);//update the state of isclicked array when clicked
                                     element.isClick = true //make clicked true
@@ -131,14 +139,18 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                     if(addPlaylist.length === 0){
                                             
                                     }
-
+                                let array = []
                                 if(count === 0){
                                     setAddPlaylist((previous)=>[element,...previous])
+                                    array = [element,...addPlaylist]
                                 }
                                 if(addPlaylist.length === 0){
                                     setAddToPlaylist(true)                               
                                 }
-                                
+                                const newArray = [...array]
+                                const newArrayString = JSON.stringify(newArray)
+                                console.log(newArrayString)
+                                sessionStorage.setItem('addPlaylist', newArrayString)
                                 count = 0
                                 }}/>
                                 </div>
@@ -190,20 +202,29 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                         if(addPlaylist.length === 1){
                                             setAddToPlaylist(false)
                                         }
+
+                                        const newArray = [...arrayOfSongsTwo]
+                                        const newArrayString = JSON.stringify(newArray)
+                                        console.log(newArrayString)
+                                        sessionStorage.setItem('addPlaylist', newArrayString)
                                      
                                     }}/>
                                     <img src={element.albumPhoto} className={isClicked[index] ? "songPictureActive" : "songPictureDeactive"}  onClick={(e)=>{
                                     let count = 0;
                                     handleClick(index);//update the state of isclicked array when clicked
-                                    
+                                let array = []
                                 if(count === 0){
                                     setAddPlaylist((previous)=>[element,...previous])
+                                    array = [element,...addPlaylist]
                                 }
                              
                                 if(addPlaylist.length === 0){
                                     setAddToPlaylist(true)                               
                                 }
-                               
+                                const newArray = [...array]
+                                const newArrayString = JSON.stringify(newArray)
+                                console.log(newArrayString)
+                                sessionStorage.setItem('addPlaylist', newArrayString)
                                 count = 0
                                 }}/>
                                 </div>

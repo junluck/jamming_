@@ -33,8 +33,16 @@ function LinkToSpotify(){
             <img src="Header text.svg" className="createYourOwn"/>
             <img src="CreateMobile.svg" className="createYourOwnTwo"/>
             <div id="parentLinkToSpotify">
-                <button id="linkToSpotify" onClick={getAuthForPlaylist}>Link your Spotify</button>
-                <Link to="demopopup"><button id="demo" onClick={console.log(window.location.origin)}>Use demo account</button></Link>
+                <button id="linkToSpotify" onClick={()=>{
+                    sessionStorage.removeItem('token');
+                    sessionStorage.removeItem('searchResults');
+                    sessionStorage.removeItem('addPlaylist');
+                    getAuthForPlaylist()}}>Link your Spotify</button>
+                <Link to="demopopup"><button id="demo" onClick={()=>{
+                    sessionStorage.removeItem('token');
+                    sessionStorage.removeItem('searchResults');
+                    sessionStorage.removeItem('addPlaylist');
+                    }}>Use demo account</button></Link>
             </div>
         </div>
     )

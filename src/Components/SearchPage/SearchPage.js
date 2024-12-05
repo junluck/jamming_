@@ -136,7 +136,7 @@ function SearchPage(){
                     const token = data.access_token;
                     console.log(data)
                     setaccessTokenTwoo(token)//set access token 
-
+                    sessionStorage.setItem('token', token);
                 }catch(e){
                     console.log(`Error: ${e}`);
                 }
@@ -327,7 +327,7 @@ function SearchPage(){
         }
 
     }
-        //function to sor songs recieved from playlist
+        //function to sort songs recieved from playlist
         async function fecthTracksFromPlay(ele){
         
             let tracks = await getsSongsFromPlaylist(ele.id);
@@ -399,7 +399,6 @@ function SearchPage(){
 
     //get existing playlist if accesstokenthree updatea
     useEffect(()=>{
-        console.log(accessTokenTwoo)
         const getData = async()=>{
             const data = await getExistingPlaylist(accessTokenTwoo)
             
@@ -412,12 +411,48 @@ function SearchPage(){
        
        
     },[accessTokenThree])
-    
+
+    useEffect(()=>{
+        console.log()
+        if(sessionStorage.getItem("addPlaylist")!=null){
+            const arrayAddPlaylist = JSON.parse(sessionStorage.getItem("addPlaylist"))
+            const newArray = arrayAddPlaylist.map((element)=>{
+                return new Track(element._songName,element._artist,element._album,element._link,element._trackId,element._albumPhoto,element._IsClick)
+                
+            })  
+            setAddPlaylist(newArray)
+        }
+
+        console.log(sessionStorage)
+        if(sessionStorage.getItem('token') != null ){
+            setaccessTokenTwoo( sessionStorage.getItem('token'))
+            setaccessTokenThree( sessionStorage.getItem('token'))
+        }
+        
+     
+      if(sessionStorage.getItem("searchResults") != null){
+        
+        console.log(sessionStorage.getItem('token'))
+        const array = JSON.parse(sessionStorage.getItem("searchResults"))
+        const newArray = array.map((element)=>{
+            return new Track(element._songName,element._artist,element._album,element._link,element._trackId,element._albumPhoto,element._IsClick)
+        })  
+
+        setSearchResults(newArray)
+     
+
+    }
+            
+    },[])
+
+   
+
+
     //function that gets access token 
     async function handlerL(){
         console.log(code)
         console.log(accessTokenTwoo)
-        if (accessTokenTwoo === "" ){
+        if (accessTokenTwoo === ""  && sessionStorage.getItem('token')===null){
             setLoading(true)
             try{
                 const response = await fetch("https://accounts.spotify.com/api/token",{
@@ -444,6 +479,7 @@ function SearchPage(){
 
                 setaccessTokenTwoo(token)
                 setaccessTokenThree(token)
+                sessionStorage.setItem('token', token);
                 
             }catch(e){
                 console.log(`Error: ${e}`);
@@ -554,12 +590,16 @@ function SearchPage(){
         e.preventDefault()
         if(search!==""){
             const array = await getSong(search)
+            const newArray = [...array];
+            const newArrayString = JSON.stringify(newArray)
             setSearchResults(array)
             setSearchResultsTwo(array)
             setSearchResultsThree(array)
+            sessionStorage.setItem('searchResults', newArrayString)
             setName(array[0].artist)
             setIsClicked([false,false,false,false,false,false,false,false,false,false]);
             setResultHeading("Results")
+            
         }
     }
 
