@@ -50,7 +50,11 @@ return(
                                 }
                                 
                             });
-                            setAddPlaylist(array)      
+                            setAddPlaylist(array)     
+                            const newArray = [...array]
+                            const newArrayString = JSON.stringify(newArray)
+                            console.log(newArrayString)
+                            sessionStorage.setItem('addPlaylist', newArrayString) 
                             if(addPlaylist.length === 1){
                                 setAddToPlaylist(false)
                             }               
