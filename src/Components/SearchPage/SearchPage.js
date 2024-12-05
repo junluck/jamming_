@@ -413,7 +413,7 @@ function SearchPage(){
     },[accessTokenThree])
 
     useEffect(()=>{
-        console.log()
+        console.log(sessionStorage.getItem("isClicked"))
         if(sessionStorage.getItem("addPlaylist")!=null){
             const arrayAddPlaylist = JSON.parse(sessionStorage.getItem("addPlaylist"))
             const newArray = arrayAddPlaylist.map((element)=>{
@@ -423,7 +423,14 @@ function SearchPage(){
             setAddPlaylist(newArray)
         }
 
-        console.log(sessionStorage)
+        if (sessionStorage.getItem("ResultsHeading") != null){
+            setResultHeading("Results")
+        } 
+           
+
+        if(sessionStorage.getItem("isClicked") != null){
+            setIsClicked(JSON.parse(sessionStorage.getItem("isClicked")))
+        }
         if(sessionStorage.getItem('token') != null ){
             setaccessTokenTwoo( sessionStorage.getItem('token'))
             setaccessTokenThree( sessionStorage.getItem('token'))
@@ -599,6 +606,7 @@ function SearchPage(){
             setName(array[0].artist)
             setIsClicked([false,false,false,false,false,false,false,false,false,false]);
             setResultHeading("Results")
+            sessionStorage.setItem("ResultsHeading","Results")
             
         }
     }

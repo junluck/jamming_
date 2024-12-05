@@ -83,6 +83,7 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
         let arrayOfBool = [...isClicked];
         arrayOfBool[index] = !arrayOfBool[index] ;
         setIsClicked(arrayOfBool);
+        sessionStorage.setItem('isClicked', JSON.stringify(arrayOfBool))
     }
 
     
@@ -111,6 +112,7 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                         searchResultsThree[index].isClick = false //make clicked false
                                         arrayOfBooleans[index] = false; //make index of array false
                                         setIsClicked(arrayOfBooleans);//update state for boolean array
+                                        sessionStorage.setItem('isClicked', JSON.stringify(arrayOfBooleans));
                                         addPlaylist.forEach((element,index) => {
                                             if(searchResults[theIndexOfTheElement].trackId===element.trackId){
                                                 arrayOfSongsTwo.splice(index,1);
@@ -191,6 +193,7 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                         
                                         arrayOfBooleans[index] = false; //make index of array false
                                         setIsClicked(arrayOfBooleans); //set state of booleans
+                                        sessionStorage.setItem('isClicked', JSON.stringify(arrayOfBooleans));
                                         addPlaylist.forEach((element,index) => {
                                             if(searchResults[theIndexOfTheElement].trackId===element.trackId){
                                                 arrayOfSongsTwo.splice(index,1);
