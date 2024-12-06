@@ -123,6 +123,7 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                         });
                                         if(addPlaylist.length === 1){
                                             setAddToPlaylist(false)
+                                            sessionStorage.setItem("addToPlaylist",JSON.stringify(false))
                                         }
 
                                         const newArray = [...arrayOfSongsTwo]
@@ -147,7 +148,8 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                     array = [element,...addPlaylist]
                                 }
                                 if(addPlaylist.length === 0){
-                                    setAddToPlaylist(true)                               
+                                    setAddToPlaylist(true)         
+                                    sessionStorage.setItem("addToPlaylist",JSON.stringify(true))                      
                                 }
                                 const newArray = [...array]
                                 const newArrayString = JSON.stringify(newArray)
@@ -204,6 +206,7 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                       
                                         if(addPlaylist.length === 1){
                                             setAddToPlaylist(false)
+                                            sessionStorage.setItem("addToPlaylist",JSON.stringify(false))
                                         }
 
                                         const newArray = [...arrayOfSongsTwo]
@@ -222,7 +225,8 @@ function SearchBar({handlerSubmit, setSearch, setAddPlaylist, searchResults, add
                                 }
                              
                                 if(addPlaylist.length === 0){
-                                    setAddToPlaylist(true)                               
+                                    setAddToPlaylist(true);
+                                    sessionStorage.setItem("addToPlaylist",JSON.stringify(true));                             
                                 }
                                 const newArray = [...array]
                                 const newArrayString = JSON.stringify(newArray)

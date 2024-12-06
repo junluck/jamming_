@@ -42,9 +42,11 @@ return(
                                 if(element.trackId === e.target.getAttribute("data-values")){
                                     let newArrrayThree = [...isClicked];
                                     newArrrayThree[index] = false;
-                                    console.log(newArrrayThree)
                                     setIsClicked(newArrrayThree)
-                                    console.log(index)
+                                    const newArray = [...newArrrayThree]
+                                    const newArrayString = JSON.stringify(newArray)
+                                    sessionStorage.setItem('isClicked', newArrayString)
+                                    console.log(newArrayString)
                                     
 
                                 }
@@ -56,7 +58,8 @@ return(
                             console.log(newArrayString)
                             sessionStorage.setItem('addPlaylist', newArrayString) 
                             if(addPlaylist.length === 1){
-                                setAddToPlaylist(false)
+                                setAddToPlaylist(false);
+                                sessionStorage.setItem("addToPlaylist",JSON.stringify(false))
                             }               
                             
                         }}/>

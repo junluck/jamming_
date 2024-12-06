@@ -39,6 +39,8 @@ function LinkToSpotify(){
                     sessionStorage.removeItem('addPlaylist');
                     sessionStorage.removeItem("isClicked");
                     sessionStorage.removeItem("Results");
+                    sessionStorage.removeItem("addToPlaylist");
+                    
                     getAuthForPlaylist()}}>Link your Spotify</button>
                 <Link to="demopopup"><button id="demo" onClick={()=>{
                     sessionStorage.removeItem('token');
@@ -46,6 +48,7 @@ function LinkToSpotify(){
                     sessionStorage.removeItem('addPlaylist');
                     sessionStorage.removeItem("isClicked");
                     sessionStorage.removeItem("Results");
+                    sessionStorage.removeItem("addToPlaylist");
                     }}>Use demo account</button></Link>
             </div>
         </div>

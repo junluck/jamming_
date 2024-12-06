@@ -414,6 +414,10 @@ function SearchPage(){
 
     useEffect(()=>{
         console.log(sessionStorage.getItem("isClicked"))
+        if(sessionStorage.getItem("addToPlaylist")!=null){
+            setAddToPlaylist(JSON.parse(sessionStorage.getItem("addToPlaylist")))
+        }
+
         if(sessionStorage.getItem("addPlaylist")!=null){
             const arrayAddPlaylist = JSON.parse(sessionStorage.getItem("addPlaylist"))
             const newArray = arrayAddPlaylist.map((element)=>{
@@ -632,6 +636,7 @@ function SearchPage(){
     function handleExistingPlaylist(e){
         if(addPlaylist.length === 0){
             setAddToPlaylist(true)
+            sessionStorage.setItem("addToPlaylist",JSON.stringify(true))
         }
 
        
@@ -646,6 +651,7 @@ function SearchPage(){
             })
 
         })
+        sessionStorage.setItem("addPlaylist",JSON.stringify(arrayCopy))
         setAddPlaylist((prev)=>[ ...prev, ...arrayCopy]);
         let arrayofbool = [...isClickedTwo];
         arrayofbool[index] =  arrayofbool[index]
