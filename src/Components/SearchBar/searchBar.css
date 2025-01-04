@@ -836,7 +836,7 @@ a{
         grid-template-rows: 33% 33% 33%;
         justify-content: center;
         align-items: start;
-        height:80px;
+        height:60px;
         margin-left:10px;
         margin-top: 0px;
         width: 100%;
@@ -955,7 +955,7 @@ a{
         display: grid;
         grid-template-columns:  80% 10%;
         color: white;
-        width: 280px;
+        width: 330px;
         background-color: #3b103b;
         height: 120px;
         max-height: 120px;
@@ -971,7 +971,7 @@ a{
         grid-template-rows: 33% 33% 33%;
         justify-content: center;
         align-items: start;
-        height:80px;
+        height:60px;
         margin-left:10px;
         margin-top: 0px;
         width: 100%;
@@ -1055,7 +1055,7 @@ a{
         grid-template-rows: 33% 33% 33%;
         justify-content: center;
         align-items: start;
-        height:80px;
+        height:60px;
         margin-left:10px;
         margin-top: 0px;
         width: 100%;
@@ -1295,7 +1295,7 @@ a{
         grid-template-rows: 33% 33% 33%;
         justify-content: center;
         align-items: start;
-        height:80px;
+        height:60px; 
         margin-left:10px;
         margin-top: 0px;
         width: 100%;
