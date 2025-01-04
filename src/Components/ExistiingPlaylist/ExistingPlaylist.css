@@ -352,6 +352,15 @@ h2{
         height:17px;
     
     }
+
+    .playlistNameAndSongs h3 {
+        color: white;
+        margin-left: 6%;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        font-size: 1rem;
+        margin-bottom: 13px;
+    }
     
 }
 
